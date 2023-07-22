@@ -1,0 +1,158 @@
+/* ====================================================================================
+
+HEADER
+
+=======================================================================================*/
+
+header {
+    background-color: transparent;
+    border-bottom: none;
+    position: fixed;
+    z-index: 3;
+    width: 100vw;
+}
+
+.header_border {
+    border-bottom: var(--border-bottom);
+}
+
+
+header .container {
+    height: 50px;
+    margin: 0 8vw;
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+header .container .logo {
+    position: absolute;
+    left: 0;
+    height: 80px;
+    width: auto;
+}
+
+header .container .menu {
+    position: absolute;
+    right: 0;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+header .container .menu a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: NotoSerif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+header .container .menu a:hover {
+    text-decoration: none;
+}
+
+header .container .menu button {
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border: none;
+    background-color: var(--green);
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-family: NotoSerif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+header .container .menu button:hover {
+    background-color: var(--blue);
+}
+
+header .container .nav {
+    display: none;
+    position: absolute;
+    right: 20px;
+    height: 30px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 720px) {
+
+    header .container {
+        margin: 0 3vw;
+    }
+
+    header .container .logo {
+        height: 70px;
+    }
+
+    header .container .menu {
+        display: none;
+    }
+
+    header .container .nav {
+        display: block;
+    }
+}
+
+/* ====================================================================================
+
+DRAWER
+
+=======================================================================================*/
+
+.drawer {
+    position: absolute;
+    top: -100%;
+    animation-name: slideIn;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 82px;
+    }
+}
+
+.drawer a {
+    text-decoration: none;
+    font-family: NotoSerif;
+    color: #FFFFFF;
+}
+
+.drawer_hide {
+    display: none;
+}
+
+@media only screen and (max-width: 720px) {
+    .drawer {
+        position: fixed;
+        z-index: 2;
+        top: 82px;
+        display: flex;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        flex-direction: column;
+        align-items: center;
+        -webkit-align-items: center;
+        padding: 20px 0;
+        gap: 12px;
+        background-color: var(--zinc);
+        width: 100vw;
+    }
+}

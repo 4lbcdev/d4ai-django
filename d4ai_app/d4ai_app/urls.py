@@ -19,4 +19,13 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('core.urls')),
 ]
+
+urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'core.views.page404' # Page not found
+handler500 = 'core.views.page500' # Server error
+handler400 = 'core.views.page404' # Bad request
+handler403 = 'core.views.page403' # Permission denied

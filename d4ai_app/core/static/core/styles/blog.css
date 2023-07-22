@@ -1,0 +1,48 @@
+.blog {
+    padding: 6vh 20% 6vh 20%;
+    max-width: 900px;
+    display: grid;
+    display: -webkit-grid;
+    display: -ms-grid;
+    gap: 30px;
+}
+
+.blog article {
+    display: grid;
+    display: -webkit-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    -webkit-grid-template-columns: 1fr 1fr;
+    -ms-grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.blog article a {
+    text-decoration: none;
+}
+
+.blog article .feature_image {
+    aspect-ratio: 3/2;
+    -webkit-aspect-ratio: 3 / 2;
+    max-width: 720px;
+    background-color: gray;
+}
+
+.blog article h2, div {
+    color: #000000;
+}
+
+.blog article a:hover h2 {
+    text-decoration: underline;
+}
+
+.blog article .meta {
+    color: gray;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 720px) {
+    .blog {
+        padding: 4vh 3vh;
+    }
+}

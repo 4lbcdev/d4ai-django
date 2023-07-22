@@ -1,0 +1,196 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+        <link rel="manifest" href="static/site.webmanifest">
+        <meta name="author" content="Data for African Impact"/>
+        <meta name="description" content="We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.">
+        <link rel="stylesheet" type="text/css" href="static/styles/base.css">
+        <link rel="stylesheet" type="text/css" href="static/styles/header.css">
+        <link rel="stylesheet" type="text/css" href="static/styles/footer.css">
+        <link rel="stylesheet" type="text/css" href="static/styles/cookies.css">
+        <link rel="stylesheet" type="text/css" href="static/styles/drawer.css">
+
+        {% block head %}
+        <title>About Us | Data for African Impact</title>
+        <link rel="stylesheet" type="text/css" href="static/styles/about.css">
+        {% endblock head %}
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="static/scripts/common.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="header">
+                <div id="header_logo"></div>
+                <img id="nav" src="static/images/menu_open.png" >
+            </div>
+            <div id="tagline">Transforming Africa Through Data</div>
+            <div id="tagline2">Transforming Africa Through Data</div>
+        </header>
+
+        {% block menu %}
+        <div class="drawer">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Projects</a>
+            <a href="involved.html">Get Involved</a>
+            <a href="blog.html">News & Events</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        {% endblock menu %}
+
+        {% block page %}
+        <div class="title">
+            <h1>About D4AI</h1>
+        </div>
+
+        <div class="about">
+            <h1>Our Story</h1>
+            <div>
+                <p>D4AI was founded by passionate individuals who shared a vision of harnessing the power of data science to drive positive change and sustainable development in Africa. Recognizing the immense potential that data holds in addressing pressing challenges faced by African communities, our journey began with a deep understanding of the socioeconomic landscape.</p>
+                <p>We firmly believe that data-driven solutions have the capacity to transform lives, empower communities, and catalyze progress. With this belief, we are dedicated to providing data science training and solutions that empower individuals, organizations, and communities across Africa. Our team of experts, coming from diverse backgrounds, shares a common passion for creating meaningful impact and driving sustainable development.</p>
+                <p>As we look ahead, we are committed to expanding our reach, deepening our impact, and fostering a culture of data literacy throughout the African continent. We invite you to join us on this transformative journey of collaboration and empowerment. Together, let us harness the power of data for African impact.</p>
+                <p>Thank you for being a part of our story.</p>
+            </div>
+            <section class="about1">
+
+                <div class="item">
+                    <div class="container">
+                        <img src="static/images/lightbulb.svg">
+                        <h1>Core Values</h1>
+                    </div>
+                    <div class="container">
+                        <p>Impact</p>
+                        <p>Empowerment</p>
+                        <p>Collaboration</p>
+                        <p>Integrity</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <img src="static/images/handshake.svg">
+                        <h1>Our Vision</h1>
+                    </div>
+                    <div class="container">
+                        <p>A data-driven Africa, solving complex challenges and improving lives</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <img src="static/images/lightbulb.svg">
+                        <h1>Our focus</h1>
+                    </div>
+                    <div class="container">
+                        <p>Outreach to promote data science literacy</p>
+                        <p>Provide data science training to target groups</p>
+                        <p>Provide research-driven solutions for societal challenges</p>
+                        <p>Build a network of data scientists </p>
+                    </div>
+                </div>
+            </section>
+
+            <h1>Meet the Team</h1>
+            <div class="team">
+                <div>
+                    <img src="static/images/Rosaline.png">
+                    <h4>Rosaline Macharia, PhD</h4>
+                    <p>Rosaline Macharia is the founder of D4AI and currently holds the position of Chairperson within the organization. At D4AI, Rosaline takes the lead in spearheading resource mobilization and partnership initiatives. With extensive expertise in bioinformatics, she is dedicated to harnessing the power of data-driven solutions to drive positive change in Africa. Rosaline's visionary leadership plays a pivotal role in advancing D4AI's mission of empowering communities across the continent.</p>
+                </div>
+                <div>
+                    <img src="static/images/Ian.png">
+                    <h4>Ian Kaniu, PhD</h4>
+                    <p>Ian Kaniu is a physicist and co-founder of D4AI. He currently holds the position of Secretary and also serves as the Head of Program Development. Ian is deeply committed to leveraging data and technology to drive positive change in Africa and has been instrumental in developing innovative data-driven solutions.</p>
+                </div>
+                <div>
+                    <img src="static/images/Caroline.png">
+                    <h4>Caroline Wangui</h4>
+                    <p>Caroline Wangui is an Economist with a deep understanding of the socio-economic landscape and currently holds the position of Treasurer. She also serves as the head of Operations and Administration at D4AI. With her expertise and skills, Caroline ensures smooth operations including logistics and financial aspects of D4AI's projects and initiatives.</p>
+                </div>
+                <div>
+                    <img src="static/images/Rachel.png">
+                    <h4>Rachel Okeyo, PhD</h4>
+                    <p>Rachel is a skilled research scientist who currently heads the Monitoring and Evaluation docket at D4AI. In her role, she implements systems to monitor D4AI's activities and progress, ensuring the timely and quality delivery of services. Rachel is dedicated to disseminating learnings for the advancement of D4AI's mission, leveraging her expertise to track and evaluate the organization's impact.</p>
+                </div>
+                <div>
+                    <img src="static/images/Charles.png">
+                    <h4>Charles Ndung’u</h4>
+                    <p>Charles is a physicist and Head of Training and Capacity Building at D4AI. He is an expert in R and Python data analysis, machine learning, and artificial intelligence. His true passion lies in sharing these skills with young minds. Through engaging instruction, Charles inspires and empowers the next generation of data scientists, fueling their growth and success in this dynamic field.</p>
+                </div>                    
+            </div>
+            <br><br><br>
+        </div>
+        {% endblock page %}
+
+        <footer>
+            <div class="container">
+                <div class="main">
+                    <div class="footer1">
+                        <img class="logo" src="static/images/logo.png">
+                        <br>
+                        <div>Transforming Africa Through Data</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="footer2">
+                        <h3>FIND US ON SOCIAL MEDIA</h3>
+                        <div class="social">
+                            <a href="https://www.facebook.com/" target="_blank"><img src="static/images/f_logo.png" title="Facebook"/></a>
+                            <a href="https://www.twitter.com/" target="_blank"><img src="static/images/t_logo.png" title="Twitter"/></a>
+                            <a href="https://www.linkedin.com/" target="_blank"><img src="static/images/l_logo.png" title="LinkedIn"/></a>
+                        </div>
+                        <br><br>
+                        <h3>CONTACT D4AI</h3>
+                        <a href="tel:+254723713247">(+254)723713247</a>
+                        <br>
+                        <br>
+                        <a href="mailto:info@d4ai.org">contact@d4ai.org</a>
+
+                    </div>
+                    <div class="divider"></div>
+                    <div class="footer3">
+                        <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
+                        <div class="subscribe">
+                            <input type="text" placeholder="First name">
+                            <input type="text" placeholder="Last name">
+                            <input type="email" placeholder="Email address">
+                            <button>Sign up</button>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="footer4">
+                        <h3>QUICK LINKS</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="involved.html">Get Involved</a></li>
+                            <li><a href="blog.html">News & Events</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">© 2023 Data for African Impact</div>
+        </footer>
+        
+        <div class="cookies">
+            <img class="close" src="static/images/menu_close.png" >
+            <h3>About cookies on this site</h3>
+            <div class="container">
+                <p>Our websites require some cookies to function properly (required). In addition, other cookies may be used with your consent to analyze site usage, improve the user experience.</p>
+                <p>For more information, please review your <a>cookie preferences</a> options. By visiting our website, you agree to our processing of information as described in D4AI's’s privacy statement.</p>
+                <div>
+                    <button>Accept all</button>
+                    <button>Required only</button>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

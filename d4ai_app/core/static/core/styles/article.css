@@ -1,0 +1,25 @@
+.post {
+    padding: 6vh 19vw;
+}
+
+.post .feature_image {
+    aspect-ratio: 3 / 2;
+    -webkit-aspect-ratio: 3 / 2;
+    width: 100%;
+    background-color: gray;
+}
+
+.post .meta {
+    color: gray;
+    font-size: 12px;
+}
+
+.post p {
+    margin-bottom: 14px;
+}
+
+@media only screen and (max-width: 937px) {
+    .post {
+        padding: 4vh 3vh;
+    }
+}
