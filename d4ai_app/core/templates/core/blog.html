@@ -1,189 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
-        <link rel="manifest" href="static/site.webmanifest">
-        <meta name="author" content="Data for African Impact"/>
-        <title>News & Events | Data for African Impact</title>
-        <meta name="description" content="We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.">
-        <link rel="stylesheet" type="text/css" href="./static/styles/base.css">
-        <link rel="stylesheet" type="text/css" href="./static/styles/header.css">
-        <link rel="stylesheet" type="text/css" href="./static/styles/footer.css">
-        <link rel="stylesheet" type="text/css" href="./static/styles/drawer.css">
-        <link rel="stylesheet" type="text/css" href="static/styles/cookies.css">
-        <link rel="stylesheet" type="text/css" href="./static/styles/blog.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="static/scripts/common.js"></script>
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@graph": [
-                {
-                    "@id": "#site",
-                    "@type": "Website",
-                    "name": "Data for African Impact",
-                    "author": "Leroy Buliro",
-                    "description": "Leveraging data and technology to drive positive change and empower communities across Africa.",
-                    "url": "https://www.d4ai.org",
-                    "schemaVersion": "10.0",
-                    "keywords": "Africa, data, technology, data science",
-                }
-                ]
-            }
-        </script>
-    </head>
-    <body>
-        <header>
-            <div class="header">
-                <div id="header_logo"></div>
-                <img id="nav" src="static/images/menu_open.png" >
+{% extends 'core/base.html'}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+<title>News & Events | Data for African Impact</title>
+<link rel="stylesheet" type="text/css" href="{% static 'core/styles/blog.css' %}">
+{% endblock head %}
+
+{% block menu %}
+<a href="{% url 'core:index' %}">Home</a>
+<a href="{% url 'core:about' %}">About Us</a>
+<a href="{% url 'core:projects' %}">Projects</a>
+<a href="{% url 'core:involved' %}">Get Involved</a>
+<a href="{% url 'core:blog' %}">News & Events</a>
+<a href="{% url 'core:contact' %}">Contact Us</a>
+{% endblock menu %}
+
+{% block page %}
+<div class="title">
+    <h1>News & Events</h1>
+</div>
+
+<div class="blog">
+    <article>
+        <a href="article.html">
+            <div class="feature_image"></div>
+        </a>
+        <a href="article.html">
+            <div>
+                <h2>Dummy post</h2>
+                <br>
+                <div>This is a sample blog post of lorem ipsum.</div>
+                <br>
+                <div class="meta">Written by Author | May 1 2023</div>
             </div>
-            <div id="tagline">Transforming Africa Through Data</div>
-            <div id="tagline2">Transforming Africa Through Data</div>
-        </header>
+        </a>
+    </article>
 
-        <div class="drawer">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="blog.html">News & Events</a>
-            <a href="contact.html">Contact Us</a>
-        </div>
-
-        <div class="title">
-            <h1>News & Events</h1>
-        </div>
-
-        <div class="blog">
-            <article>
-                <a href="article.html">
-                    <div class="feature_image"></div>
-                </a>
-                <a href="article.html">
-                    <div>
-                        <h2>Dummy post</h2>
-                        <br>
-                        <div>This is a sample blog post of lorem ipsum.</div>
-                        <br>
-                        <div class="meta">Written by Author | May 1 2023</div>
-                    </div>
-                </a>
-            </article>
-
-            <article>
-                <a href="article.html">
-                    <div class="feature_image"></div>
-                </a>
-                <a href="article.html">
-                    <div>
-                        <h2>Dummy post</h2>
-                        <br>
-                        <div>This is a sample blog post of lorem ipsum.</div>
-                        <br>
-                        <div class="meta">Written by Author | May 1 2023</div>
-                    </div>
-                </a>
-            </article>
-
-            <article>
-                <a href="article.html">
-                    <div class="feature_image"></div>
-                </a>
-                <a href="article.html">
-                    <div>
-                        <h2>Dummy post</h2>
-                        <br>
-                        <div>This is a sample blog post of lorem ipsum.</div>
-                        <br>
-                        <div class="meta">Written by Author | May 1 2023</div>
-                    </div>
-                </a>
-            </article>
-
-            <article>
-                <a href="article.html">
-                    <div class="feature_image"></div>
-                </a>
-                <a href="article.html">
-                    <div>
-                        <h2>Dummy post</h2>
-                        <br>
-                        <div>This is a sample blog post of lorem ipsum.</div>
-                        <br>
-                        <div class="meta">Written by Author | May 1 2023</div>
-                    </div>
-                </a>
-            </article>
-        </div>
-
-        <footer>
-            <div class="container">
-                <div class="main">
-                    <div class="footer1">
-                        <img class="logo" src="static/images/logo.png">
-                        <br>
-                        <div>Transforming Africa Through Data</div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="footer2">
-                        <h3>FIND US ON SOCIAL MEDIA</h3>
-                        <div class="social">
-                            <a href="https://www.facebook.com/" target="_blank"><img src="static/images/f_logo.png" title="Facebook"/></a>
-                            <a href="https://www.twitter.com/" target="_blank"><img src="static/images/t_logo.png" title="Twitter"/></a>
-                            <a href="https://www.linkedin.com/" target="_blank"><img src="static/images/l_logo.png" title="LinkedIn"/></a>
-                        </div>
-                        <br><br>
-                        <h3>CONTACT D4AI</h3>
-                        <a href="tel:+254723713247">(+254)723713247</a>
-                        <br>
-                        <br>
-                        <a href="mailto:info@d4ai.org">contact@d4ai.org</a>
-
-                    </div>
-                    <div class="divider"></div>
-                    <div class="footer3">
-                        <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
-                        <div class="subscribe">
-                            <input type="text" placeholder="First name">
-                            <input type="text" placeholder="Last name">
-                            <input type="email" placeholder="Email address">
-                            <button>Sign up</button>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="footer4">
-                        <h3>QUICK LINKS</h3>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="involved.html">Get Involved</a></li>
-                            <li><a href="blog.html">News & Events</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
+    <article>
+        <a href="article.html">
+            <div class="feature_image"></div>
+        </a>
+        <a href="article.html">
+            <div>
+                <h2>Dummy post</h2>
+                <br>
+                <div>This is a sample blog post of lorem ipsum.</div>
+                <br>
+                <div class="meta">Written by Author | May 1 2023</div>
             </div>
-            <div class="footer">© 2023 Data for African Impact</div>
-        </footer>
+        </a>
+    </article>
 
-        <div class="cookies">
-            <img class="close" src="static/images/menu_close.png" >
-            <h3>About cookies on this site</h3>
-            <div class="container">
-                <p>Our websites require some cookies to function properly (required). In addition, other cookies may be used with your consent to analyze site usage, improve the user experience.</p>
-                <p>For more information, please review your <a>cookie preferences</a> options. By visiting our website, you agree to our processing of information as described in D4AI's’s privacy statement.</p>
-                <div>
-                    <button>Accept all</button>
-                    <button>Required only</button>
-                </div>
+    <article>
+        <a href="article.html">
+            <div class="feature_image"></div>
+        </a>
+        <a href="article.html">
+            <div>
+                <h2>Dummy post</h2>
+                <br>
+                <div>This is a sample blog post of lorem ipsum.</div>
+                <br>
+                <div class="meta">Written by Author | May 1 2023</div>
             </div>
-        </div>
+        </a>
+    </article>
 
-    </body>
-</html>
+    <article>
+        <a href="article.html">
+            <div class="feature_image"></div>
+        </a>
+        <a href="article.html">
+            <div>
+                <h2>Dummy post</h2>
+                <br>
+                <div>This is a sample blog post of lorem ipsum.</div>
+                <br>
+                <div class="meta">Written by Author | May 1 2023</div>
+            </div>
+        </a>
+    </article>
+</div>
+{% endblock page %}
+
+{% block quicklinks %}
+<li><a href="{% url 'core:index' %}">Home</a></li>
+<li><a href="{% url 'core:about' %}">About Us</a></li>
+<li><a href="{% url 'core:projects' %}">Projects</a></li>
+<li><a href="{% url 'core:involved' %}">Get Involved</a></li>
+<li><a href="{% url 'core:blog' %}">News & Events</a></li>
+<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+{% endblock quicklinks %}

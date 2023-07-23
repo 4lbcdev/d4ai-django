@@ -1,6 +1,6 @@
 """Core app views."""
-from core.models import Comment, Article, ArticleStat, Stat
-from core.forms import feedbackForm, commentForm, mailingForm
+from core.models import Article, Subscribers, Volunteers
+from core.forms import volunteerForm, subscribeForm, contactForm
 from django.shortcuts import redirect, render, get_object_or_404
 from core.models import Stat
 from core.utils import get_client_ip

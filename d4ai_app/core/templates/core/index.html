@@ -1,189 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+{% extends 'core/base.html'}
+{% load static %}
+{% load i18n %}
 
-        <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
-        <link rel="manifest" href="static/site.webmanifest">
-        <meta name="author" content="Data for African Impact"/>
-        <title>Home | Data for African Impact</title>
-        <meta name="description" content="We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.">
-        <link rel="stylesheet" type="text/css" href="static/styles/base.css">
-        <link rel="stylesheet" type="text/css" href="static/styles/header.css">
-        <link rel="stylesheet" type="text/css" href="static/styles/drawer.css">
-        <link rel="stylesheet" type="text/css" href="static/styles/footer.css">
-        <link rel="stylesheet" type="text/css" href="static/styles/cookies.css">
-        <link rel="stylesheet" type="text/css" href="static/styles/index.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="static/scripts/common.js"></script>
-        <script type="text/javascript" src="static/scripts/index.js"></script>
-    </head>
-    <body>
-        <header>
-            <div class="header">
-                <div id="header_logo"></div>
-                <img id="nav" src="static/images/menu_open.png" >
+{% block head %}
+<title>Home | Data for African Impact</title>
+<link rel="stylesheet" type="text/css" href="{% static 'core/styles/index.css' %}">
+<script type="text/javascript" src="{% static 'core/scripts/index.js' %}"></script>
+{% endblock head %}
+
+{% block menu %}
+<a href="{% url 'core:index' %}">Home</a>
+<a href="{% url 'core:about' %}">About Us</a>
+<a href="{% url 'core:projects' %}">Projects</a>
+<a href="{% url 'core:involved' %}">Get Involved</a>
+<a href="{% url 'core:blog' %}">News & Events</a>
+<a href="{% url 'core:contact' %}">Contact Us</a>
+{% endblock menu %}
+
+{% block page %}
+<div class="home">
+    <img src="{% static 'core/images/Data- For- HomePage.jpg' %}" alt="Data for African Impact"/>
+    
+    <div class="inner">
+        <section class="about">
+            <div>
+                <h1>We were founded to harness the power of data science to drive positive change and sustainable development in Africa</h1>
+                <p>D4AI focuses on addressing social, economic, and environmental challenges through data-driven solutions. We aim to provide access to relevant data, promote data literacy, and foster collaboration among stakeholders to create lasting impact.</p>
+                <br>
+                <p>We firmly believe that data-driven solutions have the capacity to transform lives, empower communities, and catalyze progress. With this belief, we are dedicated to providing data science training and solutions that empower individuals, organizations, and communities across Africa. Our team of experts, coming from diverse backgrounds, shares a common passion for creating meaningful impact and driving sustainable development.</p>
             </div>
-            <div id="tagline">Transforming Africa Through Data</div>
-            <div id="tagline2">Transforming Africa Through Data</div>
-        </header>
+        </section>
+    </div>
 
-        <div class="drawer">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="blog.html">News & Events</a>
-            <a href="contact.html">Contact Us</a>
+    <div class="inner">
+        <h1 style="text-align: center; text-transform: uppercase;">Chasing our vision of a data-driven Africa</h1>
+    </div>
+    <div class="slider">
+        <div class="slide">
+            <img src="{% static 'core/images/Data_ Skills Training.jpg' %}" alt="Image 1">
+            <div class="caption">Data Science Training</div>
         </div>
-
-        <div class="home">
-            <img src="static/images/Data- For- HomePage.jpg" alt="Data for African Impact"/>
-            
-            <div class="inner">
-                <section class="about">
-                    <div>
-                        <h1>We were founded to harness the power of data science to drive positive change and sustainable development in Africa</h1>
-                        <p>D4AI focuses on addressing social, economic, and environmental challenges through data-driven solutions. We aim to provide access to relevant data, promote data literacy, and foster collaboration among stakeholders to create lasting impact.</p>
-                        <br>
-                        <p>We firmly believe that data-driven solutions have the capacity to transform lives, empower communities, and catalyze progress. With this belief, we are dedicated to providing data science training and solutions that empower individuals, organizations, and communities across Africa. Our team of experts, coming from diverse backgrounds, shares a common passion for creating meaningful impact and driving sustainable development.</p>
-                    </div>
-                </section>
-            </div>
-
-            <div class="inner">
-                <h1 style="text-align: center; text-transform: uppercase;">Chasing our vision of a data-driven Africa</h1>
-            </div>
-            <div class="slider">
-                <div class="slide">
-                    <img src="static/images/Data_ Skills Training.jpg" alt="Image 1">
-                    <div class="caption">Data Science Training</div>
+        <div class="slide">
+            <img src="{% static 'core/images/Research_in_Data Science.jpg' %}" alt="Image 2">
+            <div class="caption">Research and Innovation</div>
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/images/Impact.jpg' %}" alt="Image 3">
+            <div class="caption">Outreach to promote data science literacy</div>
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/images/Youth_Empowerment.jpg' %}" alt="Image 3">
+            <div class="caption">Mentorship for emerging data scientists and professionals</div>
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/images/Data Science Adovacy_or_Outreach.png' %}" alt="Image 3">
+            <div class="caption">Advocacy for policies and regulations that support data science</div>
+        </div>
+    </div>
+      
+    <div class="fw">
+        <div class="impact">
+            <h1>Our Impact</h1>
+            <div class="impacts">
+                <div class="item">
+                    <div><p>Created an inclusive environment where women can effectively leverage data, break barriers, and catalyze meaningful change. Our goal is to empower women to embrace new opportunities, challenge norms, and make a lasting impact through the transformative power of data.</p></div>
+                    <img src="{% static 'core/images/Youth_Empowerment.jpg' %}">
                 </div>
-                <div class="slide">
-                    <img src="static/images/Research_in_Data Science.jpg" alt="Image 2">
-                    <div class="caption">Research and Innovation</div>
+                <div class="item">
+                    <img src="{% static 'core/images/Team_Solving _A problem.jpg' %}">
+                    <div><p>Built a strong and collaborative network that leverages data science expertise to address real-world challenges. By bringing together talented individuals and providing them with the necessary resources and support, we empower this community to make a tangible difference in various domains.</p></div>
                 </div>
-                <div class="slide">
-                    <img src="static/images/Impact.jpg" alt="Image 3">
-                    <div class="caption">Outreach to promote data science literacy</div>
-                </div>
-                <div class="slide">
-                    <img src="static/images/Youth_Empowerment.jpg" alt="Image 3">
-                    <div class="caption">Mentorship for emerging data scientists and professionals</div>
-                </div>
-                <div class="slide">
-                    <img src="static/images/Data Science Adovacy_or_Outreach.png" alt="Image 3">
-                    <div class="caption">Advocacy for policies and regulations that support data science</div>
+                <div class="item">
+                    <div><p>By unlocking the potential of data, we gave individuals and organizations the tools, knowledge, and resources to harness the full potential of their data by enabling them to make informed decisions, gain valuable insights, and drive innovation.</p></div>
+                    <img src="{% static 'core/images/Data_ Skills Training.jpg' %}">
                 </div>
             </div>
+            <div class="button-container">
+                <a href="projects.html">SEE IMPACT STORIES -></a>
+              </div>
               
-            <div class="fw">
-                <div class="impact">
-                    <h1>Our Impact</h1>
-                    <div class="impacts">
-                        <div class="item">
-                            <div><p>Created an inclusive environment where women can effectively leverage data, break barriers, and catalyze meaningful change. Our goal is to empower women to embrace new opportunities, challenge norms, and make a lasting impact through the transformative power of data.</p></div>
-                            <img src="static/images/Youth_Empowerment.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="static/images/Team_Solving _A problem.jpg">
-                            <div><p>Built a strong and collaborative network that leverages data science expertise to address real-world challenges. By bringing together talented individuals and providing them with the necessary resources and support, we empower this community to make a tangible difference in various domains.</p></div>
-                        </div>
-                        <div class="item">
-                            <div><p>By unlocking the potential of data, we gave individuals and organizations the tools, knowledge, and resources to harness the full potential of their data by enabling them to make informed decisions, gain valuable insights, and drive innovation.</p></div>
-                            <img src="static/images/Data_ Skills Training.jpg">
-                        </div>
-                    </div>
-                    <div class="button-container">
-                        <a href="projects.html">SEE IMPACT STORIES -></a>
-                      </div>
-                      
-                </div>
-            </div>
-
-            <div class="inner">
-                <div class="partners">
-                    <h1>Partners</h1>
-                    <div class="items">
-                        <img src="static/images/logo.png" alt="">
-                        <img src="static/images/logo.png" alt="">
-                        <img src="static/images/logo.png" alt="">
-                        <img src="static/images/logo.png" alt="">
-                        <img src="static/images/logo.png" alt="">
-                        <img src="static/images/logo.png" alt="">
-                        <img src="static/images/logo.png" alt="">
-                    </div>
-                </div>
-            </div>
-
         </div>
-        
-        <footer>
-            <div class="container">
-                <div class="main">
-                    <div class="footer1">
-                        <img class="logo" src="static/images/logo.png">
-                        <br>
-                        <div>Transforming Africa Through Data</div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="footer2">
-                        <h3>FIND US ON SOCIAL MEDIA</h3>
-                        <div class="social">
-                            <a href="https://www.facebook.com/" target="_blank"><img src="static/images/f_logo.png" title="Facebook"/></a>
-                            <a href="https://www.twitter.com/" target="_blank"><img src="static/images/t_logo.png" title="Twitter"/></a>
-                            <a href="https://www.linkedin.com/" target="_blank"><img src="static/images/l_logo.png" title="LinkedIn"/></a>
-                        </div>
-                        <br><br>
-                        <h3>CONTACT D4AI</h3>
-                        <a href="tel:+254723713247">(+254)723713247</a>
-                        <br>
-                        <br>
-                        <a href="mailto:info@d4ai.org">contact@d4ai.org</a>
+    </div>
 
-                    </div>
-                    <div class="divider"></div>
-                    <div class="footer3">
-                        <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
-                        <div class="subscribe">
-                            <input type="text" placeholder="First name">
-                            <input type="text" placeholder="Last name">
-                            <input type="email" placeholder="Email address">
-                            <button>Sign up</button>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="footer4">
-                        <h3>QUICK LINKS</h3>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="involved.html">Get Involved</a></li>
-                            <li><a href="blog.html">News & Events</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">© 2023 Data for African Impact</div>
-        </footer>
-
-        <div class="cookies">
-            <img class="close" src="static/images/menu_close.png" >
-            <div class="container">
-                <h3>About cookies on this site</h3>
-                <p>Our websites require some cookies to function properly (required). In addition, other cookies may be used with your consent to analyze site usage, improve the user experience.</p>
-                <p>For more information, please review your <a>cookie preferences</a> options. By visiting our website, you agree to our processing of information as described in D4AI's’s privacy statement.</p>
-                <div>
-                    <button>Accept all</button>
-                    <button>Required only</button>
-                </div>
+    <div class="inner">
+        <div class="partners">
+            <h1>Partners</h1>
+            <div class="items">
+                <img src="{% static 'core/images/logo.png' %}" alt="">
+                <img src="{% static 'core/images/logo.png' %}" alt="">
+                <img src="{% static 'core/images/logo.png' %}" alt="">
+                <img src="{% static 'core/images/logo.png' %}" alt="">
+                <img src="{% static 'core/images/logo.png' %}" alt="">
+                <img src="{% static 'core/images/logo.png' %}" alt="">
+                <img src="{% static 'core/images/logo.png' %}" alt="">
             </div>
         </div>
+    </div>
 
-    </body>
-</html>
+</div>
+{% endblock page %}
+
+{% block quicklinks %}
+<li><a href="{% url 'core:index' %}">Home</a></li>
+<li><a href="{% url 'core:about' %}">About Us</a></li>
+<li><a href="{% url 'core:projects' %}">Projects</a></li>
+<li><a href="{% url 'core:involved' %}">Get Involved</a></li>
+<li><a href="{% url 'core:blog' %}">News & Events</a></li>
+<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+{% endblock quicklinks %}

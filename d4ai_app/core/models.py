@@ -1,6 +1,3 @@
-from django.db import models
-
-# Create your models here.
 """
 models module: handles a user class
 """
@@ -188,3 +185,15 @@ class User(AbstractBaseUser):
 
 #     class Meta:
 #         db_table = 'subscribers'
+
+# class Volunteers(models.Model):
+#     """
+#     Defines an volunteer instance
+#     """
+#     full_name = models.CharField(verbose_name=_('Full name'), max_length=255, null=True, blank=False, default="No name")
+#     email = models.EmailField(verbose_name=_('Email'), max_length=100, unique=True)
+#     area_of_interest = models.CharField(max_length=250, blank=True, null=True)
+#     about_me = models.CharField(max_length=1000, blank=True, null=True)
+
+#     class Meta:
+#         db_table = 'volunteers'
