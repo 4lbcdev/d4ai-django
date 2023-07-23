@@ -126,7 +126,7 @@ footer {
     padding: 2vh 0;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 937px) {
+@media only screen and (min-width: 768px) and (max-width: 960px) {
     .container {
         margin: 0 3vw;
     }

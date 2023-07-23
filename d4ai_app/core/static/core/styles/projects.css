@@ -11,7 +11,7 @@
     margin: 8vh auto;
 }
 
-@media only screen and (max-width: 937px) {
+@media only screen and (max-width: 960px) {
     .impact, .testimonials {
         padding: 4vh 3vh;
     }
@@ -31,7 +31,7 @@ IMPACT SECTION
     z-index: 1;
 }
 
-@media only screen and (max-width: 937px) {
+@media only screen and (max-width: 960px) {
     #map {
         width: calc(100vw - 6vw);
         width: -webkit-calc(100vw - 6vw);
@@ -115,7 +115,7 @@ TESTIMONIALS SECTION
     fill: #FFFFFF;
 }
 
-@media only screen and (max-width: 937px) {
+@media only screen and (max-width: 960px) {
     .testimonials .container {
         padding-top: 4vh;
         grid-template-columns: 1fr;
