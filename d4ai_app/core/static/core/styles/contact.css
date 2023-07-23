@@ -1,8 +1,8 @@
 .contact {
     padding: 10vh 19vw;
     width: calc(100vw - 38vw);
-    width: -webkit-calc(100vw - 38vw));
-    width: -ms-calc(100vw - 38vw));
+    width: -webkit-calc(100vw - 38vw);
+    width: -ms-calc(100vw - 38vw);
     display: grid;
     display: -webkit-grid;
     display: -ms-grid;
@@ -90,7 +90,7 @@
 @media only screen and (max-width: 960px) {
 
     .contact {
-        padding: 4vh 3vh;
+        padding: 4vh 3vw;
         grid-template-columns: 1fr;
         -webkit-grid-template-columns: 1fr;
         -ms-grid-template-columns: 1fr;

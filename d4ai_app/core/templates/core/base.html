@@ -23,31 +23,62 @@
         {% endblock head %}
         
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="{% static 'core/scripts/common.js' %}"></script>
+        <!-- <script type="text/javascript" src="{% static 'core/scripts/common.js' %}"></script> -->
 
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@graph": [
                 {
-                    "@id": "#site",
-                    "@type": "Website",
+                    "@id": "#organization",
+                    "@type": "Organization",
                     "name": "Data for African Impact",
-                    "author": "Leroy Buliro",
                     "description": "Leveraging data and technology to drive positive change and empower communities across Africa.",
                     "url": "https://www.d4ai.org",
-                    "schemaVersion": "10.0",
+                    "logo": "https://www.d4ai.org/static/core/images/logo.png",
                     "keywords": "Africa, data, technology, data science",
+                    "sameAs": [
+                    "https://www.facebook.com/",
+                    "https://www.twitter.com/",
+                    "https://www.linkedin.com/"
+                    ]
                 }
                 ]
             }
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+    
+                $('#nav').attr('src', "{% static 'core/images/menu_open.png' %}");
+                
+                // Click event handler for the image element
+                $('#nav').on('click', function() {
+                    var $img = $(this);
+                    var $drawer = $('.drawer');
+                    
+                    // Check the current src value
+                    if ($img.attr('src') === "{% static 'core/images/menu_open.png' %}") {
+                    // Change the src to the new image
+                    $img.attr('src', "{% static 'core/images/menu_close.png' %}");
+                    $drawer.css('display', 'flex');
+                    $drawer.css('display', '-webkit-flex');
+                    $drawer.css('display', '-ms-flexbox');
+                    // $drawer.show();
+                
+                    } else {
+                    // Change the src back to the original image
+                    $img.attr('src', "{% static 'core/images/menu_open.png' %}");
+                    $drawer.css('display', 'none');
+                    }
+                });
+            });
         </script>
     </head>
     <body>
         <header>
             <div class="header">
                 <div id="header_logo"></div>
-                <img id="nav" src="{% static 'core/images/menu_open.png' %}" >
+                <img id="nav"/>
             </div>
             <div id="tagline">Transforming Africa Through Data</div>
         </header>

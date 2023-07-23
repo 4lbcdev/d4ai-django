@@ -5,7 +5,36 @@
 {% block head %}
 <title>Home | Data for African Impact</title>
 <link rel="stylesheet" type="text/css" href="{% static 'core/styles/index.css' %}">
-<script type="text/javascript" src="{% static 'core/scripts/index.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'core/scripts/slider.js' %}"></script> -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        var slides = $('.slider .slide');
+        var currentIndex = 0;
+
+        // Show the first slide initially
+        slides.eq(currentIndex).addClass('active');
+
+        // Automatically switch slides every 3 seconds
+        setInterval(function() {
+            slides.eq(currentIndex).removeClass('active').addClass('previous');
+
+            // Remove the previous class from the previous slide
+            slides.eq((currentIndex + slides.length - 1) % slides.length).removeClass('previous');
+
+            // Add the next class to the next slide
+            slides.eq((currentIndex + 1) % slides.length).addClass('next');
+
+            // Slide out the previous slide to the right
+            slides.eq(currentIndex).addClass('previous');
+
+            // Slide in the next slide from the right
+            slides.eq((currentIndex + 1) % slides.length).addClass('active').removeClass('next');
+
+            // Increment the currentIndex
+            currentIndex = (currentIndex + 1) % slides.length;
+        }, 6000);
+    });
+</script>
 {% endblock head %}
 
 {% block menu %}
@@ -35,6 +64,7 @@
     <div class="inner">
         <h1 style="text-align: center; text-transform: uppercase;">Chasing our vision of a data-driven Africa</h1>
     </div>
+
     <div class="slider">
         <div class="slide">
             <img src="{% static 'core/images/Data_ Skills Training.jpg' %}" alt="Image 1">
