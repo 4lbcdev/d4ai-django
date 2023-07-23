@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+<title>404 | Data for African Impact</title>
+<link rel="stylesheet" type="text/css" href="{% static 'core/styles/index.css' %}">
+<script type="text/javascript" src="{% static 'core/scripts/index.js' %}"></script>
+{% endblock head %}
+
+{% block menu %}
+<a href="{% url 'core:index' %}">Home</a>
+<a href="{% url 'core:about' %}">About Us</a>
+<a href="{% url 'core:projects' %}">Projects</a>
+<a href="{% url 'core:involved' %}">Get Involved</a>
+<a href="{% url 'core:blog' %}">News & Events</a>
+<a href="{% url 'core:contact' %}">Contact Us</a>
+{% endblock menu %}
+
+{% block page %}
+<div class="page_content">
+    <div class="inner">
+        <h1>404</h1>
+        <p>Page not found</p>
+    </div>
+</div>
+{% endblock page %}
+
+{% block quicklinks %}
+<li><a href="{% url 'core:index' %}">Home</a></li>
+<li><a href="{% url 'core:about' %}">About Us</a></li>
+<li><a href="{% url 'core:projects' %}">Projects</a></li>
+<li><a href="{% url 'core:involved' %}">Get Involved</a></li>
+<li><a href="{% url 'core:blog' %}">News & Events</a></li>
+<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+{% endblock quicklinks %}

@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('app_key')
 
 if os.getenv('environment') == "dev":
-    from pwa.settings_dev import *
+    from d4ai_app.settings_dev import *
 else:
-    from pwa.settings_prod import *
+    from d4ai_app.settings_prod import *
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -23,11 +23,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    # Add-ons
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -68,6 +71,7 @@ DATABASES = {
         'PORT': os.getenv('MYSQLport'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            "init_command": "SET default_storage_engine=INNODB",
         }
     }
 }

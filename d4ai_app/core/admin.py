@@ -82,7 +82,7 @@ admin.site.unregister(Group)
 #     list_display = ('id','content_type','object_id','parent','content','timestamp')
 # admin.site.register(Comment, CommentAdmin)
 
-class MailingAdmin(admin.ModelAdmin):
-    list_display = ('id','date','email')
-    readonly_fields = ('date','email')
-admin.site.register(Mailing, MailingAdmin)
+# class MailingAdmin(admin.ModelAdmin):
+#     list_display = ('id','date','email')
+#     readonly_fields = ('date','email')
+# admin.site.register(Mailing, MailingAdmin)

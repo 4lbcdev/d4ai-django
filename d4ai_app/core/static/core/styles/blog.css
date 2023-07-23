@@ -41,7 +41,7 @@
     font-size: 12px;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 960px) {
     .blog {
         padding: 4vh 3vh;
     }

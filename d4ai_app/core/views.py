@@ -1,9 +1,7 @@
 """Core app views."""
-from core.models import Article, Subscribers, Volunteers
-from core.forms import volunteerForm, subscribeForm, contactForm
+# from core.models import Article, Subscribers, Volunteers
+# from core.forms import volunteerForm, subscribeForm, contactForm
 from django.shortcuts import redirect, render, get_object_or_404
-from core.models import Stat
-from core.utils import get_client_ip
 from django.contrib import messages
 from django.urls import reverse
 from datetime import datetime
@@ -44,3 +42,13 @@ def contact_view(request):
     """Contact page view."""
     context = {}
     return render(request, 'core/contact.html', context)
+
+def page404(request, exception):
+    """Page not found view."""
+    context = {}
+    return render(request, 'core/40x.html', context)
+
+def csrf_failure(request, reason=""):
+    """CSRF failure view."""
+    context = {}
+    return render(request, 'core/40x.html', context)
