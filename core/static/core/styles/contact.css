@@ -1,0 +1,111 @@
+.contact {
+    padding: 10vh 19vw;
+    width: calc(100vw - 38vw);
+    width: -webkit-calc(100vw - 38vw);
+    width: -ms-calc(100vw - 38vw);
+    display: grid;
+    display: -webkit-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    -webkit-grid-template-columns: 1fr 1fr;
+    -ms-grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact .form {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    gap: 30px;
+}
+
+.contact .form div {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.contact .form div span {
+    color: #53565f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.contact .form div input {
+    color: #000000;
+    font-size: 18px;
+    background-color: #00000023;
+    border: none;
+    border-bottom: 1px #000000 solid;
+    padding: 10px 4px;
+}
+
+.contact .form div textarea {
+    color: #000000;
+    font-size: 14px;
+    background-color: #00000023;
+    border: none;
+    border-bottom: 1px #000000 solid;
+    padding: 10px 4px;
+}
+
+.contact .form button {
+    cursor: pointer;
+    padding: 14px 20px;
+    border: none;
+    background-color: var(--green);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact .form button:hover {
+    background-color: #4170b7;
+}
+
+.contact .map {
+    width: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
+    -webkit-object-fit: cover;
+    -moz-object-fit: cover;
+    object-position: center;
+    -o-object-position: center;
+    -webkit-object-position: center;
+    -moz-object-position: center;
+    aspect-ratio: 1 / 1;
+    -webkit-aspect-ratio: 1 / 1;
+}
+
+/* Cross-Browser Compatibility for Media Query */
+@media only screen and (max-width: 960px) {
+
+    .contact {
+        padding: 4vh 3vw;
+        grid-template-columns: 1fr;
+        -webkit-grid-template-columns: 1fr;
+        -ms-grid-template-columns: 1fr;
+        width: calc(100vw - 6vw);
+        width: -webkit-calc(100vw - 6vw);
+        width: -ms-calc(100vw - 6vw);
+    }
+    
+    .contact .form {
+        display: grid;
+        display: -webkit-grid;
+        display: -ms-grid;
+        grid-template-columns: 1fr;
+        -webkit-grid-template-columns: 1fr;
+        -ms-grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

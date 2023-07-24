@@ -1,0 +1,107 @@
+.section h1 {
+    text-align: center;
+}
+
+.section h1:nth-child(1) {
+    margin: 8vh 0;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #0000003d;
+    margin: 8vh auto;
+}
+
+.contact {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+}
+
+.contact form {
+    width: 400px;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    gap: 30px;
+}
+
+.contact form div {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.contact form div span {
+    color: #53565f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.contact form div input {
+    color: #000000;
+    font-size: 18px;
+    background-color: #00000023;
+    border: none;
+    border-bottom: 1px #000000 solid;
+    padding: 10px 4px;
+}
+
+.contact form div textarea {
+    color: #000000;
+    font-size: 14px;
+    background-color: #00000023;
+    border: none;
+    border-bottom: 1px #000000 solid;
+    padding: 10px 4px;
+}
+
+.contact form button {
+    padding: 14px 20px;
+    border: none;
+    background-color: var(--green);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact form button:hover {
+    background-color: #4170b7;
+}
+
+.involved, .join {
+    padding: 0vh 19vw;
+    gap: 30px;
+}
+
+.join {
+    text-align: center;
+}
+
+@media only screen and (max-width: 960px) {
+    .section h1:nth-child(1){
+        margin: 4vh;
+    }
+    .contact form {
+        padding: 0vh 3vw;
+    }
+    .involved, .join {
+        padding: 0vh 3vw;
+    }
+}
