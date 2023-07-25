@@ -121,9 +121,18 @@ LOGOUT_REDIRECT_URL = "/"
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Specify the absolute path to the directory where static files will be collected.
+STATIC_ROOT = '/home/daiorg/public_html/static/'
+STATICFILES_DIRS = [
+    # Add the path to app's static files
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Media files (Images, Videos, etc.)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Temporary files (e.g. uploaded files)
 TEMP = os.path.join(BASE_DIR, 'temp')
 
 # Default primary key field type
