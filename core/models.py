@@ -1,10 +1,12 @@
+"""models module: handles a user class
 """
-models module: handles a user class
-"""
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.db.models.deletion import *
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 # from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
@@ -86,7 +88,75 @@ class User(AbstractBaseUser):
         """
         return True
 
+
+class Event(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    date = models.DateField(auto_now_add=False)
+    name = models.CharField(max_length=100, blank=False)
+    slug = models.CharField(max_length = 500)
+    location = models.CharField(max_length=100, blank=False)
+    poster = models.ImageField(upload_to='core/events/%Y/%m/')
+    posterURI = models.URLField()
+    url = models.URLField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['-date']
+        db_table = 'event'
+
+
+class ArticleCategory(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.CharField(max_length = 500)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'article_category'
+
+class ArticleTag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.CharField(max_length = 500)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'article_tag'
+
+
+class ArticleStat(models.Model):
+    IPAddres= models.GenericIPAddressField(default='0.0.0.0')
+    article = models.ForeignKey('Article', on_delete=models.CASCADE)
+    # session = models.CharField(max_length=40, null=True)
+    device = models.CharField(max_length=400 ,default='null')
+    visited = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{0} in {1} article'.format(self.IPAddres,self.article.title)
+
+    class Meta:
+        ordering = ['-visited']
+        db_table = 'article_stat'
+
+
+class Stat(models.Model):
+    IPAddres= models.GenericIPAddressField(default='0.0.0.0')
+    page = models.CharField(max_length=40, null=True)
+    device = models.CharField(max_length=400 ,default='null')
+    visited = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-page']
+        db_table = 'stats'
+
+
 class Article(models.Model):
+    id = models.BigAutoField(primary_key=True)
     featureimage = models.ImageField(upload_to='core/article/%Y/%m/')
     featureimageURI = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=500)
@@ -106,11 +176,11 @@ class Article(models.Model):
     status = models.CharField(max_length=10, choices=POST_STATUS)
 
     def get_absolute_url(self):
-        return f'/logs/{self.id}/{self.slug}/'
+        return f'/blog/{self.id}/{self.slug}/'
 
     @property
     def url(self):
-        return f'/logs/{self.id}/{self.slug}/'
+        return f'/blog/{self.id}/{self.slug}/'
 
     @property
     def viewCount(self):
@@ -140,6 +210,7 @@ class Article(models.Model):
         ordering = ['-publishdate']
         db_table = 'article'
 
+
 class CommentManager(models.Manager):
     def all(self):
         qs = super(CommentManager, self).filter(parent=None)
@@ -150,6 +221,7 @@ class CommentManager(models.Manager):
         obj_id = instance.id
         qs = super(CommentManager, self).filter(content_type=content_type, object_id=obj_id).filter(parent=None)
         return qs
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -176,6 +248,7 @@ class Comment(models.Model):
         ordering = ['-timestamp']
         db_table = 'comments'
 
+
 class Subscribers(models.Model):
     id = models.BigAutoField(primary_key=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -185,6 +258,7 @@ class Subscribers(models.Model):
 
     class Meta:
         db_table = 'subscribers'
+
 
 class Volunteers(models.Model):
     """
