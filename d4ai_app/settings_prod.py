@@ -5,7 +5,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'd4ai.org',
-    '*.d4ai.org',
+    'app.d4ai.org',
+    'www.d4ai.org',
 ]
 
 CSRF_COOKIE_SECURE = True
