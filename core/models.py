@@ -86,114 +86,114 @@ class User(AbstractBaseUser):
         """
         return True
 
-# class Article(models.Model):
-#     featureimage = models.ImageField(upload_to='core/article/%Y/%m/')
-#     featureimageURI = models.URLField(blank=True, null=True)
-#     title = models.CharField(max_length=500)
-#     slug = models.CharField(max_length=500)
-#     tags = models.ManyToManyField(ArticleTag, related_name='tags')
-#     category = models.ForeignKey(ArticleCategory, related_name='articles', on_delete=models.PROTECT)
-#     writer = models.CharField(max_length=100, default = 'D4AI')
-#     credit = models.CharField(max_length=700, blank=True, null=True)
-#     publishdate = models.DateField(auto_now_add=False)
-#     extract = models.CharField(max_length=2000, blank=True, null=True)
-#     content = RichTextField(config_name='full_editor', blank=True, null=True)
-#     likes = models.PositiveIntegerField(default=0)
-#     POST_STATUS = (
-#         ('D', 'Draft'),
-#         ('P', 'Publish'),
-#     )
-#     status = models.CharField(max_length=10, choices=POST_STATUS)
+class Article(models.Model):
+    featureimage = models.ImageField(upload_to='core/article/%Y/%m/')
+    featureimageURI = models.URLField(blank=True, null=True)
+    title = models.CharField(max_length=500)
+    slug = models.CharField(max_length=500)
+    tags = models.ManyToManyField(ArticleTag, related_name='tags')
+    category = models.ForeignKey(ArticleCategory, related_name='articles', on_delete=models.PROTECT)
+    writer = models.CharField(max_length=100, default = 'D4AI')
+    credit = models.CharField(max_length=700, blank=True, null=True)
+    publishdate = models.DateField(auto_now_add=False)
+    extract = models.CharField(max_length=2000, blank=True, null=True)
+    content = RichTextField(config_name='full_editor', blank=True, null=True)
+    likes = models.PositiveIntegerField(default=0)
+    POST_STATUS = (
+        ('D', 'Draft'),
+        ('P', 'Publish'),
+    )
+    status = models.CharField(max_length=10, choices=POST_STATUS)
 
-#     def get_absolute_url(self):
-#         return f'/logs/{self.id}/{self.slug}/'
+    def get_absolute_url(self):
+        return f'/logs/{self.id}/{self.slug}/'
 
-#     @property
-#     def url(self):
-#         return f'/logs/{self.id}/{self.slug}/'
+    @property
+    def url(self):
+        return f'/logs/{self.id}/{self.slug}/'
 
-#     @property
-#     def viewCount(self):
-#         return ArticleStat.objects.filter(article=self).count()
+    @property
+    def viewCount(self):
+        return ArticleStat.objects.filter(article=self).count()
 
-#     @property
-#     def comments(self):
-#         qs = Comment.objects.filter_by_instance(self)
-#         return qs
+    @property
+    def comments(self):
+        qs = Comment.objects.filter_by_instance(self)
+        return qs
     
-#     @property
-#     def commentCount(self):
-#         content_type = ContentType.objects.get_for_model(self.__class__)
-#         qs = Comment.objects.filter(content_type=content_type, object_id=self.id).count()
-#         return qs
+    @property
+    def commentCount(self):
+        content_type = ContentType.objects.get_for_model(self.__class__)
+        qs = Comment.objects.filter(content_type=content_type, object_id=self.id).count()
+        return qs
 
-#     @property
-#     def get_content_type(self):
-#         instance = self
-#         content_type = ContentType.objects.get_for_model(instance.__class__)
-#         return content_type
+    @property
+    def get_content_type(self):
+        instance = self
+        content_type = ContentType.objects.get_for_model(instance.__class__)
+        return content_type
 
-#     def __str__(self):
-#         return self.title
+    def __str__(self):
+        return self.title
 
-#     class Meta:
-#         ordering = ['-publishdate']
-#         db_table = 'article'
+    class Meta:
+        ordering = ['-publishdate']
+        db_table = 'article'
 
-# class CommentManager(models.Manager):
-#     def all(self):
-#         qs = super(CommentManager, self).filter(parent=None)
-#         return qs
+class CommentManager(models.Manager):
+    def all(self):
+        qs = super(CommentManager, self).filter(parent=None)
+        return qs
 
-#     def filter_by_instance(self, instance):
-#         content_type = ContentType.objects.get_for_model(instance.__class__)
-#         obj_id = instance.id
-#         qs = super(CommentManager, self).filter(content_type=content_type, object_id=obj_id).filter(parent=None)
-#         return qs
+    def filter_by_instance(self, instance):
+        content_type = ContentType.objects.get_for_model(instance.__class__)
+        obj_id = instance.id
+        qs = super(CommentManager, self).filter(content_type=content_type, object_id=obj_id).filter(parent=None)
+        return qs
 
-# class Comment(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-#     object_id = models.PositiveIntegerField()
-#     content_object = GenericForeignKey('content_type', 'object_id')
-#     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
-#     content = models.TextField(max_length=420, blank=False)
-#     timestamp = models.DateTimeField(auto_now_add=True)
-#     is_flagged = models.BooleanField(default=False)
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
+    content = models.TextField(max_length=420, blank=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    is_flagged = models.BooleanField(default=False)
 
-#     objects = CommentManager()
+    objects = CommentManager()
     
-#     def replies(self):
-#         return Comment.objects.filter(parent=self).order_by('timestamp')
+    def replies(self):
+        return Comment.objects.filter(parent=self).order_by('timestamp')
 
-#     @property
-#     def is_parent(self):
-#         if self.parent is None:
-#             return True
-#         return False
+    @property
+    def is_parent(self):
+        if self.parent is None:
+            return True
+        return False
 
-#     class Meta:
-#         ordering = ['-timestamp']
-#         db_table = 'comments'
+    class Meta:
+        ordering = ['-timestamp']
+        db_table = 'comments'
 
-# class Subscribers(models.Model):
-#     id = models.BigAutoField(primary_key=True)
-#     date = models.DateTimeField(auto_now_add=True)
-#     first_name = models.CharField(verbose_name=_('First name'), max_length=255, null=True, blank=True, default="No first name")
-#     last_name = models.CharField(verbose_name=_('Last name'), max_length=255, null=True, blank=True, default="No last name")
-#     email = models.EmailField(verbose_name=_('Email'), max_length=100)
+class Subscribers(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    date = models.DateTimeField(auto_now_add=True)
+    first_name = models.CharField(verbose_name=_('First name'), max_length=255, null=True, blank=True, default="No first name")
+    last_name = models.CharField(verbose_name=_('Last name'), max_length=255, null=True, blank=True, default="No last name")
+    email = models.EmailField(verbose_name=_('Email'), max_length=100)
 
-#     class Meta:
-#         db_table = 'subscribers'
+    class Meta:
+        db_table = 'subscribers'
 
-# class Volunteers(models.Model):
-#     """
-#     Defines an volunteer instance
-#     """
-#     full_name = models.CharField(verbose_name=_('Full name'), max_length=255, null=True, blank=False, default="No name")
-#     email = models.EmailField(verbose_name=_('Email'), max_length=100, unique=True)
-#     area_of_interest = models.CharField(max_length=250, blank=True, null=True)
-#     about_me = models.CharField(max_length=1000, blank=True, null=True)
+class Volunteers(models.Model):
+    """
+    Defines an volunteer instance
+    """
+    full_name = models.CharField(verbose_name=_('Full name'), max_length=255, null=True, blank=False, default="No name")
+    email = models.EmailField(verbose_name=_('Email'), max_length=100, unique=True)
+    area_of_interest = models.CharField(max_length=250, blank=True, null=True)
+    about_me = models.CharField(max_length=1000, blank=True, null=True)
 
-#     class Meta:
-#         db_table = 'volunteers'
+    class Meta:
+        db_table = 'volunteers'
