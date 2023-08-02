@@ -6,6 +6,7 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.validators import RegexValidator
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from .models import *
 
 User = get_user_model()
 
@@ -73,16 +74,42 @@ admin.site.register(User, UserAdmin)
 # unregister the Group model from admin.
 admin.site.unregister(Group)
 
-# class ArticleAdmin(admin.ModelAdmin):
-#     prepopulated_fields = {'slug': ('title',),}
-#     list_display = ('id', 'title', 'category', 'publishdate', 'status')
-# admin.site.register(Article, ArticleAdmin)
+class EventAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',),}
+    list_display = ('id','name', 'location')
+admin.site.register(Event, EventAdmin)
 
-# class CommentAdmin(admin.ModelAdmin):
-#     list_display = ('id','content_type','object_id','parent','content','timestamp')
-# admin.site.register(Comment, CommentAdmin)
+class ArticleCategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',),}
+    list_display = ('id','name')
+admin.site.register(ArticleCategory, ArticleCategoryAdmin)
 
-# class MailingAdmin(admin.ModelAdmin):
-#     list_display = ('id','date','email')
-#     readonly_fields = ('date','email')
-# admin.site.register(Mailing, MailingAdmin)
+class ArticleTagAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',),}
+    list_display = ('id','name')
+admin.site.register(ArticleTag, ArticleTagAdmin)
+
+class ArticleAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',),}
+    list_display = ('id', 'title', 'category', 'publishdate', 'status')
+admin.site.register(Article, ArticleAdmin)
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'parent','content','timestamp')
+    # readonly_fields = ('user', 'content', 'timestamp')
+admin.site.register(Comment, CommentAdmin)
+
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = ('id','date','email')
+    readonly_fields = ('date','first_name','last_name','email')
+admin.site.register(Subscriber, SubscriberAdmin)
+
+class VolunteerAdmin(admin.ModelAdmin):
+    list_display = ('id','full_name','email','area_of_interest')
+    readonly_fields = ('full_name','email','area_of_interest')
+admin.site.register(Volunteer, VolunteerAdmin)
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('id','full_name','email','message')
+    readonly_fields = ('full_name','email','message')
+admin.site.register(Contact, ContactAdmin)

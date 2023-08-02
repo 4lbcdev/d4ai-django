@@ -71,10 +71,39 @@
                     $drawer.css('display', 'none');
                     }
                 });
+
+                let message = $('.popmessage');
+                
+                $(document).ready(function(){
+                    message.fadeIn(2000)
+                    setTimeout(()=>{
+                        message.fadeOut(2000)
+                    },6000)
+                    
+                    // Check Radio-box
+                    $(".rating input:radio").attr("checked", false);
+                    
+                    $('.rating input').click(function () {
+                        $(".rating span").removeClass('checked');
+                        $(this).parent().addClass('checked');
+                    });
+                });
             });
         </script>
     </head>
     <body>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="popmessage">
+            <p class="message">{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <noscript>
+            <div style="display: flex; place-content: center; background-color: tomato;">
+                <p style="color: #fff; padding: 7px 0">Javascript not supported on your browser, please enable Javascript in order to fully utilize the website</p>
+            </div>
+        </noscript>
         <header>
             <div class="header">
                 <div id="header_logo"></div>
@@ -118,12 +147,12 @@
                     <div class="divider"></div>
                     <div class="footer3">
                         <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
-                        <div class="subscribe">
-                            <input type="text" placeholder="First name">
-                            <input type="text" placeholder="Last name">
-                            <input type="email" placeholder="Email address">
-                            <button>Sign up</button>
-                        </div>
+                        <form class="subscribe" method="post">{% csrf_token %}
+                            <input type="text" placeholder="First name" name="first_name" required>
+                            <input type="text" placeholder="Last name" name="last_name" required>
+                            <input type="email" placeholder="Email address" name="email" required>
+                            <button type="submit" name="submit_subscribe">Sign up</button>
+                        </form>
                     </div>
                     <div class="divider"></div>
                     <div class="footer4">

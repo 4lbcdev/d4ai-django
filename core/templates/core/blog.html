@@ -10,8 +10,8 @@
 {% block menu %}
 <a href="{% url 'core:index' %}">Home</a>
 <a href="{% url 'core:about' %}">About Us</a>
-<a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a>
+<!-- <a href="{% url 'core:projects' %}">Projects</a>
+<a href="{% url 'core:involved' %}">Get Involved</a> -->
 <a href="{% url 'core:blog' %}">News & Events</a>
 <a href="{% url 'core:contact' %}">Contact Us</a>
 {% endblock menu %}
@@ -21,74 +21,42 @@
     <h1>News & Events</h1>
 </div>
 
+{% if articles %}
 <div class="blog">
+    {% for article in articles %}
     <article>
-        <a href="article.html">
-            <div class="feature_image"></div>
+        <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
+            <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
         </a>
-        <a href="article.html">
+        <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
             <div>
-                <h2>Dummy post</h2>
+                <h2>{{ article.title }}</h2>
                 <br>
-                <div>This is a sample blog post of lorem ipsum.</div>
+                {% if article.extract %}
+                <div>{{ article.extract }}</div>
+                {% else %}
+                <div>{{ article.content | safe | truncatewords:20 }}</div>
+                {% endif %}
                 <br>
-                <div class="meta">Written by Author | May 1 2023</div>
+                <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
             </div>
         </a>
     </article>
-
-    <article>
-        <a href="article.html">
-            <div class="feature_image"></div>
-        </a>
-        <a href="article.html">
-            <div>
-                <h2>Dummy post</h2>
-                <br>
-                <div>This is a sample blog post of lorem ipsum.</div>
-                <br>
-                <div class="meta">Written by Author | May 1 2023</div>
-            </div>
-        </a>
-    </article>
-
-    <article>
-        <a href="article.html">
-            <div class="feature_image"></div>
-        </a>
-        <a href="article.html">
-            <div>
-                <h2>Dummy post</h2>
-                <br>
-                <div>This is a sample blog post of lorem ipsum.</div>
-                <br>
-                <div class="meta">Written by Author | May 1 2023</div>
-            </div>
-        </a>
-    </article>
-
-    <article>
-        <a href="article.html">
-            <div class="feature_image"></div>
-        </a>
-        <a href="article.html">
-            <div>
-                <h2>Dummy post</h2>
-                <br>
-                <div>This is a sample blog post of lorem ipsum.</div>
-                <br>
-                <div class="meta">Written by Author | May 1 2023</div>
-            </div>
-        </a>
-    </article>
+    {% endfor %}
 </div>
+{% else %}
+<div>
+    <h2 style="text-align: center; margin: 200px 0;">No articles are available.</h2>
+</div>
+{% endif %}
+
 {% endblock page %}
 
 {% block quicklinks %}
 <li><a href="{% url 'core:index' %}">Home</a></li>
 <li><a href="{% url 'core:about' %}">About Us</a></li>
-<li><a href="{% url 'core:projects' %}">Projects</a></li>
-<li><a href="{% url 'core:involved' %}">Get Involved</a></li>
+<!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
+<li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
 <li><a href="{% url 'core:blog' %}">News & Events</a></li>
 <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
 {% endblock quicklinks %}

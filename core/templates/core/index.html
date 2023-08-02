@@ -12,8 +12,8 @@
 {% block menu %}
 <a href="{% url 'core:index' %}">Home</a>
 <a href="{% url 'core:about' %}">About Us</a>
-<a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a>
+<!-- <a href="{% url 'core:projects' %}">Projects</a>
+<a href="{% url 'core:involved' %}">Get Involved</a> -->
 <a href="{% url 'core:blog' %}">News & Events</a>
 <a href="{% url 'core:contact' %}">Contact Us</a>
 {% endblock menu %}
@@ -107,9 +107,9 @@
                     <img src="{% static 'core/images/Data_ Skills Training.jpg' %}">
                 </div>
             </div>
-            <div class="button-container">
+            <!-- <div class="button-container">
                 <a href="{% url 'core:projects' %}">SEE IMPACT STORIES -></a>
-              </div>
+            </div> -->
               
         </div>
     </div>
@@ -135,8 +135,8 @@
 {% block quicklinks %}
 <li><a href="{% url 'core:index' %}">Home</a></li>
 <li><a href="{% url 'core:about' %}">About Us</a></li>
-<li><a href="{% url 'core:projects' %}">Projects</a></li>
-<li><a href="{% url 'core:involved' %}">Get Involved</a></li>
+<!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
+<li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
 <li><a href="{% url 'core:blog' %}">News & Events</a></li>
 <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
 {% endblock quicklinks %}

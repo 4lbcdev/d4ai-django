@@ -1,10 +1,5 @@
 .blog {
-    padding: 6vh 20% 6vh 20%;
-    max-width: 900px;
-    display: grid;
-    display: -webkit-grid;
-    display: -ms-grid;
-    gap: 30px;
+    padding: 6vh 19vw;
 }
 
 .blog article {
@@ -19,13 +14,18 @@
 
 .blog article a {
     text-decoration: none;
+    object-fit: fill;
+    object-position: center;
+    aspect-ratio: 3 / 2;
+    -webkit-aspect-ratio: 3 / 2;
+    -moz-aspect-ratio: 3 / 2;
+    -ms-aspect-ratio: 3 / 2;
+    -o-aspect-ratio: 3 / 2;
+    overflow: hidden;
 }
 
 .blog article .feature_image {
-    aspect-ratio: 3/2;
-    -webkit-aspect-ratio: 3 / 2;
-    max-width: 720px;
-    background-color: gray;
+    height: 100%;
 }
 
 .blog article h2, div {
@@ -41,8 +41,20 @@
     font-size: 12px;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (min-width: 768px) and (max-width: 960px) {
     .blog {
         padding: 4vh 3vh;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .blog {
+        padding: 4vh 3vh;
+    }
+    .blog article {
+        grid-template-columns: 1fr;
+        -webkit-grid-template-columns: 1fr;
+        -ms-grid-template-columns: 1fr;
+        gap: 30px;
     }
 }

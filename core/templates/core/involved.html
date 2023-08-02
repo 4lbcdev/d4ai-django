@@ -10,8 +10,8 @@
 {% block menu %}
 <a href="{% url 'core:index' %}">Home</a>
 <a href="{% url 'core:about' %}">About Us</a>
-<a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a>
+<!-- <a href="{% url 'core:projects' %}">Projects</a>
+<a href="{% url 'core:involved' %}">Get Involved</a> -->
 <a href="{% url 'core:blog' %}">News & Events</a>
 <a href="{% url 'core:contact' %}">Contact Us</a>
 {% endblock menu %}
@@ -24,31 +24,31 @@
 <div class="section">
     <h1>Volunteer Form</h1>
     <div class="contact">
-        <form action="">
+        <form method="post">{% csrf_token %}
             <div>
                 <span>Full name (required)</span>
-                <input type="text" placeholder="Input text">
+                <input type="text" placeholder="Input text" name="full_name" required maxlength="200">
             </div>
             <div>
                 <span>Email address (required)</span>
-                <input type="email" placeholder="Input text">
+                <input type="email" placeholder="Input text" name="email" required>
             </div>
             <div>
                 <span>Area of Interest (required)</span>
-                <input type="text" placeholder="Input text">
+                <input type="text" placeholder="Input text" name="area_of_interest" required>
             </div>
             <div>
                 <span>Tell us a little about yourself</span>
-                <textarea rows="10"></textarea>
+                <textarea rows="10" name="about_me" required maxlength="800"></textarea>
             </div>
-            <button>Submit</button>
+            <button type="submit" name="submit_volunteer">Submit</button>
         </form>
     </div>
 </div>
 
 <div class="divider"></div>
 
-<div class="section">
+<!-- <div class="section">
     <h1>Support us</h1>
     <div class="involved">
         <p>Contribute to the work of D4AI in leveraging data and technology to drive positive change and empower communities across Africa.</p>
@@ -67,7 +67,7 @@
         <p>Account: DONATE</p>
         <br><br>
     </div>
-</div>
+</div> -->
 
 <!-- <div class="title">
     <h1>Join the Team</h1>
@@ -81,8 +81,8 @@
 {% block quicklinks %}
 <li><a href="{% url 'core:index' %}">Home</a></li>
 <li><a href="{% url 'core:about' %}">About Us</a></li>
-<li><a href="{% url 'core:projects' %}">Projects</a></li>
-<li><a href="{% url 'core:involved' %}">Get Involved</a></li>
+<!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
+<li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
 <li><a href="{% url 'core:blog' %}">News & Events</a></li>
 <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
 {% endblock quicklinks %}

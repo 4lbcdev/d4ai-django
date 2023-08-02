@@ -129,46 +129,17 @@ class ArticleTag(models.Model):
         db_table = 'article_tag'
 
 
-class ArticleStat(models.Model):
-    IPAddres= models.GenericIPAddressField(default='0.0.0.0')
-    article = models.ForeignKey('Article', on_delete=models.CASCADE)
-    # session = models.CharField(max_length=40, null=True)
-    device = models.CharField(max_length=400 ,default='null')
-    visited = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return '{0} in {1} article'.format(self.IPAddres,self.article.title)
-
-    class Meta:
-        ordering = ['-visited']
-        db_table = 'article_stat'
-
-
-class Stat(models.Model):
-    IPAddres= models.GenericIPAddressField(default='0.0.0.0')
-    page = models.CharField(max_length=40, null=True)
-    device = models.CharField(max_length=400 ,default='null')
-    visited = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['-page']
-        db_table = 'stats'
-
-
 class Article(models.Model):
     id = models.BigAutoField(primary_key=True)
     featureimage = models.ImageField(upload_to='core/article/%Y/%m/')
-    featureimageURI = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=500)
     slug = models.CharField(max_length=500)
     tags = models.ManyToManyField(ArticleTag, related_name='tags')
     category = models.ForeignKey(ArticleCategory, related_name='articles', on_delete=models.PROTECT)
-    writer = models.CharField(max_length=100, default = 'D4AI')
-    credit = models.CharField(max_length=700, blank=True, null=True)
+    writer = models.CharField(max_length=100, default = 'D4AI Team')
     publishdate = models.DateField(auto_now_add=False)
     extract = models.CharField(max_length=2000, blank=True, null=True)
     content = RichTextField(config_name='full_editor', blank=True, null=True)
-    likes = models.PositiveIntegerField(default=0)
     POST_STATUS = (
         ('D', 'Draft'),
         ('P', 'Publish'),
@@ -249,7 +220,7 @@ class Comment(models.Model):
         db_table = 'comments'
 
 
-class Subscribers(models.Model):
+class Subscriber(models.Model):
     id = models.BigAutoField(primary_key=True)
     date = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(verbose_name=_('First name'), max_length=255, null=True, blank=True, default="No first name")
@@ -260,10 +231,11 @@ class Subscribers(models.Model):
         db_table = 'subscribers'
 
 
-class Volunteers(models.Model):
+class Volunteer(models.Model):
     """
     Defines an volunteer instance
     """
+    id = models.BigAutoField(primary_key=True)
     full_name = models.CharField(verbose_name=_('Full name'), max_length=255, null=True, blank=False, default="No name")
     email = models.EmailField(verbose_name=_('Email'), max_length=100, unique=True)
     area_of_interest = models.CharField(max_length=250, blank=True, null=True)
@@ -271,3 +243,16 @@ class Volunteers(models.Model):
 
     class Meta:
         db_table = 'volunteers'
+
+
+class Contact(models.Model):
+    """
+    Defines a contact instance
+    """
+    id = models.BigAutoField(primary_key=True)
+    full_name = models.CharField(verbose_name=_('Full name'), max_length=255, null=True, blank=False, default="No name")
+    email = models.EmailField(verbose_name=_('Email'), max_length=100, unique=True)
+    message = models.TextField(max_length=1000, blank=True, null=True)
+
+    class Meta:
+        db_table = 'contact'

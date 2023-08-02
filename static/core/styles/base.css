@@ -75,3 +75,27 @@ h1 {
         padding: 8% 0;
     }
 }
+
+/* ==========================================================================
+   #Notifications
+========================================================================== */
+
+.popmessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0px 0px 7px 3px #000000cb;
+    border: none;
+    background-color: var(--yellow);
+    z-index: 4;
+}
+
+.message {
+    color: #000;
+    text-align: center;
+    padding: 7px;
+    font-size: 20px;
+}

@@ -10,6 +10,6 @@ urlpatterns = [
     path("projects/", projects_view, name="projects"),
     path("involved/", involved_view, name="involved"),
     path("blog/", blog_view, name="blog"),
-    path("article/", article_view, name="article"),
+    path("article/<slug:slug>-<int:pk>", article_view, name="article"),
     path("contact/", contact_view, name="contact"),
 ]

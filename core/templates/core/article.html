@@ -10,8 +10,8 @@
 {% block menu %}
 <a href="{% url 'core:index' %}">Home</a>
 <a href="{% url 'core:about' %}">About Us</a>
-<a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a>
+<!-- <a href="{% url 'core:projects' %}">Projects</a>
+<a href="{% url 'core:involved' %}">Get Involved</a> -->
 <a href="{% url 'core:blog' %}">News & Events</a>
 <a href="{% url 'core:contact' %}">Contact Us</a>
 {% endblock menu %}
@@ -22,25 +22,22 @@
 </div>
 
 <article class="post">
-    <div class="feature_image"></div>
+    <h1>{{ article.title }}</h1>
     <br>
-    <h1>Dummy post</h1>
-    <br>
-    <div class="meta">Written by Author | May 1 2023</div>
+    <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
     <br><br>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum dignissim arcu semper fermentum. Phasellus sit amet sapien sit amet nisl pretium sollicitudin eget nec purus. Nam ex ante, convallis bibendum consequat quis, ornare id quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse a dui sit amet orci volutpat cursus. Aenean faucibus ante sem, ac porta libero ultrices nec. Pellentesque ut ligula commodo, dignissim magna tempus, porttitor leo. Proin ac ex nec odio dignissim mattis. Aliquam in sagittis tellus. Donec faucibus enim quis ullamcorper pellentesque. Vestibulum viverra eleifend urna vel euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-    <p>Mauris aliquam ligula orci, at bibendum eros fermentum non. Nunc rutrum felis odio, a vehicula erat semper non. Quisque at molestie ante. Curabitur ullamcorper nulla vel felis egestas placerat. Duis posuere orci ipsum, eget maximus sapien maximus sed. Phasellus ligula nulla, rhoncus id rhoncus non, pulvinar sed sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc tellus quam, venenatis sit amet lectus vel, egestas lobortis enim. Donec nibh erat, efficitur a urna eu, vestibulum dictum sapien. Praesent sodales lacinia est quis rutrum. Nam at eros tempor, sodales nulla vitae, egestas felis. Proin pretium a libero quis vestibulum. Aenean luctus leo ac libero maximus, et porttitor felis vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer id tincidunt lectus. Etiam rhoncus tempus aliquam.</p>
-    <p>Etiam auctor dolor vitae mauris molestie, quis egestas nulla euismod. Duis consectetur, neque ut convallis pulvinar, ante risus tincidunt ex, sed pharetra dui lectus a eros. Vestibulum varius purus vitae metus rhoncus luctus. Quisque blandit efficitur tellus, vel varius diam cursus a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin auctor magna vitae nibh sollicitudin, tempor malesuada tellus iaculis. Sed sed accumsan nulla. Proin sit amet libero vel quam fringilla suscipit. Maecenas faucibus aliquam lacinia. Donec quis ultrices metus. Mauris arcu ipsum, aliquet eget aliquam at, ornare ac lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean eu erat pulvinar, tincidunt justo non, ullamcorper diam.</p>
-    <p>Aliquam in leo viverra dolor venenatis sagittis. Aenean massa justo, ultricies nec justo non, venenatis tempus massa. Donec non facilisis magna. Maecenas viverra consectetur mi ac congue. Proin commodo, erat eu rhoncus varius, sem mauris dictum quam, accumsan tincidunt nulla neque id nisi. Aenean nec erat odio. Pellentesque in sem facilisis, egestas quam eu, ullamcorper nulla.</p>
-    <p>Cras mi lectus, vestibulum quis risus in, venenatis pulvinar orci. Maecenas a facilisis purus. Curabitur tincidunt scelerisque porta. Aliquam dictum ex dictum dui pellentesque sollicitudin. Praesent et quam nulla. Integer luctus venenatis diam. Ut pretium ipsum tortor, sed volutpat nibh molestie id. Sed eu scelerisque neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam porta consequat dolor nec placerat.</p>
+    <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
+    <div class="content">
+        {{ article.content | safe }}
+    </div>
 </article>
 {% endblock page %}
 
 {% block quicklinks %}
 <li><a href="{% url 'core:index' %}">Home</a></li>
 <li><a href="{% url 'core:about' %}">About Us</a></li>
-<li><a href="{% url 'core:projects' %}">Projects</a></li>
-<li><a href="{% url 'core:involved' %}">Get Involved</a></li>
+<!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
+<li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
 <li><a href="{% url 'core:blog' %}">News & Events</a></li>
 <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
 {% endblock quicklinks %}
