@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'core',
     # Add-ons
     'ckeditor',
-]
+    'ckeditor_uploader',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -114,8 +115,8 @@ USE_TZ = True
 
 
 AUTH_USER_MODEL = 'core.User'
-LOGIN_URL = '/core/auth/'
-LOGOUT_URL = 'logout'
+# LOGIN_URL = '/login/'
+# LOGOUT_URL = '/logout/'
 # LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
@@ -140,17 +141,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Third party plug-in settings for django-ckeditor
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 CKEDITOR_CONFIGS = {
     'full_editor': {
         'toolbar': 'full',
-    },
-    'custom_editor': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source']
-        ]
+        'height': 600,
+        'width': 600,
     },
 }

@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block head %}
-<title>Data for African Impact</title>
+<title>{{ article.title }} | Data for African Impact</title>
 <link rel="stylesheet" type="text/css" href="{% static 'core/styles/article.css' %}">
 {% endblock head %}
 
@@ -26,7 +26,8 @@
     <br>
     <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
     <br><br>
-    <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
+    <img class="feature_image" src="{% static 'core/images/D4AI_Webinar Poster Aug 2023.png' %}" >
+    <!-- <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/> -->
     <div class="content">
         {{ article.content | safe }}
     </div>

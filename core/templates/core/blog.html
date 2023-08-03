@@ -26,7 +26,8 @@
     {% for article in articles %}
     <article>
         <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
-            <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
+            <!-- <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/> -->
+            <img class="feature_image" src="{% static 'core/images/D4AI_Webinar Poster Aug 2023.png' %}" >
         </a>
         <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
             <div>

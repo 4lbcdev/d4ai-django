@@ -95,7 +95,7 @@ class Event(models.Model):
     name = models.CharField(max_length=100, blank=False)
     slug = models.CharField(max_length = 500)
     location = models.CharField(max_length=100, blank=False)
-    poster = models.ImageField(upload_to='core/events/%Y/%m/')
+    poster = models.ImageField(upload_to='events/')
     posterURI = models.URLField()
     url = models.URLField()
 
@@ -109,8 +109,8 @@ class Event(models.Model):
 
 class ArticleCategory(models.Model):
     id = models.BigAutoField(primary_key=True)
-    name = models.CharField(max_length=50, unique=True)
-    slug = models.CharField(max_length = 500)
+    name = models.CharField(max_length=255, unique=True)
+    slug = models.CharField(max_length = 255)
 
     def __str__(self):
         return self.name
@@ -119,8 +119,8 @@ class ArticleCategory(models.Model):
         db_table = 'article_category'
 
 class ArticleTag(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.CharField(max_length = 100)
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.CharField(max_length = 500)
 
     def __str__(self):
         return self.name
@@ -131,7 +131,7 @@ class ArticleTag(models.Model):
 
 class Article(models.Model):
     id = models.BigAutoField(primary_key=True)
-    featureimage = models.ImageField(upload_to='core/article/%Y/%m/')
+    featureimage = models.ImageField(upload_to='articles/')
     title = models.CharField(max_length=500)
     slug = models.CharField(max_length=500)
     tags = models.ManyToManyField(ArticleTag, related_name='tags')
