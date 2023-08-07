@@ -1,5 +1,5 @@
 .blog {
-    padding: 6vh 19vw;
+    margin: 6vh 19vw;
 }
 
 .blog article {
@@ -49,7 +49,7 @@
 
 @media only screen and (max-width: 767px) {
     .blog {
-        padding: 4vh 3vh;
+        margin: 4vh 3vh;
     }
     .blog article {
         grid-template-columns: 1fr;

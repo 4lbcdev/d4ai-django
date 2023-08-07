@@ -19,6 +19,7 @@ def handle_subscribe_form(request, redirect_url):
 def home_view(request):
     """Home page view."""
     context = {}
+    context['articles'] = Article.objects.filter(status='P')[0:4]
     # Handle subscribe form
     handle_subscribe_form(request, 'core:index')
     return render(request, 'core/index.html', context)

@@ -14,15 +14,36 @@
 }
 
 .post .content {
-    margin-top: 40px;
+    margin: 10vh 0;
+}
+
+.post .content h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cambria', sans-serif;
 }
 
 .post .content p {
     margin-bottom: 14px;
+    font-family: 'Cambria', sans-serif;
+}
+
+.content ul, ol {
+    margin-bottom: 20px;
+    padding-left: 1vw;
+}
+
+.content li {
+    margin-bottom: 20px;
+    font-family: 'Cambria', sans-serif;
 }
 
 @media only screen and (max-width: 960px) {
     .post {
         padding: 4vh 3vh;
+    }
+    .post .content {
+        margin: 5vh 0;
+    }
+    .content ul, ol {
+        padding-left: 4vw;
     }
 }

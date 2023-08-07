@@ -5,6 +5,7 @@
 {% block head %}
 <title>Home | Data for African Impact</title>
 <link rel="stylesheet" type="text/css" href="{% static 'core/styles/index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'core/styles/blog.css' %}">
 <!-- <script type="text/javascript" src="{% static 'core/scripts/slider.js' %}"></script> -->
 
 {% endblock head %}
@@ -27,9 +28,21 @@
             <div>
                 <h1>We were founded to harness the power of data science to drive positive change and sustainable development in Africa</h1>
                 <p>D4AI focuses on promoting Information and Communication Technology (ICT) and providing data science training in Africa. We aim to empower individuals, organizations, and communities across the continent with data-driven skills and solutions to drive positive social impact and sustainable development.</p>
-                <p>Through our programs and impactful initiatives, we seek to bridge the digital divide, foster data literacy, and address pressing challenges faced by African communities.</p>
-                <p>By harnessing the power of data, we are dedicated to creating a more inclusive and prosperous future for Africa, where data-driven solutions drive positive change and innovation.</p>
+                <div id="about_more">
+                    <p>Through our programs and impactful initiatives, we seek to bridge the digital divide, foster data literacy, and address pressing challenges faced by African communities.</p>
+                    <p>By harnessing the power of data, we are dedicated to creating a more inclusive and prosperous future for Africa, where data-driven solutions drive positive change and innovation.</p>
+                </div>
+                <button class="read-more-button">Read More</button>
             </div>
+            <script>
+                $(document).ready(function() {
+                    $('#about_more').hide();
+                    $('.read-more-button').click(function() {
+                        $('#about_more').show();
+                        $('.read-more-button').hide();
+                    });
+                });
+            </script>
         </section>
     </div>
 
@@ -114,7 +127,28 @@
         </div>
     </div>
 
-    <div class="inner">
+    <h1 style="text-align: center; margin: 8vh 0; font-size: 20px;">News & Events</h1>
+    {% if articles %}
+    <div class="blog">
+        {% for article in articles %}
+        <article>
+            <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
+                <!-- <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/> -->
+                <img class="feature_image" src="{% static 'core/images/D4AI_Webinar Poster Aug 2023.png' %}" >
+            </a>
+            <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
+                <div>
+                    <h2>{{ article.title }}</h2>
+                    <br>
+                    <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- <div class="inner">
         <div class="partners">
             <h1>Partners</h1>
             <div class="items">
@@ -127,7 +161,7 @@
                 <img src="{% static 'core/images/logo.png' %}" alt="">
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>
 {% endblock page %}
