@@ -1,4 +1,6 @@
-{% load static %}<!DOCTYPE html>
+{% spaceless %}
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Google tag (gtag.js) -->
@@ -20,6 +22,7 @@
         <link rel="manifest" href="{% static 'core/site.webmanifest' %}">
         <meta name="author" content="Data for African Impact"/>
         <meta name="description" content="We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.">
+        <link rel="canonical" href="https://www.d4ai.org/" />
         <link rel="stylesheet" type="text/css" href="{% static 'core/styles/base.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/styles/header.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/styles/footer.css' %}">
@@ -31,28 +34,30 @@
         
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!-- <script type="text/javascript" src="{% static 'core/scripts/common.js' %}"></script> -->
-
         <script type="application/ld+json">
             {
-                "@context": "https://schema.org",
-                "@graph": [
-                {
-                    "@id": "#organization",
-                    "@type": "Organization",
-                    "name": "Data for African Impact",
-                    "description": "Leveraging data and technology to drive positive change and empower communities across Africa.",
-                    "url": "https://www.d4ai.org",
-                    "logo": "https://www.d4ai.org/static/core/images/logo.png",
-                    "keywords": "Africa, data, technology, data science",
-                    "sameAs": [
-                    "https://www.facebook.com/",
-                    "https://www.twitter.com/",
-                    "https://www.linkedin.com/"
-                    ]
-                }
-                ]
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Data for African Impact",
+              "url": "https://www.d4ai.org",
+              "description": "We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.",
+              "logo": "https://www.d4ai.org/static/core/images/logo.png",
+              "keywords": "Africa, data, technology, data science",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "",
+                "addressLocality": "Nairobi",
+                "addressRegion": "Nairobi",
+                "postalCode": "",
+                "addressCountry": "Kenya"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+123456789",
+                "contactType": "customer service"
+              }
             }
-        </script>
+          </script>
         <script type="text/javascript">
             $(document).ready(function() {
     
@@ -189,3 +194,4 @@
         
     </body>
 </html>
+{% endspaceless %}
