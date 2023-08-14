@@ -4,6 +4,7 @@
     <url>
         <loc>{{ url.location }}</loc>
         <lastmod>2023-05-30T10:00:00+00:00</lastmod>
+        <changefreq>{{ url.changefreq }}</changefreq>
         <priority>{{ url.priority }}</priority>
     </url>
     {% endfor %}
