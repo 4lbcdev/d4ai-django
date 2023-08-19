@@ -34,11 +34,11 @@
                 </div>
                 <button class="read-more-button">Read More</button>
             </div>
-            <script>
+            <script type="text/javascript">
                 $(document).ready(function() {
                     $('#about_more').hide();
                     $('.read-more-button').click(function() {
-                        $('#about_more').show();
+                        $('#about_more').fadeIn(3000);
                         $('.read-more-button').hide();
                     });
                 });

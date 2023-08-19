@@ -85,16 +85,6 @@ ABOUT SECTION
     margin-bottom: 20px;
 }
 
-.read-more-button {
-    color: var(--blue);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-family: 'Cambria', sans-serif;
-    font-size: 14px;
-}
-
 @media only screen and (max-width: 810px) {    
     .about iframe {
         width: 100%;
@@ -107,11 +97,6 @@ ABOUT SECTION
     
     .about div p {
         text-align: center;
-    }
-
-    .read-more-button {
-        display: flex;
-        margin: auto;
     }
 }
 
