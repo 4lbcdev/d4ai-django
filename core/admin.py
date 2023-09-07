@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django import forms
+from django.contrib.auth import forms as auth_forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
@@ -23,9 +24,9 @@ class UserCreationForm(forms.ModelForm):
         )]
     )
 
-    class Meta:
+    class Meta(auth_forms.UserCreationForm.Meta):
         model = User
-        fields = ('email', 'alias', 'password')
+        # fields = ('email', 'alias', 'password')
 
     def save(self, commit=True):
         user = super().save(commit=False)
