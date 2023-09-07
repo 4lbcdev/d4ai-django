@@ -65,6 +65,12 @@ class UserAdmin(BaseUserAdmin):
         ('Private', {'fields': ('password',)}),
         ('Permissions', {'fields': ('is_superuser', 'is_active', 'is_staff', 'is_admin')}),
     )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'alias', 'password1', 'password2'),
+        }),
+    )
 
 
 # Registers the new UserAdmin...
