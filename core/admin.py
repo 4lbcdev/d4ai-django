@@ -24,9 +24,9 @@ class UserCreationForm(forms.ModelForm):
         )]
     )
 
-    class Meta(auth_forms.UserCreationForm.Meta):
+    class Meta():
         model = User
-        # fields = ('email', 'alias', 'password')
+        fields = ('email', 'alias', 'password1', 'password2', 'full_name', 'is_active', 'is_admin', 'is_staff')
 
     def save(self, commit=True):
         user = super().save(commit=False)
