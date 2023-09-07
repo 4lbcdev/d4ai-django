@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django import forms
-from django.contrib.auth import forms as auth_forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
@@ -24,9 +23,9 @@ class UserCreationForm(forms.ModelForm):
         )]
     )
 
-    class Meta():
+    class Meta:
         model = User
-        fields = ('email', 'alias', 'password1', 'password2', 'full_name', 'is_active', 'is_admin', 'is_staff')
+        fields = ('email', 'alias', 'password')
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -63,14 +62,8 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         ('Personal info', {'fields': ('uid','email', 'alias','full_name')}),
         ('Meta', {'fields': ('date_joined','last_login')}),
-        # ('Private', {'fields': ('password',)}),
+        ('Private', {'fields': ('password',)}),
         ('Permissions', {'fields': ('is_superuser', 'is_active', 'is_staff', 'is_admin')}),
-    )
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'alias', 'password1', 'password2'),
-        }),
     )
 
 
