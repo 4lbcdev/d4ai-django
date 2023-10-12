@@ -60,7 +60,7 @@ class User(AbstractBaseUser):
     # )
     full_name = models.CharField(verbose_name=_('Full name'), max_length=255, null=True, blank=False, default="No name")
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     is_marketer = models.BooleanField(default=False)

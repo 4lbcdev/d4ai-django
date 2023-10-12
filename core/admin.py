@@ -55,7 +55,7 @@ class UserAdmin(admin.ModelAdmin):
     add_form = UserCreationForm
 
     list_display = ('email', 'alias', 'date_joined','last_login', 'is_active')
-    list_filter = ('is_active',)
+    list_filter = ('is_active','is_staff')
     search_fields = ('email', 'alias',)
     readonly_fields = ('uid', 'date_joined','last_login')
     ordering = ('email',)
@@ -64,7 +64,7 @@ class UserAdmin(admin.ModelAdmin):
         ('Personal info', {'fields': ('uid','email', 'alias','full_name')}),
         # ('Meta', {'fields': ('date_joined','last_login')}),
         ('Private', {'fields': ('password',)}),
-        ('Permissions (active and staff must be selected)', {'fields': ('is_active', 'is_staff', 'is_admin', 'is_marketer')}),
+        ('Role', {'fields': ('is_admin', 'is_marketer')}),
     )
     # Add a change password form to the user change view.
     change_password_form = AdminPasswordChangeForm
