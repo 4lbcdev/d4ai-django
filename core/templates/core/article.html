@@ -5,6 +5,7 @@
 {% block head %}
 <title>{{ article.title }} | Data for African Impact</title>
 <link rel="stylesheet" type="text/css" href="{% static 'core/styles/article.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 {% endblock head %}
 
 {% block menu %}
@@ -30,7 +31,25 @@
     <div class="content">
         {{ article.content | safe }}
     </div>
+    <div class="post-share">
+        <h4>Share this article</h4>
+        <div class="share-icons">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="share-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a target="_blank" href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ article.title }}" class="share-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ article.title }}" class="share-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a target="_blank" href="mailto:?subject={{ article.title }}&body={{ request.build_absolute_uri }}" class="share-icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
 </article>
+
 {% endblock page %}
 
 {% block quicklinks %}
