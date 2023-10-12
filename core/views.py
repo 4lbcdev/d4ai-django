@@ -1,10 +1,11 @@
 """Core app views."""
+import threading
 from core.forms import contactForm, subscriberForm, volunteerForm
 from core.models import Article
+from core.utils import send_email
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
-from django.core.mail import send_mail
 from django.conf import settings
 
 
@@ -84,10 +85,9 @@ def contact_view(request):
             message = f'Name: {contact_form.cleaned_data["full_name"]}\nEmail: {contact_form.cleaned_data["email"]}\nMessage: {contact_form.cleaned_data["message"]}'
             from_email = settings.DEFAULT_FROM_EMAIL
             recipient_list = [settings.EMAIL_HOST_USER]
-            try:
-                send_mail(subject, message, from_email, recipient_list)
-            except Exception as e:
-                messages.error(request, 'Error v90')
+            # Create a thread to send the email asynchronously
+            email_thread = threading.Thread(target=send_email, args=(subject, message, from_email, recipient_list))
+            email_thread.start()
             return redirect(reverse('core:contact'))
 
     # Handle subscribe form
