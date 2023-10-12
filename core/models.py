@@ -37,6 +37,7 @@ class UserManager(BaseUserManager):
         user = self.create_user(email, password=password)
         user.is_superuser = True
         user.is_admin = True
+        user.is_marketer = True
         user.is_staff = True
         user.is_active = True
         user.save(using=self._db)
@@ -62,6 +63,7 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
+    is_marketer = models.BooleanField(default=False)
     date_joined = models.DateField(auto_now_add=True)
     last_login = models.DateField(auto_now=True)
 

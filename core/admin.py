@@ -14,19 +14,8 @@ from django.http import HttpResponseForbidden
 User = get_user_model()
 
 
-def staff_member_required(view_func):
-    @wraps(view_func)
-    def _wrapped_view(request, *args, **kwargs):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
-            return view_func(request, *args, **kwargs)
-        else:
-            return HttpResponseForbidden("You do not have permission to access this page.")
-    return _wrapped_view
-
-
 class UserCreationForm(forms.ModelForm):
-    """
-    User creation form instance
+    """ User creation form instance
     """
     password = forms.CharField(
         widget=forms.PasswordInput,
@@ -50,25 +39,23 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserChangeForm(forms.ModelForm):
-    """
-    Changes a user instance field
+    """ Changes a user instance field
     """
     password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = User
-        fields = ('email', 'alias', 'password', 'is_active', 'is_admin', 'is_staff')
+        fields = ('email', 'alias', 'password', 'is_active', 'is_admin', 'is_staff', 'is_marketer')
 
 
 class UserAdmin(admin.ModelAdmin):
-    """
-    Defines the User admin view
+    """ Defines the User admin view
     """
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('email', 'alias', 'date_joined','last_login', 'is_active', 'is_admin', 'is_staff')
-    list_filter = ('is_admin', 'is_staff' )
+    list_display = ('email', 'alias', 'date_joined','last_login', 'is_active', 'is_admin', 'is_staff', 'is_marketer')
+    list_filter = ('is_admin', 'is_staff', 'is_marketer')
     search_fields = ('email', 'alias',)
     readonly_fields = ('uid', 'date_joined','last_login')
     ordering = ('email',)
@@ -77,7 +64,7 @@ class UserAdmin(admin.ModelAdmin):
         ('Personal info', {'fields': ('uid','email', 'alias','full_name')}),
         ('Meta', {'fields': ('date_joined','last_login')}),
         ('Private', {'fields': ('password',)}),
-        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_admin')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_admin', 'is_marketer')}),
     )
     # Add a change password form to the user change view.
     change_password_form = AdminPasswordChangeForm
@@ -92,112 +79,97 @@ class UserAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
-# Registers the new UserAdmin...
-admin.site.register(User, UserAdmin)
-
-# ... and, since we're not using Django's built-in permissions,
-# unregister the Group model from admin.
-admin.site.unregister(Group)
-
-
-# Admin for Event
 class EventAdmin(admin.ModelAdmin):
+    """ Admin class for Event
+    """
     prepopulated_fields = {'slug': ('name',),}
     list_display = ('id','name', 'location')
 
 
-admin.site.register(Event, EventAdmin)
-
-
-# Admin for ArticleCategory
 class ArticleCategoryAdmin(admin.ModelAdmin):
+    """ Admin class for ArticleCategory
+    """
     prepopulated_fields = {'slug': ('name',),}
     list_display = ('id','name')
 
     def has_add_permission(self, request):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_save_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_change_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_delete_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
 
-admin.site.register(ArticleCategory, ArticleCategoryAdmin)
-
-
-# Admin for ArticleTag
 class ArticleTagAdmin(admin.ModelAdmin):
+    """ Admin class for ArticleTag
+    """
     prepopulated_fields = {'slug': ('name',),}
     list_display = ('id','name')
 
     def has_add_permission(self, request):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_save_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_change_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_delete_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
 
-admin.site.register(ArticleTag, ArticleTagAdmin)
-
-
-# Admin for Article
 class ArticleAdmin(admin.ModelAdmin):
+    """ Admin class for Article
+    """
     prepopulated_fields = {'slug': ('title',),}
     list_display = ('id', 'title', 'category', 'publishdate', 'status')
 
     def has_add_permission(self, request):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_save_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_change_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
     def has_delete_permission(self, request, obj=None):
-        if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
             return True
         return False
 
 
-admin.site.register(Article, ArticleAdmin)
-
-
-# Admin for Comment
 class CommentAdmin(admin.ModelAdmin):
+    """ Admin class for Comment
+    """
     list_display = ('id', 'parent','content','timestamp')
     # readonly_fields = ('user', 'content', 'timestamp')
 
@@ -219,34 +191,62 @@ class CommentAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         if request.user.is_staff or request.user.is_admin or request.user.is_superuser:
             return True
-        return False
-
-    
-admin.site.register(Comment, CommentAdmin)
+        return False    
 
 
-# Admin for Subscriber
 class SubscriberAdmin(admin.ModelAdmin):
+    """ Admin class for subscriber
+    """
     list_display = ('id','date','email')
     readonly_fields = ('date','first_name','last_name','email')
 
+    def has_add_permission(self, request):
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
+            return True
+        return False
 
-admin.site.register(Subscriber, SubscriberAdmin)
+    def has_save_permission(self, request, obj=None):
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
+            return True
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
+            return True
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        if request.user.is_staff or request.user.is_admin or request.user.is_superuser or request.user.is_marketer:
+            return True
+        return False
 
 
-# Admin for Volunteer
 class VolunteerAdmin(admin.ModelAdmin):
+    """ Admin class for Volunteer
+    """
     list_display = ('id','full_name','email','area_of_interest')
     readonly_fields = ('full_name','email','area_of_interest')
 
 
-admin.site.register(Volunteer, VolunteerAdmin)
-
-
-# Admin for Contact
 class ContactAdmin(admin.ModelAdmin):
+    """ Admin class for Contact
+    """
     list_display = ('id','full_name','email','message')
     readonly_fields = ('full_name','email','message')
 
 
+# Registers the new UserAdmin...
+admin.site.register(User, UserAdmin)
+
+# ... and, since we're not using Django's built-in permissions,
+# unregister the Group model from admin.
+admin.site.unregister(Group)
+
+admin.site.register(ArticleTag, ArticleTagAdmin)
+admin.site.register(Event, EventAdmin)
+admin.site.register(ArticleCategory, ArticleCategoryAdmin)
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(Comment, CommentAdmin)
+admin.site.register(Subscriber, SubscriberAdmin)
+admin.site.register(Volunteer, VolunteerAdmin)
 admin.site.register(Contact, ContactAdmin)
