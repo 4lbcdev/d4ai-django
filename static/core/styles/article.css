@@ -36,6 +36,23 @@
     font-family: 'Cambria', sans-serif;
 }
 
+.post-share {
+    margin: 7vh 0;
+    text-align: right;
+}
+
+.share-icons a {
+    display: inline-block;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.share-icons i {
+    width: 100%;
+    height: 100%;
+}
+
 @media only screen and (max-width: 960px) {
     .post {
         padding: 4vh 3vh;
