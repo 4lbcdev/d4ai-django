@@ -10,7 +10,10 @@ from django.utils.translation import gettext_lazy as _
 from .models import *
 from functools import wraps
 from django.http import HttpResponseForbidden
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 User = get_user_model()
 
 
@@ -31,8 +34,10 @@ class UserCreationForm(forms.ModelForm):
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        # user.set_password(self.cleaned_data["password"])
-        user.password = make_password("default123@d4ai")
+        if self.cleaned_data.get('password'):
+            user.set_password(self.cleaned_data["password"])
+        else:
+            user.password = make_password(os.environ.get('DEFAULT_PASSWORD'))
         if commit:
             user.save()
         return user
@@ -54,7 +59,7 @@ class UserAdmin(admin.ModelAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('email', 'alias', 'date_joined','last_login', 'is_active')
+    list_display = ('email', 'alias', 'date_joined','last_login', 'is_active', 'is_staff')
     list_filter = ('is_active','is_staff')
     search_fields = ('email', 'alias',)
     readonly_fields = ('uid', 'date_joined','last_login')
