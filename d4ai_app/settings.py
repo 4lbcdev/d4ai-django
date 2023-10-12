@@ -151,3 +151,11 @@ CKEDITOR_CONFIGS = {
         'width': 600,
     },
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_USE_TLS = True  # Use TLS for secure connection
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')  # Your email address
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # Your email password or an application-specific password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

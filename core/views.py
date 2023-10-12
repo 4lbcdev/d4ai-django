@@ -4,6 +4,8 @@ from core.models import Article
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Common function to handle form submissions for subscribing to the newsletter
@@ -78,6 +80,14 @@ def contact_view(request):
         if contact_form.is_valid():
             contact_form.save()
             messages.success(request, 'Your message has been sent successfully.')
+            subject = 'New message from d4ai.org Contact Form'
+            message = f'Name: {contact_form.cleaned_data["full_name"]}\nEmail: {contact_form.cleaned_data["email"]}\nMessage: {contact_form.cleaned_data["message"]}'
+            from_email = settings.DEFAULT_FROM_EMAIL
+            recipient_list = [settings.EMAIL_HOST_USER]
+            try:
+                send_mail(subject, message, from_email, recipient_list)
+            except Exception as e:
+                messages.error(request, 'Error v90')
             return redirect(reverse('core:contact'))
 
     # Handle subscribe form
