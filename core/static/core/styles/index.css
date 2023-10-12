@@ -146,18 +146,19 @@ SLIDER SECTION
 
 .caption {
     position: absolute;
-    bottom: 40%;
+    bottom: 20%;
     right: -100%;
-    color: var(--blue);
+    color: #FFFFFF;
     padding: 10px;
     transition: right 2s;
     font-size: 2rem;
-    text-shadow: 2px 2px 1px #ffffff;
+    /* text-shadow: 2px 2px 1px #ffffff; */
     width: 400px;
+    background-color: #00000070;
 }
 
 .slide.active .caption {
-    right: 8%;
+    right: 0%;
 }
   
 @media only screen and (max-width: 767px) { 
@@ -174,9 +175,6 @@ SLIDER SECTION
         width: 300px;
         margin: auto;
         display: inline;
-    }
-    .slide.active .caption {
-        right: 0;
     }
 }
 

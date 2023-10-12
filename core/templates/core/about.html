@@ -115,7 +115,7 @@
                 var cutoffIndex = text.indexOf(".", text.indexOf(".") + 1);
                 var visibleText = text.substring(0, cutoffIndex + 1).trim();
                 var hiddenText = text.substring(cutoffIndex + 1).trim();
-                $(this).html(visibleText + ' <a class="read-more" style="color: var(--blue);">Read more...</a><span class="hidden-text" style="display: none;">' + hiddenText + '</span>');
+                $(this).html(visibleText + ' <a class="read-more" style="color: var(--blue) cursor: pointer;;">Read more...</a><span class="hidden-text" style="display: none;">' + hiddenText + '</span>');
             });
     
             // Handle "Read more" click
