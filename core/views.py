@@ -3,6 +3,7 @@ import threading
 from core.forms import contactForm, subscriberForm, volunteerForm
 from core.models import Article
 from core.utils import send_email
+from django.core.mail import send_mail
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
@@ -81,10 +82,15 @@ def contact_view(request):
         if contact_form.is_valid():
             contact_form.save()
             messages.success(request, 'Your message has been sent successfully.')
-            subject = 'New message from d4ai.org Contact Form'
+            subject = 'New message from d4ai.org'
             message = f'Name: {contact_form.cleaned_data["full_name"]}\nEmail: {contact_form.cleaned_data["email"]}\nMessage: {contact_form.cleaned_data["message"]}'
             from_email = settings.DEFAULT_FROM_EMAIL
             recipient_list = [settings.EMAIL_HOST_USER]
+            # try:
+            #     send_mail(subject, message, from_email, recipient_list)
+            #     print(f"Email sending succeeded")
+            # except Exception as e:
+            #     print(f"Email sending failed: {e}")
             # Create a thread to send the email asynchronously
             email_thread = threading.Thread(target=send_email, args=(subject, message, from_email, recipient_list))
             email_thread.start()
