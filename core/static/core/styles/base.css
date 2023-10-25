@@ -8,7 +8,6 @@
     --title-gradient: linear-gradient(to bottom , #09090b, #4170b7);
     /* --banner-gradient: linear-gradient(to bottom, #4170b7ac, #4170b7); */
     --banner-gradient: linear-gradient(180deg, #4170b7 0%, #051d41 83.59375%);
-
 }
 
 * {
@@ -18,6 +17,10 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
