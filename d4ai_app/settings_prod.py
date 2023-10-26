@@ -1,6 +1,8 @@
 """
 Django production settings for d4ai_app project.
 """
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 DEBUG = False
 
 ALLOWED_HOSTS = [
@@ -8,6 +10,8 @@ ALLOWED_HOSTS = [
     'app.d4ai.org',
     'www.d4ai.org',
 ]
+
+MEDIA_ROOT = '/home/daiorg/public_html/media/'
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True

@@ -14,7 +14,7 @@
         </script>
 
         <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no >
 
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/apple-touch-icon.png' %}">
         <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicon-32x32.png' %}">
@@ -136,7 +136,7 @@
             <div class="container">
                 <div class="main">
                     <div class="footer1">
-                        <img class="logo" src="{% static 'core/images/logo.png' %}">
+                        <img class="logo" src="{% static 'core/images/logo.png' %}" alt="D4AI Logo">
                         <br>
                         <div>Transforming Africa Through Data</div>
                     </div>
@@ -144,16 +144,16 @@
                     <div class="footer2">
                         <h3>FIND US ON SOCIAL MEDIA</h3>
                         <div class="social">
-                            <a href="https://www.facebook.com/" target="_blank"><img src="{% static 'core/images/f_logo.png' %}" title="Facebook"/></a>
-                            <a href="https://www.twitter.com/" target="_blank"><img src="{% static 'core/images/x_logo.png' %}" title="Twitter"/></a>
-                            <a href="https://www.linkedin.com/" target="_blank"><img src="{% static 'core/images/l_logo.png' %}" title="LinkedIn"/></a>
+                            <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank"><img src="{% static 'core/images/f_logo.png' %}" title="Facebook"/></a>
+                            <a href="https://www.twitter.com/" aria-label="X" target="_blank"><img src="{% static 'core/images/x_logo.png' %}" title="X"/></a>
+                            <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank"><img src="{% static 'core/images/l_logo.png' %}" title="LinkedIn"/></a>
                         </div>
                         <br><br>
                         <h3>CONTACT D4AI</h3>
                         <!-- <a href="tel:+254723713247">(+254)723713247</a> -->
                         <!-- <br> -->
                         <!-- <br> -->
-                        <a href="mailto:info@d4ai.org">info@d4ai.org</a>
+                        <a href="mailto:info@d4ai.org" aria-label="info@d4ai.org">info@d4ai.org</a>
 
                     </div>
                     <div class="divider"></div>
@@ -179,7 +179,7 @@
             <div class="footer">© 2023 Data for African Impact</div>
         </footer>
         
-        <div class="cookies">
+        <!-- <div class="cookies">
             <img class="close" src="{% static 'core/images/menu_close.png' %}" >
             <h3>About cookies on this site</h3>
             <div class="container">
@@ -190,7 +190,7 @@
                     <button>Required only</button>
                 </div>
             </div>
-        </div>
+        </div> -->
         
     </body>
 </html>

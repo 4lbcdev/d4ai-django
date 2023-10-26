@@ -9,12 +9,12 @@
 {% endblock head %}
 
 {% block menu %}
-<a href="{% url 'core:index' %}">Home</a>
-<a href="{% url 'core:about' %}">About Us</a>
+<a href="{% url 'core:index' %}" aria-label="Home">Home</a>
+<a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
 <!-- <a href="{% url 'core:projects' %}">Projects</a>
 <a href="{% url 'core:involved' %}">Get Involved</a> -->
-<a href="{% url 'core:blog' %}">News & Events</a>
-<a href="{% url 'core:contact' %}">Contact Us</a>
+<a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+<a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
@@ -27,36 +27,37 @@
     <br>
     <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
     <br><br>
-    <img class="feature_image" src="{% static 'core/images/D4AI_Webinar Poster Aug 2023.png' %}" >
-    <div class="content">
-        {{ article.content | safe }}
-    </div>
+    <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
     <div class="post-share">
         <h4>Share this article</h4>
         <div class="share-icons">
-            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="share-icon">
+            <a target="_blank" aria-label="Facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="share-icon">
                 <i class="fab fa-facebook"></i>
             </a>
-            <a target="_blank" href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ article.title }}" class="share-icon">
+            <a target="_blank" aria-label="X" href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ article.title }}" class="share-icon">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ article.title }}" class="share-icon">
+            <a target="_blank" aria-label="LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ article.title }}" class="share-icon">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a target="_blank" href="mailto:?subject={{ article.title }}&body={{ request.build_absolute_uri }}" class="share-icon">
+            <a target="_blank" aria-label="Email" href="mailto:?subject={{ article.title }}&body={{ request.build_absolute_uri }}" class="share-icon">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
     </div>
+    <div class="content">
+        {{ article.content | safe }}
+    </div>
+    
 </article>
 
 {% endblock page %}
 
 {% block quicklinks %}
-<li><a href="{% url 'core:index' %}">Home</a></li>
-<li><a href="{% url 'core:about' %}">About Us</a></li>
+<li><a href="{% url 'core:index' %}" aria-label="Home">Home</a></li>
+<li><a href="{% url 'core:about' %}" aria-label="About us">About Us</a></li>
 <!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
 <li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
-<li><a href="{% url 'core:blog' %}">News & Events</a></li>
-<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+<li><a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a></li>
+<li><a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a></li>
 {% endblock quicklinks %}

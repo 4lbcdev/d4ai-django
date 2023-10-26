@@ -8,16 +8,16 @@
 {% endblock head %}
 
 {% block menu %}
-<a href="{% url 'core:index' %}">Home</a>
-<a href="{% url 'core:about' %}">About Us</a>
+<a href="{% url 'core:index' %}" aria-label="Home">Home</a>
+<a href="#about" aria-label="About Us">About Us</a>
 <!-- <a href="{% url 'core:projects' %}">Projects</a>
 <a href="{% url 'core:involved' %}">Get Involved</a> -->
-<a href="{% url 'core:blog' %}">News & Events</a>
-<a href="{% url 'core:contact' %}">Contact Us</a>
+<a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+<a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
-<div class="title">
+<div class="title" id="about">
     <h1>About D4AI</h1>
 </div>
 
@@ -45,7 +45,7 @@
 
         <div class="item">
             <div class="container">
-                <img src="{% static 'core/images/lightbulb.svg' %}">
+                <img src="{% static 'core/images/lightbulb.svg' %}" alt="lightbulb vector image">
                 <h1>Core Values</h1>
             </div>
             <div class="container">
@@ -57,7 +57,7 @@
         </div>
         <div class="item">
             <div class="container">
-                <img src="{% static 'core/images/handshake.svg' %}">
+                <img src="{% static 'core/images/handshake.svg' %}"  alt="handshake vector image">
                 <h1>Our Vision</h1>
             </div>
             <div class="container">
@@ -66,7 +66,7 @@
         </div>
         <div class="item">
             <div class="container">
-                <img src="{% static 'core/images/lightbulb.svg' %}">
+                <img src="{% static 'core/images/lightbulb.svg' %}" alt="lightbulb vector image">
                 <h1>Our focus</h1>
             </div>
             <div class="container">
@@ -81,27 +81,27 @@
     <h1>Meet the Team</h1>
     <div class="team">
         <div class="team-member">
-            <img src="{% static 'core/images/Rosaline.png' %}">
+            <img src="{% static 'core/images/Rosaline.png' %}" alt="Rosaline avatar">
             <h4>Rosaline Macharia, PhD</h4>
             <p class="bio">Rosaline Macharia is the founder of D4AI and currently holds the position of Chairperson within the organization. At D4AI, Rosaline takes the lead in spearheading resource mobilization and partnership initiatives. With extensive expertise in bioinformatics, she is dedicated to harnessing the power of data-driven solutions to drive positive change in Africa. Rosaline's visionary leadership plays a pivotal role in advancing D4AI's mission of empowering communities across the continent.</p>
         </div>
         <div class="team-member">
-            <img src="{% static 'core/images/Ian.png' %}">
+            <img src="{% static 'core/images/Ian.jpg' %}" alt="Ian avatar">
             <h4>Ian Kaniu, PhD</h4>
             <p class="bio">Ian Kaniu is a physicist and co-founder of D4AI. He currently holds the position of Secretary and also serves as the Head of Program Development. Ian is deeply committed to leveraging data and technology to drive positive change in Africa and has been instrumental in developing innovative data-driven solutions.</p>
         </div>
         <div class="team-member">
-            <img src="{% static 'core/images/Caroline.png' %}">
+            <img src="{% static 'core/images/Caroline.png' %}" alt="Caroline avatar">
             <h4>Caroline Wangui</h4>
             <p class="bio">Caroline Wangui is an Economist with a deep understanding of the socio-economic landscape and currently holds the position of Treasurer. She also serves as the head of Operations and Administration at D4AI. With her expertise and skills, Caroline ensures smooth operations including logistics and financial aspects of D4AI's projects and initiatives.</p>
         </div>
         <div class="team-member">
-            <img src="{% static 'core/images/Rachel.png' %}">
+            <img src="{% static 'core/images/Rachel.png' %}" alt="Rachel avatar">
             <h4>Rachel Okeyo, PhD</h4>
             <p class="bio">Rachel is a skilled research scientist who currently heads the Monitoring and Evaluation docket at D4AI. In her role, she implements systems to monitor D4AI's activities and progress, ensuring the timely and quality delivery of services. Rachel is dedicated to disseminating learnings for the advancement of D4AI's mission, leveraging her expertise to track and evaluate the organization's impact.</p>
         </div>
         <div class="team-member">
-            <img src="{% static 'core/images/Charles.png' %}">
+            <img src="{% static 'core/images/Charles.png' %}" alt="Charles avatar">
             <h4>Charles Ndung’u</h4>
             <p class="bio">Charles is a physicist and Head of Training and Capacity Building at D4AI. He is an expert in R and Python data analysis, machine learning, and artificial intelligence. His true passion lies in sharing these skills with young minds. Through engaging instruction, Charles inspires and empowers the next generation of data scientists, fueling their growth and success in this dynamic field.</p>
         </div>
@@ -115,7 +115,7 @@
                 var cutoffIndex = text.indexOf(".", text.indexOf(".") + 1);
                 var visibleText = text.substring(0, cutoffIndex + 1).trim();
                 var hiddenText = text.substring(cutoffIndex + 1).trim();
-                $(this).html(visibleText + ' <a class="read-more" style="color: var(--blue) cursor: pointer;;">Read more...</a><span class="hidden-text" style="display: none;">' + hiddenText + '</span>');
+                $(this).html(visibleText + ' <a class="read-more" aria-label="Read more..." style="color: var(--blue); cursor: pointer;">Read more...</a><span class="hidden-text" style="display: none;">' + hiddenText + '</span>');
             });
     
             // Handle "Read more" click
@@ -134,10 +134,10 @@
 {% endblock page %}
 
 {% block quicklinks %}
-<li><a href="{% url 'core:index' %}">Home</a></li>
-<li><a href="{% url 'core:about' %}">About Us</a></li>
+<li><a href="{% url 'core:index' %}" aria-label="Home">Home</a></li>
+<li><a href="#about" aria-label="About us">About Us</a></li>
 <!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
 <li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
-<li><a href="{% url 'core:blog' %}">News & Events</a></li>
-<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+<li><a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a></li>
+<li><a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a></li>
 {% endblock quicklinks %}

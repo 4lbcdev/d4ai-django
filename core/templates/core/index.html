@@ -11,17 +11,26 @@
 {% endblock head %}
 
 {% block menu %}
-<a href="{% url 'core:index' %}">Home</a>
-<a href="{% url 'core:about' %}">About Us</a>
+<a href="#home" aria-label="Home" >Home</a>
+<a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
 <!-- <a href="{% url 'core:projects' %}">Projects</a>
 <a href="{% url 'core:involved' %}">Get Involved</a> -->
-<a href="{% url 'core:blog' %}">News & Events</a>
-<a href="{% url 'core:contact' %}">Contact Us</a>
+<a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+<a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
-<div class="home">
-    <img src="{% static 'core/images/Data- For- HomePage.jpg' %}" alt="Data for African Impact"/>
+<div class="home" id="home">
+    <!-- <img src="{% static 'core/images/HomePage_banner.jpg' %}" alt="Data for African Impact banner"/> -->
+
+    <img
+        sizes="(max-width: 3000px) 40vw, 1200px"
+        srcset="
+        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_380.jpg' %} 380w,
+        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_887.jpg' %} 887w,
+        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_1200.jpg' %} 1200w"
+        src="{% static 'core/images/HomePage_banner_qbtci7_c_scale,w_1200.jpg' %}"
+        alt="Homepage banner">
     
     <div class="inner">
         <section class="about">
@@ -52,23 +61,73 @@
 
     <div class="slider">
         <div class="slide">
-            <img src="{% static 'core/images/Data_ Skills Training.jpg' %}" alt="Image 1">
+            <!-- <img src="{% static 'core/images/Data_ Skills Training.jpg' %}" alt="Image 1"> -->
+
+            <img
+                sizes="(max-width: 3000px) 40vw, 1200px"
+                srcset="
+                {% static 'core/images/Data__Skills_Training_zqmlmx_c_scale,w_380.jpg' %} 380w,
+                {% static 'core/images/Data__Skills_Training_zqmlmx_c_scale,w_861.jpg' %} 861w,
+                {% static 'core/images/Data__Skills_Training_zqmlmx_c_scale,w_1200.jpg' %} 1200w"
+                src="{% static 'core/images/Data__Skills_Training_zqmlmx_c_scale,w_1200.jpg' %}"
+                alt="What we do. Data Science Training">
+
             <div class="caption">Data Science Training</div>
         </div>
         <div class="slide">
-            <img src="{% static 'core/images/Research_in_Data Science.jpg' %}" alt="Image 2">
+            <!-- <img src="{% static 'core/images/Research_in_Data Science.jpg' %}" alt="Image 2"> -->
+
+            <img
+                sizes="(max-width: 3000px) 40vw, 1200px"
+                srcset="
+                {% static 'core/images/Research_in_Data_Science_hg8e2v_c_scale,w_380.jpg' %} 380w,
+                {% static 'core/images/Research_in_Data_Science_hg8e2v_c_scale,w_978.jpg' %} 978w,
+                {% static 'core/images/Research_in_Data_Science_hg8e2v_c_scale,w_1200.jpg' %} 1200w"
+                src="{% static 'core/images/Research_in_Data_Science_hg8e2v_c_scale,w_1200.jpg' %}"
+                alt="What we do. Research and Innovation">
+
             <div class="caption">Research and Innovation</div>
         </div>
         <div class="slide">
-            <img src="{% static 'core/images/Impact.jpg' %}" alt="Image 3">
+            <!-- <img src="{% static 'core/images/Impact.jpg' %}" alt="Image 3"> -->
+
+            <img
+                sizes="(max-width: 3000px) 40vw, 1200px"
+                srcset="
+                {% static 'core/images/Impact_o0ufhw_c_scale,w_380.jpg' %} 380w,
+                {% static 'core/images/Impact_o0ufhw_c_scale,w_845.jpg' %} 845w,
+                {% static 'core/images/Impact_o0ufhw_c_scale,w_1200.jpg' %} 1200w"
+                src="{% static 'core/images/Impact_o0ufhw_c_scale,w_1200.jpg' %}"
+                alt="What we do. Outreach to promote data science literacy">
+
             <div class="caption">Outreach to promote data science literacy</div>
         </div>
         <div class="slide">
-            <img src="{% static 'core/images/Youth_Empowerment.jpg' %}" alt="Image 3">
+            <!-- <img src="{% static 'core/images/Youth_Empowerment.jpg' %}" alt="Image 3"> -->
+
+            <img
+                sizes="(max-width: 3000px) 40vw, 1200px"
+                srcset="
+                {% static 'core/images/Youth_Empowerment_jkvhzo_c_scale,w_380.jpg' %} 380w,
+                {% static 'core/images/Youth_Empowerment_jkvhzo_c_scale,w_982.jpg' %} 982w,
+                {% static 'core/images/Youth_Empowerment_jkvhzo_c_scale,w_1200.jpg' %} 1200w"
+                src="{% static 'core/images/Youth_Empowerment_jkvhzo_c_scale,w_1200.jpg' %}"
+                alt="What we do. Mentorship for emerging data scientists and professionals">
+
             <div class="caption">Mentorship for emerging data scientists and professionals</div>
         </div>
         <div class="slide">
-            <img src="{% static 'core/images/Data Science Adovacy_or_Outreach.png' %}" alt="Image 3">
+            <!-- <img src="{% static 'core/images/Data Science Adovacy_or_Outreach.png' %}" alt="Image 3"> -->
+
+            <img
+                sizes="(max-width: 3000px) 40vw, 1200px"
+                srcset="
+                {% static 'core/images/Data_Science_Adovacy_or_Outreach_yarjoq_c_scale,w_380.png' %} 380w,
+                {% static 'core/images/Data_Science_Adovacy_or_Outreach_yarjoq_c_scale,w_853.png' %} 853w,
+                {% static 'core/images/Data_Science_Adovacy_or_Outreach_yarjoq_c_scale,w_1200.png' %} 1200w"
+                src="{% static 'core/images/Data_Science_Adovacy_or_Outreach_yarjoq_c_scale,w_1200.png' %}"
+                alt="What we do. Advocacy for policies and regulations that support data science">
+
             <div class="caption">Advocacy for policies and regulations that support data science</div>
         </div>
     </div>
@@ -109,15 +168,15 @@
             <div class="impacts">
                 <div class="item">
                     <div><p>Created an inclusive environment where women can effectively leverage data, break barriers, and catalyze meaningful change. Our goal is to empower women to embrace new opportunities, challenge norms, and make a lasting impact through the transformative power of data.</p></div>
-                    <img src="{% static 'core/images/Youth_Empowerment.jpg' %}">
+                    <img src="{% static 'core/images/Youth_Empowerment.jpg' %}" alt="Impact, Women empowerment">
                 </div>
                 <div class="item">
-                    <img src="{% static 'core/images/Team_Solving _A problem.jpg' %}">
+                    <img src="{% static 'core/images/Team_Solving _A problem.jpg' %}" alt="Impact, community building">
                     <div><p>Built a strong and collaborative network that leverages data science expertise to address real-world challenges. By bringing together talented individuals and providing them with the necessary resources and support, we empower this community to make a tangible difference in various domains.</p></div>
                 </div>
                 <div class="item">
                     <div><p>By unlocking the potential of data, we gave individuals and organizations the tools, knowledge, and resources to harness the full potential of their data by enabling them to make informed decisions, gain valuable insights, and drive innovation.</p></div>
-                    <img src="{% static 'core/images/Data_ Skills Training.jpg' %}">
+                    <img src="{% static 'core/images/Data_ Skills Training.jpg' %}" alt="Impact, knowledge sharing">
                 </div>
             </div>
             <!-- <div class="button-container">
@@ -132,11 +191,10 @@
     <div class="blog">
         {% for article in articles %}
         <article>
-            <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
-                <!-- <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/> -->
-                <img class="feature_image" src="{% static 'core/images/D4AI_Webinar Poster Aug 2023.png' %}" >
+            <a href="{% url 'core:article' pk=article.id slug=article.slug %}" >
+                <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
             </a>
-            <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
+            <a href="{% url 'core:article' pk=article.id slug=article.slug %}" >
                 <div>
                     <h2>{{ article.title }}</h2>
                     <br>
@@ -152,13 +210,13 @@
         <div class="partners">
             <h1>Partners</h1>
             <div class="items">
-                <img src="{% static 'core/images/logo.png' %}" alt="">
-                <img src="{% static 'core/images/logo.png' %}" alt="">
-                <img src="{% static 'core/images/logo.png' %}" alt="">
-                <img src="{% static 'core/images/logo.png' %}" alt="">
-                <img src="{% static 'core/images/logo.png' %}" alt="">
-                <img src="{% static 'core/images/logo.png' %}" alt="">
-                <img src="{% static 'core/images/logo.png' %}" alt="">
+                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
+                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
+                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
+                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
+                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
+                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
+                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
             </div>
         </div>
     </div> -->
@@ -167,10 +225,10 @@
 {% endblock page %}
 
 {% block quicklinks %}
-<li><a href="{% url 'core:index' %}">Home</a></li>
-<li><a href="{% url 'core:about' %}">About Us</a></li>
+<li><a href="#home" aria-label="Home">Home</a></li>
+<li><a href="{% url 'core:about' %}" aria-label="About us">About Us</a></li>
 <!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
 <li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
-<li><a href="{% url 'core:blog' %}">News & Events</a></li>
-<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+<li><a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a></li>
+<li><a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a></li>
 {% endblock quicklinks %}

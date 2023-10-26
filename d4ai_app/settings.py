@@ -131,8 +131,6 @@ STATICFILES_DIRS = [
 
 # Media files (Images, Videos, etc.)
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = '/home/daiorg/public_html/media/'
 
 # Temporary files (e.g. uploaded files)
 TEMP = os.path.join(BASE_DIR, 'temp')

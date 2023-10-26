@@ -8,12 +8,12 @@
 {% endblock head %}
 
 {% block menu %}
-<a href="{% url 'core:index' %}">Home</a>
-<a href="{% url 'core:about' %}">About Us</a>
+<a href="{% url 'core:index' %}" aria-label="Home">Home</a>
+<a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
 <!-- <a href="{% url 'core:projects' %}">Projects</a>
 <a href="{% url 'core:involved' %}">Get Involved</a> -->
-<a href="{% url 'core:blog' %}">News & Events</a>
-<a href="{% url 'core:contact' %}">Contact Us</a>
+<a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+<a href="#contact" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
@@ -21,7 +21,7 @@
     <h1>Contact Us</h1>
 </div>
 
-<div class="contact">
+<div class="contact" id="contact">
     <form class="form" method="post">{% csrf_token %}
         <div>
             <span>Full name (required)</span>
@@ -32,23 +32,31 @@
             <input type="email" placeholder="Input text" name="email" required>
         </div>
         <div>
-            <span>Message (required)</span>
-            <textarea rows="10" name="message" required maxlength="500"></textarea>
+            <span id="message">Message (required)</span>
+            <textarea rows="10" name="message" required maxlength="500" type="text" aria-labelledby="message"></textarea>
         </div>
         <button type="submit" name="submit_contact">Submit</button>
     </form>
     <div class="map">
         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6517.398963637954!2d36.814221036169556!3d-1.2800722128957724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11aec18f7c01%3A0xbe22dd050e4d9d37!2sUniversity%20of%20Nairobi!5e0!3m2!1sen!2ske!4v1685097696814!5m2!1sen!2ske" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63821.79929184149!2d36.65052203647907!3d-1.2542032758542676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1edc7274635d%3A0x951e95c3042ce058!2sRungiri!5e0!3m2!1sen!2ske!4v1697557050454!5m2!1sen!2ske" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63821.79929184149!2d36.65052203647907!3d-1.2542032758542676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1edc7274635d%3A0x951e95c3042ce058!2sRungiri!5e0!3m2!1sen!2ske!4v1697557050454!5m2!1sen!2ske"
+        title="Location of Data for African Impact"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 {% endblock page %}
 
 {% block quicklinks %}
-<li><a href="{% url 'core:index' %}">Home</a></li>
-<li><a href="{% url 'core:about' %}">About Us</a></li>
+<li><a href="{% url 'core:index' %}" aria-label="Home">Home</a></li>
+<li><a href="{% url 'core:about' %}" aria-label="About us">About Us</a></li>
 <!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
 <li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
-<li><a href="{% url 'core:blog' %}">News & Events</a></li>
-<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+<li><a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a></li>
+<li><a href="#contact" aria-label="Contact Us">Contact Us</a></li>
 {% endblock quicklinks %}

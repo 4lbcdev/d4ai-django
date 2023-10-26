@@ -105,6 +105,7 @@
     height: 150px;
     border-radius: 50%;
     border: 1px #00000066 solid;
+    aspect-ratio: 1 / 1;
 }
 
 .about .team div img p {
