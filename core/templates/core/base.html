@@ -14,75 +14,27 @@
         </script>
 
         <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no >
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+        <link rel="canonical" href="https://www.d4ai.org/" />
+        <meta name="description" content="We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.">
+        <meta name="author" content="Data for African Impact"/>
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/apple-touch-icon.png' %}">
         <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicon-32x32.png' %}">
         <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicon-16x16.png' %}">
         <link rel="manifest" href="{% static 'core/site.webmanifest' %}">
-        <meta name="author" content="Data for African Impact"/>
-        <meta name="description" content="We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.">
-        <link rel="canonical" href="https://www.d4ai.org/" />
+
         <link rel="stylesheet" type="text/css" href="{% static 'core/styles/base.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/styles/header.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/styles/footer.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/styles/cookies.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/styles/drawer.css' %}">
 
         {% block head %}
         {% endblock head %}
         
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- <script type="text/javascript" src="{% static 'core/scripts/common.js' %}"></script> -->
-        <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Data for African Impact",
-              "url": "https://www.d4ai.org",
-              "description": "We are an organization dedicated to leveraging data and technology to drive positive change and empower communities across Africa.",
-              "logo": "https://www.d4ai.org/static/core/images/logo.png",
-              "keywords": "Africa, data, technology, data science",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Nairobi",
-                "addressLocality": "Nairobi City",
-                "addressRegion": "Nairobi County",
-                "postalCode": "",
-                "addressCountry": "Kenya"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "",
-                "contactType": "customer service"
-              }
-            }
-          </script>
+        <script type="text/javascript" src="{% static 'core/scripts/main.js' %}"></script>
+
         <script type="text/javascript">
             $(document).ready(function() {
-    
-                $('#nav').attr('src', "{% static 'core/images/menu_open.png' %}");
-                
-                // Click event handler for the image element
-                $('#nav').on('click', function() {
-                    var $img = $(this);
-                    var $drawer = $('.drawer');
-                    
-                    // Check the current src value
-                    if ($img.attr('src') === "{% static 'core/images/menu_open.png' %}") {
-                    // Change the src to the new image
-                    $img.attr('src', "{% static 'core/images/menu_close.png' %}");
-                    $drawer.css('display', 'flex');
-                    $drawer.css('display', '-webkit-flex');
-                    $drawer.css('display', '-ms-flexbox');
-                    // $drawer.show();
-                
-                    } else {
-                    // Change the src back to the original image
-                    $img.attr('src', "{% static 'core/images/menu_open.png' %}");
-                    $drawer.css('display', 'none');
-                    }
-                });
 
                 let message = $('.popmessage');
                 
@@ -119,15 +71,20 @@
         <header>
             <div class="header">
                 <div id="header_logo"></div>
-                <img id="nav"/>
+                <div class="hamburger">
+                    <input type="checkbox" id="menu-btn" class="menu-btn">
+                    <label for="menu-btn" class="menu-icon">
+                        <span class="navicon"></span>
+                    </label>
+                </div>
             </div>
             <div id="tagline">Transforming Africa Through Data</div>
         </header>
 
-        <div class="drawer">
+        <nav>
             {% block menu %}
             {% endblock menu %}
-        </div>
+        </nav>
 
         {% block page %}
         {% endblock page %}
@@ -178,20 +135,13 @@
             </div>
             <div class="footer">© 2023 Data for African Impact</div>
         </footer>
-        
-        <!-- <div class="cookies">
-            <img class="close" src="{% static 'core/images/menu_close.png' %}" >
-            <h3>About cookies on this site</h3>
-            <div class="container">
-                <p>Our websites require some cookies to function properly (required). In addition, other cookies may be used with your consent to analyze site usage, improve the user experience.</p>
-                <p>For more information, please review your <a>cookie preferences</a> options. By visiting our website, you agree to our processing of information as described in D4AI's privacy statement.</p>
-                <div>
-                    <button>Accept all</button>
-                    <button>Required only</button>
-                </div>
+        <div id="cookie-notice" class="cn-position">
+            <div class="cn-container">
+                <span class="cn-text">By using the D4AI website, you agree to the website <a href="#" aria-label="Terms" target="_blank">Terms</a>, the <a href="#" aria-label="Privacy Policy" target="_blank">Privacy Policy</a>, and the use of cookies.</span>
+                <span class="cn-button-container"><a class="cn-button" href="#" aria-label="Accept">Accept</a></span>
+                <span id="cn-close-notice" class="cn-close-icon"></span>
             </div>
-        </div> -->
-        
+        </div>      
     </body>
 </html>
 {% endspaceless %}

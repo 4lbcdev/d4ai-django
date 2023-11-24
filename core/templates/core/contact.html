@@ -24,16 +24,16 @@
 <div class="contact" id="contact">
     <form class="form" method="post">{% csrf_token %}
         <div>
-            <span>Full name (required)</span>
-            <input type="text" placeholder="Input text" name="full_name" required maxlength="200">
+            <label for="fname">Full Name (required)</label>
+            <input type="text" name="full_name" id="fname" required maxlength="200">
         </div>
         <div>
-            <span>Email address (required)</span>
-            <input type="email" placeholder="Input text" name="email" required>
+            <label for="contact-email">Email Address (required)</label>
+            <input type="email" name="email" id="contact-email" required>
         </div>
         <div>
-            <span id="message">Message (required)</span>
-            <textarea rows="10" name="message" required maxlength="500" type="text" aria-labelledby="message"></textarea>
+            <label id="message" for="contact-message">Message (required)</label>
+            <textarea rows="10" name="message" id="contact-message" required maxlength="500" type="text" aria-labelledby="message"></textarea>
         </div>
         <button type="submit" name="submit_contact">Submit</button>
     </form>

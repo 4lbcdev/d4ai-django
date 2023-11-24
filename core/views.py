@@ -82,7 +82,7 @@ def contact_view(request):
         if contact_form.is_valid():
             contact_form.save()
             messages.success(request, 'Your message has been sent successfully.')
-            subject = 'New message from d4ai.org'
+            subject = '[Website Notification] New message from contact form'
             message = f'Name: {contact_form.cleaned_data["full_name"]}\nEmail: {contact_form.cleaned_data["email"]}\nMessage: {contact_form.cleaned_data["message"]}'
             from_email = settings.DEFAULT_FROM_EMAIL
             recipient_list = [settings.EMAIL_HOST_USER]
