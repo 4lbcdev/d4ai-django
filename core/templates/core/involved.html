@@ -79,10 +79,6 @@
 {% endblock page %}
 
 {% block quicklinks %}
-<li><a href="{% url 'core:index' %}">Home</a></li>
-<li><a href="{% url 'core:about' %}">About Us</a></li>
-<!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
-<li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
-<li><a href="{% url 'core:blog' %}">News & Events</a></li>
-<li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+<a href="{% url 'core:about' %}" aria-label="About us">About us</a>
+<a href="{% url 'core:contact' %}" aria-label="Contact us">Contact us</a>
 {% endblock quicklinks %}

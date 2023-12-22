@@ -25,7 +25,6 @@
         <link rel="manifest" href="{% static 'core/site.webmanifest' %}">
 
         <link rel="stylesheet" type="text/css" href="{% static 'core/styles/base.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/styles/footer.css' %}">
 
         {% block head %}
         {% endblock head %}
@@ -34,8 +33,6 @@
         <script type="text/javascript" src="{% static 'core/scripts/main.js' %}"></script>
 
         <script type="text/javascript">
-            $(document).ready(function() {
-
                 let message = $('.popmessage');
                 
                 $(document).ready(function(){
@@ -52,14 +49,16 @@
                         $(this).parent().addClass('checked');
                     });
                 });
-            });
         </script>
     </head>
     <body>
         {% if messages %}
         {% for message in messages %}
         <div class="popmessage">
-            <p class="message">{{ message }}</p>
+            <section>
+                <img src="{% static 'core/assets/confirmed.svg' %}" alt="notification icon" >
+                <span class="message">{{ message }}</span>
+            </section>
         </div>
         {% endfor %}
         {% endif %}
@@ -70,7 +69,9 @@
         </noscript>
         <header>
             <div class="header">
-                <div id="header_logo"></div>
+                <a href="{% url 'core:index' %}" aria-label="Home">
+                    <div id="header_logo"></div>
+                </a>
                 <div class="hamburger">
                     <input type="checkbox" id="menu-btn" class="menu-btn">
                     <label for="menu-btn" class="menu-icon">
@@ -91,55 +92,53 @@
 
         <footer>
             <div class="container">
-                <div class="main">
-                    <div class="footer1">
-                        <img class="logo" src="{% static 'core/images/logo.png' %}" alt="D4AI Logo">
-                        <br>
-                        <div>Transforming Africa Through Data</div>
+                <div>
+                    <h3>About D4AI</h3>
+                    <div class="links">
+                        {% block quicklinks %}
+                        {% endblock quicklinks %}
                     </div>
-                    <div class="divider"></div>
-                    <div class="footer2">
-                        <h3>FIND US ON SOCIAL MEDIA</h3>
-                        <div class="social">
-                            <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank"><img src="{% static 'core/images/f_logo.png' %}" title="Facebook"/></a>
-                            <a href="https://www.twitter.com/" aria-label="X" target="_blank"><img src="{% static 'core/images/x_logo.png' %}" title="X"/></a>
-                            <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank"><img src="{% static 'core/images/l_logo.png' %}" title="LinkedIn"/></a>
-                        </div>
-                        <br><br>
-                        <h3>CONTACT D4AI</h3>
-                        <!-- <a href="tel:+254723713247">(+254)723713247</a> -->
-                        <!-- <br> -->
-                        <!-- <br> -->
-                        <a href="mailto:info@d4ai.org" aria-label="info@d4ai.org">info@d4ai.org</a>
-
+                    <br><br>
+                    <h3>Discover content</h3>
+                    <div class="links">
+                        <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+                        <a href="{% url 'core:projects' %}">Projects</a>
                     </div>
-                    <div class="divider"></div>
-                    <div class="footer3">
-                        <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
-                        <form class="subscribe" method="post">{% csrf_token %}
-                            <input type="text" placeholder="First name" name="first_name" required>
-                            <input type="text" placeholder="Last name" name="last_name" required>
-                            <input type="email" placeholder="Email address" name="email" required>
-                            <button type="submit" name="submit_subscribe">Sign up</button>
-                        </form>
+                </div>
+                <div>
+                    <h3>Professional development</h3>
+                    <div class="links">
+                        <a href="{% url 'core:involved' %}" aria-label="Get involved">D4AI Careers</a>
+                        <a href="{% url 'core:involved' %}" aria-label="Get involved">Get involved</a>
                     </div>
-                    <div class="divider"></div>
-                    <div class="footer4">
-                        <h3>QUICK LINKS</h3>
-                        <ul>
-                            {% block quicklinks %}
-                            {% endblock quicklinks %}
-                        </ul>
+                    <br><br>
+                    <h3>Stay connected</h3>
+                    <a href="mailto:info@d4ai.org" aria-label="info@d4ai.org">info@d4ai.org</a>
+                    <br><br>
+                    <div class="social">
+                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank"><img src="{% static 'core/images/f_logo.png' %}" title="Facebook"/></a>
+                        <a href="https://www.twitter.com/" aria-label="X" target="_blank"><img src="{% static 'core/images/x_logo.png' %}" title="X"/></a>
+                        <a href="https://www.linkedin.com/company/data-for-african-impact/" aria-label="LinkedIn" target="_blank"><img src="{% static 'core/images/l_logo.png' %}" title="LinkedIn"/></a>
                     </div>
+                </div>
+                <div class="divider"></div>
+                <div>
+                    <h3>Subscribe to our Newsletter</h3>
+                    <form method="post">{% csrf_token %}
+                        <input type="text" placeholder="First name" name="first_name" required>
+                        <input type="text" placeholder="Last name" name="last_name" required>
+                        <input type="email" placeholder="Email address" name="email" required>
+                        <button type="submit" name="submit_subscribe">Sign up</button>
+                    </form>
                 </div>
             </div>
             <div class="footer">© 2023 Data for African Impact</div>
         </footer>
         <div id="cookie-notice" class="cn-position">
             <div class="cn-container">
-                <span class="cn-text">By using the D4AI website, you agree to the website <a href="#" aria-label="Terms" target="_blank">Terms</a>, the <a href="#" aria-label="Privacy Policy" target="_blank">Privacy Policy</a>, and the use of cookies.</span>
+                <img class="cn-icon" src="{% static 'core/assets/cookie.svg' %}" alt="cookie icon" >
+                <span class="cn-text">By using this website, you agree to our use of cookies. We use cookies to provide you with a great experience and to help our website run effectively.</span>
                 <span class="cn-button-container"><a class="cn-button" href="#" aria-label="Accept">Accept</a></span>
-                <span id="cn-close-notice" class="cn-close-icon"></span>
             </div>
         </div>      
     </body>

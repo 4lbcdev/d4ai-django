@@ -53,10 +53,6 @@
 {% endblock page %}
 
 {% block quicklinks %}
-<li><a href="{% url 'core:index' %}" aria-label="Home">Home</a></li>
-<li><a href="{% url 'core:about' %}" aria-label="About us">About Us</a></li>
-<!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
-<li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
-<li><a href="#blog" aria-label="News & events">News & Events</a></li>
-<li><a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a></li>
+<a href="{% url 'core:about' %}" aria-label="About us">About us</a>
+<a href="{% url 'core:contact' %}" aria-label="Contact us">Contact us</a>
 {% endblock quicklinks %}

@@ -25,10 +25,10 @@
     <img
         sizes="(max-width: 3000px) 40vw, 1200px"
         srcset="
-        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_380.jpg' %} 380w,
-        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_887.jpg' %} 887w,
-        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_1200.jpg' %} 1200w"
-        src="{% static 'core/images/HomePage_banner_qbtci7_c_scale,w_1200.jpg' %}"
+        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_887.jpg' %} 380w,
+        {% static 'core/images/HomePage_banner_qbtci7_c_scale,w_1200.jpg' %} 887w,
+        {% static 'core/images/HomePage_banner.jpg' %} 1200w"
+        src="{% static 'core/images/HomePage_banner.jpg' %}"
         alt="Homepage banner">
     
     <div class="inner">
@@ -40,7 +40,9 @@
                     <p>Through our programs and impactful initiatives, we seek to bridge the digital divide, foster data literacy, and address pressing challenges faced by African communities.</p>
                     <p>By harnessing the power of data, we are dedicated to creating a more inclusive and prosperous future for Africa, where data-driven solutions drive positive change and innovation.</p>
                 </div>
-                <button class="read-more-button">Read More</button>
+                <div class="button-container">
+                    <button class="read-more-button">Read More</button>
+                </div>
             </div>
         </section>
     </div>
@@ -187,10 +189,6 @@
 {% endblock page %}
 
 {% block quicklinks %}
-<li><a href="#home" aria-label="Home">Home</a></li>
-<li><a href="{% url 'core:about' %}" aria-label="About us">About Us</a></li>
-<!-- <li><a href="{% url 'core:projects' %}">Projects</a></li>
-<li><a href="{% url 'core:involved' %}">Get Involved</a></li> -->
-<li><a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a></li>
-<li><a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a></li>
+<a href="{% url 'core:about' %}" aria-label="About us">About us</a>
+<a href="{% url 'core:contact' %}" aria-label="Contact us">Contact us</a>
 {% endblock quicklinks %}
