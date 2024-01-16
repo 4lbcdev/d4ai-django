@@ -6,6 +6,7 @@ from core.utils import send_email
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
+from django.http import HttpResponse
 from django.urls import reverse
 from django.conf import settings
 
@@ -23,6 +24,9 @@ def handle_subscribe_form(request, redirect_url):
 def home_view(request):
     """Home page view."""
     context = {}
+    cookie_accepted = request.COOKIES.get('cookie_accepted')
+    if not cookie_accepted:
+        context['cookie_accepted'] = cookie_accepted
     context['articles'] = Article.objects.filter(status='P')[0:4]
     # Handle subscribe form
     handle_subscribe_form(request, 'core:index')
