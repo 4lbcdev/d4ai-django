@@ -1,6 +1,5 @@
 $(document).ready(function () {
-
-// ##############################  Cookie modal  #######################################
+  // ##############################  Cookie modal  #######################################
   var cookieNotice = document.getElementById('cookie-notice');
   if (cookieNotice) {
       setTimeout(function () {
@@ -15,7 +14,7 @@ $(document).ready(function () {
       cookieNotice.style.display = 'none';
   });
 
-// ##############################  Navigation  #######################################
+  // ##############################  Navigation  #######################################
   $('.menu-btn').change(function () {
     if ($(this).is(':checked')) {
       $('nav').css('display', 'flex');
@@ -24,7 +23,7 @@ $(document).ready(function () {
     }
   });
 
-// ##############################  Messages  #######################################
+  // ##############################  Messages PopUp #######################################
   let message = $('.popmessage');
 
   message.fadeIn(2000)
@@ -32,7 +31,7 @@ $(document).ready(function () {
     message.fadeOut(2000)
   }, 6000);
 
-// ##############################  Homepage Vision Slider  #######################################
+  // ##############################  Homepage - Vision Section Slider  #######################################
   var slides = $('.slider .slide');
   var currentIndex = 0;
 
@@ -59,12 +58,34 @@ $(document).ready(function () {
     currentIndex = (currentIndex + 1) % slides.length;
   }, 6000);
 
-// ##############################  Read More Button  #######################################
+  // ##############################  Read More Button  #######################################
   $('#about_more').hide();
   $('.read-more-button').click(function () {
     $('#about_more').fadeIn(3000);
     $('.read-more-button').hide();
   });
+
+  // ##############################  Footer Subscribe Form  #######################################
+  // Check if the email is valid
+  function isValidEmail(email) {
+    // Regular expression for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function checkInputs() {
+    const firstNameValue = $('#firstName').val().trim();
+    const lastNameValue = $('#lastName').val().trim();
+    const emailValue = $('#email').val().trim();
+
+    const isEmailValid = isValidEmail(emailValue);
+
+    // Enable the button if all fields are filled, otherwise disable it
+    $('#subscribeSubmitButton').prop('disabled', firstNameValue === '' || lastNameValue === '' || emailValue === '' || !isEmailValid);
+  }
+  // Add event listeners to input fields to check inputs whenever they change
+  $('#firstName, #lastName, #email').on('input', checkInputs);
+  checkInputs();
 });
 
 

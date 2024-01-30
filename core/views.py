@@ -86,8 +86,8 @@ def contact_view(request):
         if contact_form.is_valid():
             contact_form.save()
             messages.success(request, 'Your message has been sent successfully.')
-            subject = '[Website Notification] New message from contact form'
-            message = f'Name: {contact_form.cleaned_data["full_name"]}\nEmail: {contact_form.cleaned_data["email"]}\nMessage: {contact_form.cleaned_data["message"]}'
+            subject = f'New message from {contact_form.cleaned_data["full_name"]}'
+            message = f'Name: {contact_form.cleaned_data["full_name"]}\nEmail: {contact_form.cleaned_data["email"]}\nMessage: {contact_form.cleaned_data["message"]}\n\n---------------------------------------------------------------------\nThis is a copy of a message sent to you on the site D4AI.'
             from_email = settings.DEFAULT_FROM_EMAIL
             recipient_list = [settings.EMAIL_HOST_USER]
             # try:

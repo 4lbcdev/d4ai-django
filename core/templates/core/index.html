@@ -5,8 +5,6 @@
 {% block head %}
 <title>Home | Data for African Impact</title>
 <link rel="stylesheet" type="text/css" href="{% static 'core/styles/index.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'core/styles/blog.css' %}">
-
 {% endblock head %}
 
 {% block menu %}
@@ -144,30 +142,23 @@
             <!-- <div class="button-container">
                 <a href="{% url 'core:projects' %}">SEE IMPACT STORIES -></a>
             </div> -->
-              
         </div>
     </div>
 
     {% if articles %}
-    <div class="inner">
-        <h1 style="text-align: center; margin: 8vh 0;">Latest News</h1>
-    </div>  
-    <div class="blog">
-        {% for article in articles %}
-        <article>
-            <a href="{% url 'core:article' pk=article.id slug=article.slug %}" >
-                <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
-            </a>
-            <a href="{% url 'core:article' pk=article.id slug=article.slug %}" >
-                <div>
-                    <h2>{{ article.title }}</h2>
-                    <br>
-                    <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
-                </div>
-            </a>
-        </article>
-        {% endfor %}
-    </div>
+        <div class="inner">
+            <h1 style="text-align: center; margin: 8vh 0;">Latest News</h1>
+        </div>  
+        <div class="news">
+            {% for article in articles %}
+                <a class="item" href="{% url 'core:article' pk=article.id slug=article.slug %}" >
+                    <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
+                    <div class="deets">
+                        <span>{{ article.title }}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     {% endif %}
 
     <!-- <div class="inner">

@@ -71,24 +71,12 @@
         <footer>
             <div class="container">
                 <div>
-                    <h3>About D4AI</h3>
-                    <div class="links">
-                        {% block quicklinks %}
-                        {% endblock quicklinks %}
-                    </div>
+                    <div id="footer_logo"></div>
                     <br><br>
-                    <h3>Discover content</h3>
-                    <div class="links">
-                        <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
-                        <a href="{% url 'core:projects' %}">Projects</a>
-                    </div>
-                </div>
-                <div>
-                    <h3>Professional development</h3>
-                    <div class="links">
-                        <a href="{% url 'core:involved' %}" aria-label="Get involved">D4AI Careers</a>
-                        <a href="{% url 'core:involved' %}" aria-label="Get involved">Get involved</a>
-                    </div>
+                    <address>
+                        <span>Ziwani Estate, Kiambu County, Kenya</span>
+                    </address>
+                    
                     <br><br>
                     <h3>Stay connected</h3>
                     <a href="mailto:info@d4ai.org" aria-label="info@d4ai.org">info@d4ai.org</a>
@@ -102,12 +90,33 @@
                 <div class="divider"></div>
                 <div>
                     <h3>Subscribe to our Newsletter</h3>
-                    <form method="post">{% csrf_token %}
-                        <input type="text" placeholder="First name" name="first_name" required>
-                        <input type="text" placeholder="Last name" name="last_name" required>
-                        <input type="email" placeholder="Email address" name="email" required>
-                        <button type="submit" name="submit_subscribe">Sign up</button>
+                    <form method="post" id="subscribeForm">
+                        {% csrf_token %}
+                        <input type="text" placeholder="First name" name="first_name" id="firstName" required>
+                        <input type="text" placeholder="Last name" name="last_name" id="lastName" required>
+                        <input type="email" placeholder="Email address" name="email" id="email" required>
+                        <button type="submit" name="submit_subscribe" id="subscribeSubmitButton" disabled>Sign up</button>
                     </form>
+                </div>
+                <div class="divider"></div>
+                <div>
+                    <h3>About D4AI</h3>
+                    <div class="links">
+                        {% block quicklinks %}
+                        {% endblock quicklinks %}
+                    </div>
+                    <br><br>
+                    <h3>Discover content</h3>
+                    <div class="links">
+                        <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+                        <a href="{% url 'core:projects' %}">Projects</a>
+                    </div>
+                    <br><br>
+                    <h3>Professional development</h3>
+                    <div class="links">
+                        <a href="{% url 'core:involved' %}" aria-label="Get involved">D4AI Careers</a>
+                        <a href="{% url 'core:involved' %}" aria-label="Get involved">Get involved</a>
+                    </div>
                 </div>
             </div>
             <div class="footer">© 2023 Data for African Impact</div>

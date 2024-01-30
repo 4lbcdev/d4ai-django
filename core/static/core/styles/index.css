@@ -30,7 +30,7 @@ HOME SECTION
     text-transform: uppercase;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 988px) {
     .home .inner {
         padding: 0 3vw;
     }
@@ -277,6 +277,65 @@ IMPACT SECTION
         text-align: center;
     }
 }
+
+/* ====================================================================================
+
+NEWS SECTION
+
+=======================================================================================*/
+
+.news {
+    margin: 0 19vw;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    display: -webkit-grid;
+    -webkit-grid-template-columns: 2fr 1fr 1fr;
+    display: -ms-grid;
+    -ms-grid-columns: 2fr 1fr 1fr;
+    gap: 1rem;
+}
+
+@media only screen and (max-width: 988px) {
+    .news { margin: 0 3vw; }
+}
+
+.news .item {
+    position: relative;
+}
+
+.news .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.news .item .deets {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--red);
+    padding: 20px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+/* @media only screen and (min-width: 768px) and (max-width: 960px) {
+} */
+
+@media only screen and (max-width: 767px) {
+    .news {
+        grid-template-columns: 1fr;
+        -webkit-grid-template-columns: 1fr;
+        -ms-grid-columns: 1fr;
+    }
+    .news .item .deets {
+        width: calc(100% - 40px);
+    }
+    .news .item span:hover {
+        color: #000000;
+    }
+}
+
 
 /* ====================================================================================
 
