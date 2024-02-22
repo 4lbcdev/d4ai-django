@@ -74,17 +74,17 @@ $(document).ready(function () {
   }
 
   function checkInputs() {
-    const firstNameValue = $('#firstName').val().trim();
-    const lastNameValue = $('#lastName').val().trim();
+    // const firstNameValue = $('#firstName').val().trim();
+    // const lastNameValue = $('#lastName').val().trim();
     const emailValue = $('#email').val().trim();
 
     const isEmailValid = isValidEmail(emailValue);
 
     // Enable the button if all fields are filled, otherwise disable it
-    $('#subscribeSubmitButton').prop('disabled', firstNameValue === '' || lastNameValue === '' || emailValue === '' || !isEmailValid);
+    $('#subscribeSubmitButton').prop('disabled', emailValue === '' || !isEmailValid);
   }
   // Add event listeners to input fields to check inputs whenever they change
-  $('#firstName, #lastName, #email').on('input', checkInputs);
+  $('#email').on('input', checkInputs);
   checkInputs();
 });
 

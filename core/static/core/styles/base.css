@@ -327,12 +327,12 @@ nav a:hover {
 ========================================================================== */
 
 footer {
-    background: #01324b;
+    background: rgb(242, 242, 242);
     margin-top: 2rem;
 }
 
 footer > p, a, h3, span {
-    color: #FFFFFF;
+    color: #000000;
 }
 
 footer h3 {
@@ -342,6 +342,54 @@ footer h3 {
 footer a {
     text-decoration: underline;
 }
+
+footer .subscribe-container {
+    background-color: var(--green);
+    padding: 20px 8px;
+    text-align: center;
+}
+
+footer .subscribe-container h3 {
+    color: #FFFFFF;
+}
+
+footer form {
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    margin: auto;
+    gap: 14px;
+}
+
+footer form input {
+    background-color: #FFFFFF;
+    border: none;
+    border-bottom: 1px #FFFFFF solid;
+    color: #FFFFFF;
+    width: calc(100% - 8px);
+    width: -webkit-calc(100% - 8px);
+    width: -ms-calc(100% - 8px);
+    font-size: 14px;
+    padding: 2px 4px;
+}
+
+footer form button {
+    width: 100%;
+    background-color: var(--blue);
+    border: none;
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 4px 0px;
+    cursor: pointer;
+}
+
+footer form button:disabled {
+    background-color: var(--button-disabled);
+    cursor: not-allowed; 
+}
+
 
 footer .container {
     display: flex;
@@ -380,10 +428,6 @@ footer .social img {
     padding: 8px;
 }
 
-footer .social img:hover {
-    background-color: var(--green);
-}
-
 footer .links {
     display: grid;
     display: -webkit-grid;
@@ -392,44 +436,6 @@ footer .links {
     -webkit-grid-template-columns: 1fr;
     -ms-grid-columns: 1fr;
     gap: 0.5rem;
-}
-
-footer form {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    display: -webkit-grid;
-    -webkit-grid-template-columns: 1fr;
-    display: -ms-grid;
-    -ms-grid-columns: 1fr;
-    gap: 14px;
-}
-
-footer form input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px #FFFFFF solid;
-    color: #FFFFFF;
-    width: calc(100% - 8px);
-    width: -webkit-calc(100% - 8px);
-    width: -ms-calc(100% - 8px);
-    font-size: 14px;
-    padding: 2px 4px;
-}
-
-footer form button {
-    width: 100%;
-    background-color: var(--blue);
-    border: none;
-    font-size: 14px;
-    color: #FFFFFF;
-    padding: 4px 0px;
-    cursor: pointer;
-}
-
-footer form button:disabled {
-    background-color: var(--button-disabled);
-    cursor: not-allowed; 
 }
 
 footer .divider {
@@ -441,7 +447,7 @@ footer .divider {
 
 .footer {
     width: 100vw;
-    color: #FFFFFF;
+    color: #000000;
     font-size: 14px;
     text-align: center;
     padding: 2vh 0;
@@ -526,6 +532,7 @@ footer .divider {
     text-decoration: none;
     border-bottom: 1px dashed var(--color-white);
     padding-bottom: 0.2rem;
+    color: var(--blue);
 }
 
 @media only screen and (max-width: 810px) {

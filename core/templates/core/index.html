@@ -151,12 +151,14 @@
         </div>  
         <div class="news">
             {% for article in articles %}
-                <a class="item" href="{% url 'core:article' pk=article.id slug=article.slug %}" >
+            <div class="item">
+                <a href="{% url 'core:article' pk=article.id slug=article.slug %}" >
                     <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
                     <div class="deets">
                         <span>{{ article.title }}</span>
                     </div>
                 </a>
+            </div>
             {% endfor %}
         </div>
     {% endif %}

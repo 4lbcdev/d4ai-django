@@ -301,6 +301,7 @@ NEWS SECTION
 
 .news .item {
     position: relative;
+    overflow: hidden;
 }
 
 .news .item img {
@@ -316,7 +317,7 @@ NEWS SECTION
     background-color: var(--red);
     padding: 20px;
     text-transform: uppercase;
-    width: 100%;
+    /* width: 100%; */
 }
 
 /* @media only screen and (min-width: 768px) and (max-width: 960px) {

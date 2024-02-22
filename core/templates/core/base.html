@@ -69,6 +69,16 @@
         {% endblock page %}
 
         <footer>
+            <div class="subscribe-container">
+                <h3>Subscribe to our Newsletter</h3>
+                <form method="post" id="subscribeForm">
+                    {% csrf_token %}
+                    <!-- <input type="text" placeholder="First name" name="first_name" id="firstName" required> -->
+                    <!-- <input type="text" placeholder="Last name" name="last_name" id="lastName" required> -->
+                    <input type="email" placeholder="Email address" name="email" id="email" required>
+                    <button type="submit" name="submit_subscribe" id="subscribeSubmitButton" disabled>Sign up</button>
+                </form>
+            </div>
             <div class="container">
                 <div>
                     <div id="footer_logo"></div>
@@ -82,21 +92,10 @@
                     <a href="mailto:info@d4ai.org" aria-label="info@d4ai.org">info@d4ai.org</a>
                     <br><br>
                     <div class="social">
-                        <a href="https://www.facebook.com/d4aiafrica" aria-label="Facebook" target="_blank"><img src="{% static 'core/images/f_logo.png' %}" title="Facebook"/></a>
-                        <a href="https://www.twitter.com/d4aiafrica" aria-label="X" target="_blank"><img src="{% static 'core/images/x_logo.png' %}" title="X"/></a>
-                        <a href="https://www.linkedin.com/company/data-for-african-impact/" aria-label="LinkedIn" target="_blank"><img src="{% static 'core/images/l_logo.png' %}" title="LinkedIn"/></a>
+                        <a href="https://www.facebook.com/d4aiafrica" aria-label="Facebook" target="_blank"><img src="{% static 'core/assets/Facebook_Logo.png' %}" title="Facebook"/></a>
+                        <a href="https://www.twitter.com/d4aiafrica" aria-label="X" target="_blank"><img src="{% static 'core/assets/x-logo-black.png' %}" title="X"/></a>
+                        <a href="https://www.linkedin.com/company/data-for-african-impact/" aria-label="LinkedIn" target="_blank"><img src="{% static 'core/assets/LinkedIn.png' %}" title="LinkedIn"/></a>
                     </div>
-                </div>
-                <div class="divider"></div>
-                <div>
-                    <h3>Subscribe to our Newsletter</h3>
-                    <form method="post" id="subscribeForm">
-                        {% csrf_token %}
-                        <input type="text" placeholder="First name" name="first_name" id="firstName" required>
-                        <input type="text" placeholder="Last name" name="last_name" id="lastName" required>
-                        <input type="email" placeholder="Email address" name="email" id="email" required>
-                        <button type="submit" name="submit_subscribe" id="subscribeSubmitButton" disabled>Sign up</button>
-                    </form>
                 </div>
                 <div class="divider"></div>
                 <div>
