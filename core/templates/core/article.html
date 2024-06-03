@@ -11,23 +11,22 @@
 {% block menu %}
 <a href="{% url 'core:index' %}" aria-label="Home">Home</a>
 <a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a> -->
+<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+<a href="{% url 'core:involved' %}">Join Us</a>
 <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
 <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
-<div class="title">
+<!-- <div class="title">
     <h1>News & Events</h1>
-</div>
+</div> -->
 
 <article class="post">
     <h1>{{ article.title }}</h1>
     <br>
     <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
-    <br><br>
-    <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
+    <br>
     <div class="post-share">
         <h4>Share this article</h4>
         <div class="share-icons">
@@ -45,6 +44,8 @@
             </a>
         </div>
     </div>
+    <br><br>
+    <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
     <div class="content">
         {{ article.content | safe }}
     </div>

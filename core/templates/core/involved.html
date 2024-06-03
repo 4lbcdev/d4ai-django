@@ -10,72 +10,69 @@
 {% block menu %}
 <a href="{% url 'core:index' %}">Home</a>
 <a href="{% url 'core:about' %}">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a> -->
+<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+<a href="#involved">Join Us</a>
 <a href="{% url 'core:blog' %}">News & Events</a>
 <a href="{% url 'core:contact' %}">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
-<div class="title">
-    <h1>Get Involved</h1>
+<div class="title" id="involved">
+    <h1>Get Involved With D4AI</h1>
 </div>
 
-<div class="section">
-    <h1>Volunteer Form</h1>
-    <div class="contact">
-        <form method="post">{% csrf_token %}
-            <div>
-                <span>Full name (required)</span>
-                <input type="text" placeholder="Input text" name="full_name" required maxlength="200">
-            </div>
-            <div>
-                <span>Email address (required)</span>
-                <input type="email" placeholder="Input text" name="email" required>
-            </div>
-            <div>
-                <span>Area of Interest (required)</span>
-                <input type="text" placeholder="Input text" name="area_of_interest" required>
-            </div>
-            <div>
-                <span>Tell us a little about yourself</span>
-                <textarea rows="10" name="about_me" required maxlength="800"></textarea>
-            </div>
-            <button type="submit" name="submit_volunteer">Submit</button>
-        </form>
-    </div>
+<div class="page">    
+    <section id="careers">
+        <h1>Careers</h1>
+        <p>No open positions</p>
+    </section>
+    
+    <section id="volunteer">
+        <h1>Become a Volunteer</h1>
+        <div class="contact">
+            <form method="post">{% csrf_token %}
+                <div>
+                    <span>Full name (required)</span>
+                    <input type="text" placeholder="Input text" name="full_name" required maxlength="200">
+                </div>
+                <div>
+                    <span>Email address (required)</span>
+                    <input type="email" placeholder="Input text" name="email" required>
+                </div>
+                <div>
+                    <span>Area of Interest (required)</span>
+                    <input type="text" placeholder="Input text" name="area_of_interest" required>
+                </div>
+                <div>
+                    <span>Tell us a little about yourself</span>
+                    <textarea rows="10" name="about_me" required maxlength="800"></textarea>
+                </div>
+                <button type="submit" name="submit_volunteer">Submit</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- <section>
+        <h1>Support us</h1>
+        <div class="involved">
+            <p>Contribute to the work of D4AI in leveraging data and technology to drive positive change and empower communities across Africa.</p>
+            <br><br><br>
+            <h2>Donate</h2>
+            <br>
+            <p>There are many ways to support D4AI and to be a part of our mission. Whichever way you decide to support us, we can assure you that all your contributions will help keep the future bright.</p>
+            <br>
+            <p>Donating is easy and hassle-free - select the option below that suits you best. Asante sana!</p>
+            <br>
+            <p>Donation forms are available based on your geographical location. We ask that you select the form that is most suitable to you or reach out if you have any questions</p>
+            <br><br>
+            <h3 style="color: #000000;">Via Mpesa</h3>
+            <p>M-PESA: Lipa na Mpesa</p>
+            <p>Paybill Number: 12345</p>
+            <p>Account: DONATE</p>
+            <br><br>
+        </div>
+    </section> -->
 </div>
-
-<div class="divider"></div>
-
-<!-- <div class="section">
-    <h1>Support us</h1>
-    <div class="involved">
-        <p>Contribute to the work of D4AI in leveraging data and technology to drive positive change and empower communities across Africa.</p>
-        <br><br><br>
-        <h2>Donate</h2>
-        <br>
-        <p>There are many ways to support D4AI and to be a part of our mission. Whichever way you decide to support us, we can assure you that all your contributions will help keep the future bright.</p>
-        <br>
-        <p>Donating is easy and hassle-free - select the option below that suits you best. Asante sana!</p>
-        <br>
-        <p>Donation forms are available based on your geographical location. We ask that you select the form that is most suitable to you or reach out if you have any questions</p>
-        <br><br>
-        <h3 style="color: #000000;">Via Mpesa</h3>
-        <p>M-PESA: Lipa na Mpesa</p>
-        <p>Paybill Number: 12345</p>
-        <p>Account: DONATE</p>
-        <br><br>
-    </div>
-</div> -->
-
-<!-- <div class="title">
-    <h1>Join the Team</h1>
-</div>
-
-<div class="join">
-    <p>No open positions</p>
-</div> -->
 {% endblock page %}
 
 {% block quicklinks %}

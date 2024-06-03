@@ -16,7 +16,7 @@ HOME SECTION
 .inner h1 {
     color: #000000;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     margin-bottom: 8vh;
 }
 
@@ -27,7 +27,7 @@ HOME SECTION
 .fw h1 {
     color: #000000;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 @media only screen and (max-width: 988px) {
@@ -318,6 +318,17 @@ NEWS SECTION
     padding: 20px;
     text-transform: uppercase;
     /* width: 100%; */
+}
+
+.news .item .deets span {
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.news .item .deets span:hover {
+    color: #FFFFFF;
 }
 
 /* @media only screen and (min-width: 768px) and (max-width: 960px) {

@@ -10,15 +10,15 @@
 {% block menu %}
 <a href="{% url 'core:index' %}" aria-label="Home" >Home</a>
 <a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a> -->
+<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+<a href="{% url 'core:involved' %}">Join Us</a>
 <a href="#blog" aria-label="News & events">News & Events</a>
 <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
 <div class="title">
-    <h1>News & Events</h1>
+    <h1>D4AI News</h1>
 </div>
 
 {% if articles %}
@@ -26,18 +26,18 @@
     {% for article in articles %}
     <article>
         <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
-            <img class="feature_image" src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
+            <img src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
         </a>
         <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
             <div>
                 <h2>{{ article.title }}</h2>
-                <br>
+                <!-- <br>
                 {% if article.extract %}
                 <div>{{ article.extract }}</div>
                 {% else %}
                 <div>{{ article.content | safe | truncatewords:20 }}</div>
                 {% endif %}
-                <br>
+                <br> -->
                 <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
             </div>
         </a>

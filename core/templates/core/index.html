@@ -10,8 +10,8 @@
 {% block menu %}
 <a href="#home" aria-label="Home" >Home</a>
 <a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a>
-<a href="{% url 'core:involved' %}">Get Involved</a> -->
+<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+<a href="{% url 'core:involved' %}">Join Us</a>
 <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
 <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
@@ -46,7 +46,7 @@
     </div>
 
     <div class="inner">
-        <h1 style="text-align: center; text-transform: uppercase;">Chasing our vision of a data-driven Africa</h1>
+        <h1 style="text-align: center;">Chasing Our Vision of a Data-Driven Africa</h1>
     </div>
 
     <div class="slider">
@@ -147,7 +147,7 @@
 
     {% if articles %}
         <div class="inner">
-            <h1 style="text-align: center; margin: 8vh 0;">Latest News</h1>
+            <h1 style="text-align: center; margin: 8vh 0;">Featured News</h1>
         </div>  
         <div class="news">
             {% for article in articles %}

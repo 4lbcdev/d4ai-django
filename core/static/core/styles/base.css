@@ -55,10 +55,6 @@ body {
     color: #FFFFFF;
 }
 
-h1 {
-    text-transform: uppercase;
-}
-
 @media only screen and (max-width: 720px) {
     .title {
         padding: 8% 0;
@@ -363,11 +359,10 @@ footer form {
     gap: 14px;
 }
 
-footer form input {
-    background-color: #FFFFFF;
+footer #subscribeForm input {
     border: none;
-    border-bottom: 1px #FFFFFF solid;
-    color: #FFFFFF;
+    border-radius: 4px;
+    color: #000000;
     width: calc(100% - 8px);
     width: -webkit-calc(100% - 8px);
     width: -ms-calc(100% - 8px);
