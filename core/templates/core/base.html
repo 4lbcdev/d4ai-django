@@ -72,8 +72,7 @@
                 <h3>Subscribe to our Newsletter</h3>
                 <form method="post" id="subscribeForm">
                     {% csrf_token %}
-                    {#<input type="text" placeholder="First name" name="first_name" id="firstName" required>
-                    <input type="text" placeholder="Last name" name="last_name" id="lastName" required>#}
+                    {#<input type="text" placeholder="First name" name="first_name" id="firstName" required><input type="text" placeholder="Last name" name="last_name" id="lastName" required>#}
                     <input type="email" placeholder="Email address" name="email" id="email" required>
                     <button type="submit" name="submit_subscribe" id="subscribeSubmitButton" disabled>Sign up</button>
                 </form>
@@ -107,7 +106,7 @@
                     <h3>Discover content</h3>
                     <div class="links">
                         <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
-                        <a href="{% url 'core:projects' %}">Projects</a>
+                        {# <a href="{% url 'core:projects' %}">Projects</a> #}
                     </div>
                     <br><br>
                     <h3>Professional development</h3>
