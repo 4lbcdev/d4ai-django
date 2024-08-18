@@ -9,7 +9,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-06HXZLTFRH');
         </script>
 
@@ -73,8 +72,8 @@
                 <h3>Subscribe to our Newsletter</h3>
                 <form method="post" id="subscribeForm">
                     {% csrf_token %}
-                    <!-- <input type="text" placeholder="First name" name="first_name" id="firstName" required> -->
-                    <!-- <input type="text" placeholder="Last name" name="last_name" id="lastName" required> -->
+                    {#<input type="text" placeholder="First name" name="first_name" id="firstName" required>
+                    <input type="text" placeholder="Last name" name="last_name" id="lastName" required>#}
                     <input type="email" placeholder="Email address" name="email" id="email" required>
                     <button type="submit" name="submit_subscribe" id="subscribeSubmitButton" disabled>Sign up</button>
                 </form>

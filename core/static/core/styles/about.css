@@ -1,14 +1,31 @@
 .about {
     padding: 0 19vw;
-    text-align: center;
+    margin: 24px 0;
 }
 
-.about > h1 {
-    text-align: center;
-    padding: 6vh 0;
+.about .entry-content {
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
 }
 
-.about div p {
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+section span {
+    font-size: 4em;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+}
+
+section div p {
     padding: 1vh;
 }
 
@@ -74,7 +91,7 @@
     color: #000000;
 }
 
-.about .team {
+.team {
     display: flex;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -82,35 +99,29 @@
     justify-content: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
+    gap: 30px 20px;
 }
 
-.about .team div {
-    margin: 20px;
-    max-width: 370px;
+.team-member {
+    max-width: 375px;
     display: flex;
     display: -webkit-flex;
     display: -ms-flexbox;
     flex-direction: column;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
-    align-items: center;
-    -webkit-align-items: center;
-    -webkit-flex-align: center;
-    -ms-flex-align: center;
+    align-items: left;
+    -webkit-align-items: left;
+    -webkit-flex-align: left;
+    -ms-flex-align: left;
+    gap: 20px;
 }
 
-.about .team div img {
-    margin-bottom: 10px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 1px #00000066 solid;
+.team div img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
     aspect-ratio: 1 / 1;
-}
-
-.about .team div img p {
-    padding-top: 10px;
-    color: #000000;
 }
 
 @media only screen and (max-width: 960px) {
@@ -118,8 +129,8 @@
         padding: 0 3vw;
     }
 
-    .title {
-        padding: 3vh 0;
+    section {
+        grid-template-columns: 1fr;
     }
     
     .about .about1 {
@@ -132,20 +143,5 @@
         width: calc(100vw - 6vw);
         width: -webkit-calc(100vw - 6vw);
         width: -ms-calc(100vw - 6vw);
-    }
-
-    .about .team {
-        display: flex;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-	    flex-wrap: wrap;
-        justify-content: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-    }
-
-    .about .team div img {
-        width: 100px;
-        height: 100px;
     }
 }

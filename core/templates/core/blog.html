@@ -10,38 +10,41 @@
 {% block menu %}
 <a href="{% url 'core:index' %}" aria-label="Home" >Home</a>
 <a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+{# <a href="{% url 'core:projects' %}">Projects</a> #}
 <a href="{% url 'core:involved' %}">Join Us</a>
 <a href="#blog" aria-label="News & events">News & Events</a>
 <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
-<div class="title">
-    <h1>D4AI News</h1>
-</div>
 
-{% if articles %}
+
 <div class="blog" id="blog">
-    {% for article in articles %}
-    <article>
-        <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
-            <img src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
-        </a>
-        <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
-            <div>
-                <h2>{{ article.title }}</h2>
-                <!-- <br>
-                {% if article.extract %}
-                <div>{{ article.extract }}</div>
-                {% else %}
-                <div>{{ article.content | safe | truncatewords:20 }}</div>
-                {% endif %}
-                <br> -->
-                <div class="meta">Written by {{ article.writer }} | {{ article.publishdate }}</div>
-            </div>
-        </a>
-    </article>
+    <div>
+        <h3>TO RECEIVE D4AI NEWS</h3>
+        <br>
+        <p>D4AI news and other information are available automatically by sending an e-mail to <span>news-join@d4ai.org</span> (no subject or text in the body is required).</p>
+        <br>
+        <p>To unsubscribe from the list, send an e-mail message to <span>news-leave@d4ai.org</span> (no subject or text in the body is required).</p>
+    </div>
+    {% if articles %}
+    <br><br><br>
+    <h1>D4AI News</h1>
+    <section>
+        {% for article in articles %}
+        <article>
+            <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
+                <img src="{{ article.featureimage.url }}" alt="{{ article.title }}"/>
+            </a>
+            <a href="{% url 'core:article' pk=article.id slug=article.slug %}">
+                <div>
+                    <h2>{{ article.title }}</h2>
+                    <br>
+                    {% if article.extract %}<p>{{ article.extract }}</p>{% endif %}
+                </div>
+            </a>
+        </article>
+    </section>
     {% endfor %}
 </div>
 {% else %}

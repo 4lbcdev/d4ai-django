@@ -10,7 +10,7 @@
 {% block menu %}
 <a href="#home" aria-label="Home" >Home</a>
 <a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+{# <a href="{% url 'core:projects' %}">Projects</a> #}
 <a href="{% url 'core:involved' %}">Join Us</a>
 <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
 <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
@@ -18,8 +18,6 @@
 
 {% block page %}
 <div class="home" id="home">
-    <!-- <img src="{% static 'core/images/HomePage_banner.jpg' %}" alt="Data for African Impact banner"/> -->
-
     <img
         sizes="(max-width: 3000px) 40vw, 1200px"
         srcset="
@@ -51,8 +49,6 @@
 
     <div class="slider">
         <div class="slide">
-            <!-- <img src="{% static 'core/images/Data_ Skills Training.jpg' %}" alt="Image 1"> -->
-
             <img
                 sizes="(max-width: 3000px) 40vw, 1200px"
                 srcset="
@@ -65,8 +61,6 @@
             <div class="caption">Data Science Training</div>
         </div>
         <div class="slide">
-            <!-- <img src="{% static 'core/images/Research_in_Data Science.jpg' %}" alt="Image 2"> -->
-
             <img
                 sizes="(max-width: 3000px) 40vw, 1200px"
                 srcset="
@@ -79,8 +73,6 @@
             <div class="caption">Research and Innovation</div>
         </div>
         <div class="slide">
-            <!-- <img src="{% static 'core/images/Impact.jpg' %}" alt="Image 3"> -->
-
             <img
                 sizes="(max-width: 3000px) 40vw, 1200px"
                 srcset="
@@ -93,8 +85,6 @@
             <div class="caption">Outreach to promote data science literacy</div>
         </div>
         <div class="slide">
-            <!-- <img src="{% static 'core/images/Youth_Empowerment.jpg' %}" alt="Image 3"> -->
-
             <img
                 sizes="(max-width: 3000px) 40vw, 1200px"
                 srcset="
@@ -107,8 +97,6 @@
             <div class="caption">Mentorship for emerging data scientists and professionals</div>
         </div>
         <div class="slide">
-            <!-- <img src="{% static 'core/images/Data Science Adovacy_or_Outreach.png' %}" alt="Image 3"> -->
-
             <img
                 sizes="(max-width: 3000px) 40vw, 1200px"
                 srcset="
@@ -139,9 +127,9 @@
                     <img src="{% static 'core/images/Data_ Skills Training.jpg' %}" alt="Impact, knowledge sharing">
                 </div>
             </div>
-            <!-- <div class="button-container">
+            {#<div class="button-container">
                 <a href="{% url 'core:projects' %}">SEE IMPACT STORIES -></a>
-            </div> -->
+            </div>#}
         </div>
     </div>
 
@@ -163,7 +151,7 @@
         </div>
     {% endif %}
 
-    <!-- <div class="inner">
+    <div class="inner">
         <div class="partners">
             <h1>Partners</h1>
             <div class="items">
@@ -173,10 +161,9 @@
                 <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
                 <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
                 <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
-                <img src="{% static 'core/images/logo.png' %}" alt="Brand name">
             </div>
         </div>
-    </div> -->
+    </div>
 
 </div>
 {% endblock page %}

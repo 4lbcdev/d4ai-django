@@ -10,25 +10,23 @@
 {% block menu %}
 <a href="{% url 'core:index' %}">Home</a>
 <a href="{% url 'core:about' %}">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+{# <a href="{% url 'core:projects' %}">Projects</a> #}
 <a href="#involved">Join Us</a>
 <a href="{% url 'core:blog' %}">News & Events</a>
 <a href="{% url 'core:contact' %}">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
-<div class="title" id="involved">
-    <h1>Get Involved With D4AI</h1>
-</div>
-
 <div class="page">    
-    <section id="careers">
-        <h1>Careers</h1>
+    <section class="career-section" id="careers">
+        <h1>Careers at D4AI</h1>
+        <br><br>
         <p>No open positions</p>
     </section>
-    
+    <br><br><br>
     <section id="volunteer">
         <h1>Become a Volunteer</h1>
+        <br><br>
         <div class="contact">
             <form method="post">{% csrf_token %}
                 <div>
@@ -52,7 +50,7 @@
         </div>
     </section>
     
-    <!-- <section>
+    {#<section>
         <h1>Support us</h1>
         <div class="involved">
             <p>Contribute to the work of D4AI in leveraging data and technology to drive positive change and empower communities across Africa.</p>
@@ -71,7 +69,7 @@
             <p>Account: DONATE</p>
             <br><br>
         </div>
-    </section> -->
+    </section>#}
 </div>
 {% endblock page %}
 

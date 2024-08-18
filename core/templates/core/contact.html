@@ -10,17 +10,13 @@
 {% block menu %}
 <a href="{% url 'core:index' %}" aria-label="Home">Home</a>
 <a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
-<!-- <a href="{% url 'core:projects' %}">Projects</a> -->
+{# <a href="{% url 'core:projects' %}">Projects</a> #}
 <a href="{% url 'core:involved' %}">Join Us</a>
 <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
 <a href="#contact" aria-label="Contact Us">Contact Us</a>
 {% endblock menu %}
 
 {% block page %}
-<div class="title" id="contact">
-    <h1>Contact Us</h1>
-</div>
-
 <div class="contact">
     <form class="form" method="post">{% csrf_token %}
         <div>
@@ -38,15 +34,6 @@
         <button type="submit" name="submit_contact">Submit</button>
     </form>
     <div class="map">
-        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8620342182953!2d36.654773175909405!3d-1.2544797987335743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1f78eb4c972b%3A0xca07c188088b5f3f!2sZiwani%20Estate%20kikuyu!5e0!3m2!1sen!2ske!4v1701946386239!5m2!1sen!2ske"
-            title="Data for African Impact HQ"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe> -->
         <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=36.64305210113526%2C-1.2743089918452106%2C36.67352199554444%2C-1.2351366780939175&amp;layer=mapnik&amp;marker=-1.2547229082926086%2C36.658287048339844" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-1.2547&amp;mlon=36.6583#map=15/-1.2547/36.6583">View Larger Map</a></small>
     </div>
 </div>

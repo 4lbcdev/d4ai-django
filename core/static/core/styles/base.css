@@ -8,7 +8,7 @@
     --red:#e52127;
     --zinc:#09090b;
     --border-bottom: 4px solid #e52127;
-    --title-gradient: linear-gradient(to bottom , #09090b, #4170b7);
+    /* --title-gradient: linear-gradient(to bottom , #09090b, #4170b7); */
     /* --banner-gradient: linear-gradient(to bottom, #4170b7ac, #4170b7); */
     --banner-gradient: linear-gradient(180deg, #4170b7 0%, #051d41 83.59375%);
 }
@@ -39,25 +39,6 @@ body {
 @media only screen and (max-width: 810px) {
     p {
         font-size: 0.9rem;
-    }
-}
-
-.title {
-    display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    width: 100%;
-    justify-content: center;
-    -webkit-justify-content: center;
-    -ms-justify-content: center;
-    padding: 4% 0;
-    background-image: var(--title-gradient);
-    color: #FFFFFF;
-}
-
-@media only screen and (max-width: 720px) {
-    .title {
-        padding: 8% 0;
     }
 }
 
