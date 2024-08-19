@@ -2,12 +2,13 @@
     --color-white: #fff;
     --color-black: #000;
     --blue:#4170b7;
-    --button-disabled: #697b95;
     --green:#33a74f;
     --yellow:#f2b61b;
     --red:#e52127;
     --zinc:#09090b;
     --border-bottom: 4px solid #e52127;
+    --button-disabled: #697b95;
+    --button-enabled: var(--blue);
     /* --title-gradient: linear-gradient(to bottom , #09090b, #4170b7); */
     /* --banner-gradient: linear-gradient(to bottom, #4170b7ac, #4170b7); */
     --banner-gradient: linear-gradient(180deg, #4170b7 0%, #051d41 83.59375%);

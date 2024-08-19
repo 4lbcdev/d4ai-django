@@ -7,6 +7,11 @@
     text-align: left;
 }
 
+.career-section p > a {
+    text-decoration: dashed;
+    color: var(--blue);
+}
+
 .contact {
     display: flex;
     display: -webkit-flex;

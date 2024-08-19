@@ -17,24 +17,30 @@
 {% endblock menu %}
 
 {% block page %}
-<div class="contact">
-    <form class="form" method="post">{% csrf_token %}
-        <div>
-            <label for="fname">Full Name (required)</label>
-            <input type="text" name="full_name" id="fname" required maxlength="200">
+<div class="page">
+    <div class="page-title">
+        <h1>Get in touch</h1>
+        <h1>with the team</h1>
+    </div>
+    <div class="contact">
+        <form class="form" method="post">{% csrf_token %}
+            <div>
+                <label for="fname">Full Name (required)</label>
+                <input type="text" name="full_name" id="fname" required maxlength="200">
+            </div>
+            <div>
+                <label for="contact-email">Email Address (required)</label>
+                <input type="email" name="email" id="contact-email" required>
+            </div>
+            <div>
+                <label id="message" for="contact-message">Message (required)</label>
+                <textarea rows="10" name="message" id="contact-message" required maxlength="500" type="text" aria-labelledby="message"></textarea>
+            </div>
+            <button type="submit" name="submit_contact">Submit</button>
+        </form>
+        <div class="map">
+            <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=36.64305210113526%2C-1.2743089918452106%2C36.67352199554444%2C-1.2351366780939175&amp;layer=mapnik&amp;marker=-1.2547229082926086%2C36.658287048339844" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-1.2547&amp;mlon=36.6583#map=15/-1.2547/36.6583">View Larger Map</a></small>
         </div>
-        <div>
-            <label for="contact-email">Email Address (required)</label>
-            <input type="email" name="email" id="contact-email" required>
-        </div>
-        <div>
-            <label id="message" for="contact-message">Message (required)</label>
-            <textarea rows="10" name="message" id="contact-message" required maxlength="500" type="text" aria-labelledby="message"></textarea>
-        </div>
-        <button type="submit" name="submit_contact">Submit</button>
-    </form>
-    <div class="map">
-        <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=36.64305210113526%2C-1.2743089918452106%2C36.67352199554444%2C-1.2351366780939175&amp;layer=mapnik&amp;marker=-1.2547229082926086%2C36.658287048339844" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-1.2547&amp;mlon=36.6583#map=15/-1.2547/36.6583">View Larger Map</a></small>
     </div>
 </div>
 {% endblock page %}

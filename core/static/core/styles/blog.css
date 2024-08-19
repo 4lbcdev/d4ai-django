@@ -6,7 +6,7 @@
 p > span {
     text-align: left;
     text-decoration: dashed;
-    color: var(--green);
+    color: var(--blue);
 }
 
 .blog section {
