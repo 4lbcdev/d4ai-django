@@ -258,3 +258,14 @@ class Contact(models.Model):
 
     class Meta:
         db_table = 'contact'
+
+class Stat(models.Model):
+    IPAddres= models.GenericIPAddressField(default='0.0.0.0')
+    page = models.CharField(max_length=40, null=True)
+    device = models.CharField(max_length=400 ,default='null')
+    visited = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-page']
+        db_table = 'stats'
+

@@ -1,14 +1,15 @@
 """Core app views."""
 import threading
 from core.forms import contactForm, subscriberForm, volunteerForm
-from core.models import Article
-from core.utils import send_email
+from core.models import Article, Stat
+from core.utils import send_email, get_client_ip
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.urls import reverse
 from django.conf import settings
+# from django.views.decorators.csrf import csrf_exempt
 
 
 # Common function to handle form submissions for subscribing to the newsletter
@@ -23,17 +24,30 @@ def handle_subscribe_form(request, redirect_url):
 
 def home_view(request):
     """Home page view."""
-    context = {}
-    cookie_accepted = request.COOKIES.get('cookie_accepted')
-    if not cookie_accepted:
-        context['cookie_accepted'] = cookie_accepted
-    context['articles'] = Article.objects.filter(status='P')[0:4]
+    ip = get_client_ip(request)
+    Stat.objects.get_or_create(
+        page="homepage",
+        IPAddres=ip,
+        device = request.META.get('HTTP_USER_AGENT')
+    )
+    # Check if the user has accepted cookies and set context accordingly
+    # cookie_accepted = request.COOKIES.get('cookie_accepted', 'no') == 'yes'
+    context = {
+        # 'cookie_accepted': cookie_accepted,
+        'articles': Article.objects.filter(status='P')[0:4]
+    }
     # Handle subscribe form
     handle_subscribe_form(request, 'core:index')
     return render(request, 'core/index.html', context)
 
 def about_view(request):
     """About page view."""
+    ip = get_client_ip(request)
+    Stat.objects.get_or_create(
+        page="about_page",
+        IPAddres=ip,
+        device = request.META.get('HTTP_USER_AGENT')
+    )
     context = {}
     # Handle subscribe form
     handle_subscribe_form(request, 'core:about')
@@ -41,6 +55,12 @@ def about_view(request):
 
 def projects_view(request):
     """Project page view."""
+    ip = get_client_ip(request)
+    Stat.objects.get_or_create(
+        page="projects_page",
+        IPAddres=ip,
+        device = request.META.get('HTTP_USER_AGENT')
+    )
     context = {}
     # Handle subscribe form
     handle_subscribe_form(request, 'core:projects')
@@ -48,6 +68,12 @@ def projects_view(request):
 
 def involved_view(request):
     """Involved page view."""
+    ip = get_client_ip(request)
+    Stat.objects.get_or_create(
+        page="involved_page",
+        IPAddres=ip,
+        device = request.META.get('HTTP_USER_AGENT')
+    )
     context = {}
     # Handle volunteer form
     if 'submit_volunteer' in request.POST:
@@ -63,6 +89,12 @@ def involved_view(request):
 
 def blog_view(request):
     """Blog page view."""
+    ip = get_client_ip(request)
+    Stat.objects.get_or_create(
+        page="blog_page",
+        IPAddres=ip,
+        device = request.META.get('HTTP_USER_AGENT')
+    )
     context = {}
     context['articles'] = Article.objects.filter(status='P')
     # Handle subscribe form
@@ -71,14 +103,29 @@ def blog_view(request):
 
 def article_view(request, pk, slug):
     """Article page view."""
-    context = {}
-    context['article'] = get_object_or_404(Article, id=pk, slug=slug)
+    article=get_object_or_404(Article, id=pk, slug=slug)
+    article_url = article.get_absolute_url()
+
+    ip = get_client_ip(request)
+    Stat.objects.get_or_create(
+        page=article_url,
+        IPAddres=ip,
+        device = request.META.get('HTTP_USER_AGENT')
+    )
+    context = {article: article}
+    # context['article'] = get_object_or_404(Article, id=pk, slug=slug)
     # Handle subscribe form
     handle_subscribe_form(request, 'core:index')
     return render(request, 'core/article.html', context)
 
 def contact_view(request):
     """Contact page view."""
+    ip = get_client_ip(request)
+    Stat.objects.get_or_create(
+        page="contact_page",
+        IPAddres=ip,
+        device = request.META.get('HTTP_USER_AGENT')
+    )
     context = {}
     # Handle contact form
     if 'submit_contact' in request.POST:
@@ -103,3 +150,12 @@ def contact_view(request):
     # Handle subscribe form
     handle_subscribe_form(request, 'core:index')
     return render(request, 'core/contact.html', context)
+
+# @csrf_exempt
+# def set_cookie(request):
+#     """Set the cookie to remember the user's choice."""
+#     if request.method == 'POST':
+#         response = JsonResponse({'status': 'Cookie accepted'})
+#         response.set_cookie('cookie_accepted', 'yes')
+#         return response
+#     return JsonResponse({'status': 'Failed'}, status=400)

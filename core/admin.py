@@ -239,6 +239,9 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('id','full_name','email','message')
     readonly_fields = ('full_name','email','message')
 
+class StatAdmin(admin.ModelAdmin):
+    list_display = ('IPAddres','page','visited')
+    readonly_fields = ('IPAddres', 'page', 'device', 'visited')
 
 # Registers the new UserAdmin...
 admin.site.register(User, UserAdmin)
@@ -255,3 +258,4 @@ admin.site.register(Comment, CommentAdmin)
 admin.site.register(Subscriber, SubscriberAdmin)
 admin.site.register(Volunteer, VolunteerAdmin)
 admin.site.register(Contact, ContactAdmin)
+admin.site.register(Stat, StatAdmin)
