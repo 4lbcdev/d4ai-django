@@ -1,2 +1,8 @@
 {
-}
+    "app_type": "wsgi",
+    "startup_file": "d4ai_app/wsgi.py",
+    "environment": "production",
+    "max_pool_size": 10,
+    "min_instances": 1,
+    "timeout": 300
+  }
