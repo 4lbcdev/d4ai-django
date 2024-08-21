@@ -9,8 +9,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'd4ai.org',
-    'app.d4ai.org',
     'www.d4ai.org',
+    '*.d4ai.org',
 ]
 
 MEDIA_ROOT = '/home/daiorg/public_html/media/'
