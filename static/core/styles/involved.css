@@ -1,16 +1,15 @@
-.section h1 {
-    text-align: center;
+.page {
+    padding: 0 19vw;
+    margin: 24px 0;
 }
 
-.section h1:nth-child(1) {
-    margin: 8vh 0;
+.career-section {
+    text-align: left;
 }
 
-.divider {
-    width: 100%;
-    height: 1px;
-    background-color: #0000003d;
-    margin: 8vh auto;
+.career-section p > a {
+    text-decoration: dashed;
+    color: var(--blue);
 }
 
 .contact {
@@ -26,7 +25,7 @@
 }
 
 .contact form {
-    width: 400px;
+    width: 100%;
     display: flex;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -85,23 +84,11 @@
     background-color: #4170b7;
 }
 
-.involved, .join {
-    padding: 0vh 19vw;
-    gap: 30px;
-}
-
-.join {
-    text-align: center;
-}
-
 @media only screen and (max-width: 960px) {
-    .section h1:nth-child(1){
-        margin: 4vh;
+    .page {
+        padding: 0 3vw;
     }
     .contact form {
-        padding: 0vh 3vw;
-    }
-    .involved, .join {
         padding: 0vh 3vw;
     }
 }
