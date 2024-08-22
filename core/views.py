@@ -103,17 +103,14 @@ def blog_view(request):
 
 def article_view(request, pk, slug):
     """Article page view."""
-    article=get_object_or_404(Article, id=pk, slug=slug)
-    article_url = article.get_absolute_url()
-
     ip = get_client_ip(request)
     Stat.objects.get_or_create(
-        page=article_url,
+        page=f'article_{pk}',
         IPAddres=ip,
         device = request.META.get('HTTP_USER_AGENT')
     )
-    context = {article: article}
-    # context['article'] = get_object_or_404(Article, id=pk, slug=slug)
+    context = {}
+    context['article'] = get_object_or_404(Article, id=pk, slug=slug)
     # Handle subscribe form
     handle_subscribe_form(request, 'core:index')
     return render(request, 'core/article.html', context)
