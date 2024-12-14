@@ -7,22 +7,13 @@
 <link rel="stylesheet" type="text/css" href="{% static 'core/styles/about.css' %}">
 {% endblock head %}
 
-{% block menu %}
-<a href="{% url 'core:index' %}" aria-label="Home">Home</a>
-<a href="#about" aria-label="About Us">About Us</a>
-{# <a href="{% url 'core:projects' %}">Projects</a> #}
-<a href="{% url 'core:involved' %}">Join Us</a>
-<a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
-<a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
-{% endblock menu %}
-
 {% block page %}
 <div class="about" id="about">
     <span class="entry-content">About Data for african impact</span>
     <br><br>
     <section>
         <span>Transforming Africa through data.</span>
-        <div>
+        <div id="story">
             <p>D4AI was founded by passionate individuals who shared a vision of harnessing the power of data science to drive positive change and sustainable development in Africa. Recognizing the immense potential that data holds in addressing pressing challenges faced by African communities, our journey began with a deep understanding of the socioeconomic landscape.</p>
             <p>We firmly believe that data-driven solutions have the capacity to transform lives, empower communities, and catalyze progress. With this belief, we are dedicated to providing data science training and solutions that empower individuals, organizations, and communities across Africa. Our team of experts, coming from diverse backgrounds, shares a common passion for creating meaningful impact and driving sustainable development.</p>
             <div id="about_more">
@@ -79,7 +70,7 @@
         </div>
     </section>
 
-    <h1>Meet the Team</h1>
+    <h1 id="team">Meet the Team</h1>
     <br><br>
     <div class="team">
         <div class="team-member">
@@ -132,8 +123,3 @@
     <br><br><br>
 </div>
 {% endblock page %}
-
-{% block quicklinks %}
-<a href="#about" aria-label="About us">About us</a>
-<a href="{% url 'core:contact' %}" aria-label="Contact us">Contact us</a>
-{% endblock quicklinks %}

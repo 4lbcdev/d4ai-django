@@ -1,0 +1,71 @@
+
+/* ==========================================================================
+# Cookie Notice Modal
+========================================================================== */
+
+.cn-position.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cn-position {
+    position: fixed;
+    bottom: -100%;
+    background-color: var(--zinc);
+    border-radius: 8px;
+    max-width: 300px;
+    margin: 40px;
+    padding: 20px;
+    z-index: 3;
+}
+
+.cn-container {
+    text-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 1rem;
+}
+
+.cn-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.cn-text {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-white);
+}
+
+.cn-text a {
+    text-decoration: none;
+    color: #4dd1f9;
+}
+
+.cn-button {
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-white);
+    padding-bottom: 0.2rem;
+    color: var(--blue);
+}
+
+@media only screen and (max-width: 810px) {
+    .cn-position {
+        max-width: calc(100vw - 20px);
+        margin: 10px;
+        padding: 20px;
+    }
+}

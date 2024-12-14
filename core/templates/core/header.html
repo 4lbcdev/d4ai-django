@@ -1,0 +1,26 @@
+{% load static %}
+
+<header>
+    <div>
+        <div class="header">
+            <a href="#home" aria-label="Home" >
+                <div id="header_logo"></div>
+            </a>
+        </div>
+        <div id="tagline">Transforming Africa Through Data</div>
+    </div>
+    <nav>
+        <a href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
+        {# <a href="{% url 'core:projects' %}">Projects</a> #}
+        <a href="{% url 'core:involved' %}">Join Us</a>
+        <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+        <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
+    </nav>
+</header>
+
+<div class="hamburger">
+    <input type="checkbox" id="menu-btn" class="menu-btn">
+    <label for="menu-btn" class="menu-icon">
+        <span class="navicon"></span>
+    </label>
+</div>

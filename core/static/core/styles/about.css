@@ -86,6 +86,12 @@ section div p {
     color: #000000;
 }
 
+.about .about1 .item .container p {
+    padding: 4vh 0;
+    color: var(--white);
+    text-align: center;
+}
+
 .about .about1 .item:nth-child(2) .container p {
     padding: 4vh 0;
     color: #000000;

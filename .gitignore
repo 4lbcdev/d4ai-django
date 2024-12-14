@@ -4,6 +4,7 @@ media/
 # Editors
 *~
 .vscode
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -113,6 +114,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env.dev
 .venv
 env/
 virtualenv/

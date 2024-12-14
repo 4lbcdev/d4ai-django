@@ -35,16 +35,6 @@
         <script type="text/javascript" src="{% static 'core/scripts/main.js' %}"></script>
     </head>
     <body>
-        {% if not cookie_accepted %}
-        <div id="cookie-notice" class="cn-position">
-            <div class="cn-container">
-                <img class="cn-icon" src="{% static 'core/assets/cookie.svg' %}" alt="cookie icon" >
-                <span class="cn-text">By using this website, you agree to our use of cookies. We use cookies to provide you with a great experience and to help our website run effectively.</span>
-                <span class="cn-button-container"><a id="accept-cookies" class="cn-button" aria-label="Accept" type="button">Accept</a></span>
-            </div>
-        </div>
-        {% endif %}
-
         {% if messages %}
         {% for message in messages %}
         <div class="popmessage">
@@ -62,13 +52,6 @@
             </div>
         </noscript>
 
-        <header>
-            <div class="header">
-                <div id="header_logo"></div>
-            </div>
-            <div id="tagline">Transforming Africa Through Data</div>
-        </header>
-
         <div class="hamburger">
             <input type="checkbox" id="menu-btn" class="menu-btn">
             <label for="menu-btn" class="menu-icon">
@@ -76,10 +59,43 @@
             </label>
         </div>
 
-        <nav>
-            {% block menu %}
-            {% endblock menu %}
-        </nav>
+        <header>
+            <div>
+                <div class="header">
+                    <a href="{% url 'core:index' %}" aria-label="Home" >
+                        <div id="header_logo"></div>
+                    </a>
+                </div>
+                <div id="tagline">Transforming Africa Through Data</div>
+            </div>
+            <nav>
+                <div class="menu_links">
+                    <a class="nav_url" href="{% url 'core:about' %}" aria-label="About Us">About Us</a>
+                    <div class="explore_url"></div>
+                    <div class="url_container">
+                        <a class="dropdown_url" href="{% url 'core:about' %}#story" aria-label="Our story">Our story</a>
+                        <a class="dropdown_url" href="{% url 'core:about' %}#team" aria-label="Meet the team">Meet the team</a>
+                    </div>
+                </div>
+                <div class="menu_links">
+                    <a class="nav_url" href="{% url 'core:projects' %}">Projects</a>
+                </div>
+                <div class="menu_links">
+                    <a class="nav_url" href="{% url 'core:involved' %}">Work with Us</a>
+                    <div class="explore_url"></div>
+                    <div class="url_container">
+                        <a class="dropdown_url" href="{% url 'core:involved' %}#careers" aria-label="D4AI Careers">Careers</a>
+                        <a class="dropdown_url" href="{% url 'core:involved' %}#volunteer" aria-label="Volunteer">Become a volunteer</a>
+                    </div>
+                </div>
+                <div class="menu_links">
+                    <a class="nav_url" href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
+                </div>
+                <div class="menu_links">
+                    <a class="nav_url" href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
+                </div>
+            </nav>
+        </header>
 
         {% block page %}
         {% endblock page %}
@@ -94,7 +110,7 @@
                     <button type="submit" name="submit_subscribe" id="subscribeSubmitButton" disabled>Sign up</button>
                 </form>
             </div>
-            <div class="container">
+            <div class="footer_container">
                 <div>
                     <div id="footer_logo"></div>
                     {#<br><br><address><span>Ziwani Estate, Kiambu County, Kenya</span></address>#}
@@ -113,8 +129,8 @@
                 <div>
                     <h3>About D4AI</h3>
                     <div class="links">
-                        {% block quicklinks %}
-                        {% endblock quicklinks %}
+                        <a href="{% url 'core:about' %}" aria-label="About us">Who we are</a>
+                        <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
                     </div>
                     <br><br>
                     <h3>Discover content</h3>
@@ -123,14 +139,18 @@
                         {# <a href="{% url 'core:projects' %}">Projects</a> #}
                     </div>
                     <br><br>
-                    <h3>Professional development</h3>
+                    {#<h3>Professional development</h3>#}
+                    <h3>Get involved</h3>
                     <div class="links">
                         <a href="{% url 'core:involved' %}#careers" aria-label="D4AI Careers">D4AI Careers</a>
                         <a href="{% url 'core:involved' %}#volunteer" aria-label="Volunteer">Volunteer</a>
                     </div>
                 </div>
             </div>
-            <div class="footer">© 2023 Data for African Impact</div>
+            <div class="footer_lower">
+                <a href="#" aria-label="News & events">Privacy Policy</a>
+                <p>© 2023 Data for African Impact</p>
+            </div>
         </footer>
     </body>
 </html>
