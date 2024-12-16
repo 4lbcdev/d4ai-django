@@ -91,7 +91,7 @@
 }
 
 /* Cross-Browser Compatibility for Media Query */
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1080px) {
     .contact {
         padding: 0 3vw;
     }

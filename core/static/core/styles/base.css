@@ -3,9 +3,10 @@
     --color-black: #000000;
     --color-dark-grey: #202020;
     --color-cream: #f2f2f2;
+    --color-green:#33a74f;
+    --color-yellow:#f2b61b;
     --blue:#4170b7;
     --green:#33a74f;
-    --yellow:#f2b61b;
     --red:#e52127;
     --zinc:#09090b;
     --header-box-shadow: 0px 2px 30px #0000008e;
@@ -15,7 +16,7 @@
     --button-enabled: var(--green);
     /* --title-gradient: linear-gradient(to bottom , #09090b, #4170b7); */
     /* --banner-gradient: linear-gradient(to bottom, #4170b7ac, #4170b7); */
-    --banner-gradient: linear-gradient(180deg, #4170b7 0%, #051d41 83.59375%);
+    /* --banner-gradient: linear-gradient(180deg, #4170b7 0%, #051d41 83.59375%); */
     --primary-font-family: 'Cambria', serif;
     --title-font-family: "Helvetica", sans-serif;
     --secondary-font-family: 'monospace', monospace;
@@ -249,7 +250,7 @@ nav {
     }
 }
 
-@media only screen and (max-width: 988px) {
+@media only screen and (max-width: 1080px) {
     header {
         padding: 0 3vw;
         padding-top: 10px;
@@ -501,12 +502,12 @@ footer {
     column-gap: 2rem;
 }
 
-.footer_container > div:nth-child(1) > img{
-    width: 100px;
-    height: auto;
+.footer_container .item1 img{
+    width: auto;
+    height: 120px;
 }
 
-.footer_container > div:nth-child(2) {
+.footer_container > .item2 {
     display: grid;
     grid-template-columns: auto auto;
     gap: 2rem;
@@ -598,7 +599,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1080px) {
     .footer_container {
         grid-template-columns: auto;
         padding: 40px 3vw;

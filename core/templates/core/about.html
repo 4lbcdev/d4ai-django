@@ -9,10 +9,10 @@
 
 {% block page %}
 <div class="about" id="about">
-    <span class="entry-content">About Data for african impact</span>
-    <br><br>
-    <section>
-        <span>Transforming Africa through data.</span>
+    <span class="page_title">About Data for african impact</span>
+
+    <div class="story_section">
+        <span class="story_intro">Transforming Africa through data.</span>
         <div id="story">
             <p>D4AI was founded by passionate individuals who shared a vision of harnessing the power of data science to drive positive change and sustainable development in Africa. Recognizing the immense potential that data holds in addressing pressing challenges faced by African communities, our journey began with a deep understanding of the socioeconomic landscape.</p>
             <p>We firmly believe that data-driven solutions have the capacity to transform lives, empower communities, and catalyze progress. With this belief, we are dedicated to providing data science training and solutions that empower individuals, organizations, and communities across Africa. Our team of experts, coming from diverse backgrounds, shares a common passion for creating meaningful impact and driving sustainable development.</p>
@@ -22,7 +22,7 @@
             </div>
             <button class="read-more-button">Read More</button>
         </div>
-    </section>
+    </div>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -34,38 +34,35 @@
         });
     </script>
 
-    <section class="about1">
-        <div class="item">
-            <div class="container">
-                <h1>Core Values</h1>
-            </div>
-            <div class="container">
-                <p>Impact</p>
-                <p>Empowerment</p>
-                <p>Collaboration</p>
-                <p>Integrity</p>
-            </div>
+    <div class="vision_section">
+        <img src="{% static 'core/assets/vision.svg' %}" alt="">
+        <p class="vision_title">Our Vision</p>
+        <p>A data-driven Africa, solving complex challenges and improving lives</p>
+    </div>
+
+    <div class="values_section">
+        <div class="values_images">
+            <img src="{% static 'core/images/values-1.jpg' %}" alt="">
+            <img src="{% static 'core/images/values-2.jpg' %}" alt="">
         </div>
-        <div class="item">
-            <div class="container">
-                <h1>Our Vision</h1>
-            </div>
-            <div class="container">
-                <p>A data-driven Africa, solving complex challenges and improving lives</p>
-            </div>
+        <div class="values_contents">
+            <p class="values_title">Our Core Values</p>
+            <p class="values_intro">We are guided by impact, empowerment, collaboration, and integrity</p>
+            <p>We are a team of dedicated professionals driven by a shared passion for creating meaningful impact through data. With integrity and collaboration at our core, we empower individuals and organizations to harness the potential of data for transformative change. Committed to excellence and inclusivity, we build partnerships rooted in trust, working together to advance a sustainable and equitable future for Africa.</p>
         </div>
-        <div class="item" id="focus">
-            <div class="container">
-                <h1>Our focus</h1>
-            </div>
-            <div class="container">
-                <p>Outreach to promote data science literacy</p>
-                <p>Provide data science training to target groups</p>
-                <p>Provide research-driven solutions for societal challenges</p>
-                <p>Build a network of data scientists </p>
-            </div>
+    </div>
+
+    <div class="focus_section" id="focus">
+        <div class="container">
+            <h1>Our Focus</h1>
         </div>
-    </section>
+        <div class="container">
+            <p>Outreach to promote data science literacy</p>
+            <p>Provide data science training to target groups</p>
+            <p>Provide research-driven solutions for societal challenges</p>
+            <p>Build a network of data scientists </p>
+        </div>
+    </div>
 
     <h1 id="team">Meet the Team</h1>
     <br><br>
