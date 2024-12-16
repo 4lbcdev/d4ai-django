@@ -3,10 +3,8 @@ import threading
 from core.forms import contactForm, subscriberForm, volunteerForm
 from core.models import Article, Stat
 from core.utils import send_email, get_client_ip
-from django.core.mail import send_mail
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponse, JsonResponse
 from django.urls import reverse
 from django.conf import settings
 # from django.views.decorators.csrf import csrf_exempt

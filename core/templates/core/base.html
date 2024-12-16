@@ -77,9 +77,7 @@
                         <a class="dropdown_url" href="{% url 'core:about' %}#team" aria-label="Meet the team">Meet the team</a>
                     </div>
                 </div>
-                <div class="menu_links">
-                    <a class="nav_url" href="{% url 'core:projects' %}">Projects</a>
-                </div>
+                {#<div class="menu_links"><a class="nav_url" href="{% url 'core:projects' %}">Projects</a></div>#}
                 <div class="menu_links">
                     <a class="nav_url" href="{% url 'core:involved' %}">Work with Us</a>
                     <div class="explore_url"></div>
@@ -112,44 +110,46 @@
             </div>
             <div class="footer_container">
                 <div>
-                    <div id="footer_logo"></div>
-                    {#<br><br><address><span>Ziwani Estate, Kiambu County, Kenya</span></address>#}
-                    
-                    <br><br>
-                    <h3>Stay connected</h3>
-                    <a href="mailto:info@d4ai.org" aria-label="info@d4ai.org">info@d4ai.org</a>
-                    <br><br>
+                    <img src="{% static 'core/images/logo.png' %}" alt=""/>
+                </div>
+                <div>
+                    <div class="footer_hotlinks">
+                        <h3>Explore</h3>
+                        <div class="links">
+                            <a href="{% url 'core:about' %}#focus" aria-label="News & events">What we do</a>
+                            <a href="{% url 'core:blog' %}" aria-label="News & events">News</a>
+                            {# <a href="{% url 'core:projects' %}">Projects</a> #}
+                        </div>
+                    </div>
+                    <div class="footer_hotlinks">
+                        <h3>About D4AI</h3>
+                        <div class="links">
+                            <a href="{% url 'core:about' %}" aria-label="About us">Who we are</a>
+                            <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact us</a>
+                        </div>
+                    </div>
+                    <div class="footer_hotlinks">
+                        <h3>Get involved</h3>
+                        <div class="links">
+                            <a href="{% url 'core:involved' %}#careers" aria-label="D4AI Careers">D4AI Careers</a>
+                            <a href="{% url 'core:involved' %}#volunteer" aria-label="Volunteer">Volunteer</a>
+                            {#<a href="{% url 'core:involved' %}#donate" aria-label="Volunteer">Donate</a>#}
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_connects">
                     <div class="social">
                         {#<a href="https://www.facebook.com/d4aiafrica" aria-label="Facebook" target="_blank"><img src="{% static 'core/assets/Facebook_Logo.png' %}" title="Facebook"/></a>#}
                         {#<a href="https://www.twitter.com/d4aiafrica" aria-label="X" target="_blank"><img src="{% static 'core/assets/x-logo-black.png' %}" title="X"/></a>#}
                         <a href="https://www.linkedin.com/company/data-for-african-impact/" aria-label="LinkedIn" target="_blank"><img src="{% static 'core/assets/LinkedIn.png' %}" title="LinkedIn"/></a>
                     </div>
+                    <a href="mailto:info@d4ai.org" aria-label="info@d4ai.org">info@d4ai.org</a>
                 </div>
-                <div class="divider"></div>
-                <div>
-                    <h3>About D4AI</h3>
-                    <div class="links">
-                        <a href="{% url 'core:about' %}" aria-label="About us">Who we are</a>
-                        <a href="{% url 'core:contact' %}" aria-label="Contact Us">Contact Us</a>
-                    </div>
-                    <br><br>
-                    <h3>Discover content</h3>
-                    <div class="links">
-                        <a href="{% url 'core:blog' %}" aria-label="News & events">News & Events</a>
-                        {# <a href="{% url 'core:projects' %}">Projects</a> #}
-                    </div>
-                    <br><br>
-                    {#<h3>Professional development</h3>#}
-                    <h3>Get involved</h3>
-                    <div class="links">
-                        <a href="{% url 'core:involved' %}#careers" aria-label="D4AI Careers">D4AI Careers</a>
-                        <a href="{% url 'core:involved' %}#volunteer" aria-label="Volunteer">Volunteer</a>
-                    </div>
+                <div class="footer_lower">
+                    <a href="#" aria-label="Privacy policy">Privacy Policy</a>
+                    <address>Ziwani Estate, Kiambu County, Kenya</address>
+                    <p class="footer_copyright">© 2023 Data for African Impact</p>
                 </div>
-            </div>
-            <div class="footer_lower">
-                <a href="#" aria-label="News & events">Privacy Policy</a>
-                <p>© 2023 Data for African Impact</p>
             </div>
         </footer>
     </body>

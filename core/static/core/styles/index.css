@@ -16,7 +16,6 @@ HOME SECTION
 .inner h1 {
     color: #000000;
     text-align: center;
-    /* text-transform: uppercase; */
     margin-bottom: 8vh;
 }
 
@@ -27,7 +26,6 @@ HOME SECTION
 .fw h1 {
     color: #000000;
     text-align: center;
-    /* text-transform: uppercase; */
 }
 
 @media only screen and (max-width: 988px) {
@@ -35,11 +33,8 @@ HOME SECTION
         padding: 0 3vw;
     }
     .inner h1 {
-        font-size: 20px;
+        font-size: 2rem;
         margin-bottom: 2vh;
-    }    
-    .fw h1 {
-        font-size: 20px;
     }
 }
 
@@ -247,7 +242,7 @@ IMPACT SECTION
     background-color: var(--green);
     color: #FFFFFF;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1rem;
     text-decoration: none;
 }
 
