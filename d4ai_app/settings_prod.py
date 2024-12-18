@@ -13,9 +13,11 @@ ALLOWED_HOSTS = [
     'dev2412.d4ai.org',
 ]
 
+# STATIC_ROOT = '/home/daiorg/public_html/static/'
 STATIC_ROOT = '/home/daiorg/dev2412.d4ai.org/static/'
 
-MEDIA_ROOT = '/home/daiorg/public_html/media/'
+# MEDIA_ROOT = '/home/daiorg/public_html/media/'
+MEDIA_ROOT = '/home/daiorg/dev2412.d4ai.org/media/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')

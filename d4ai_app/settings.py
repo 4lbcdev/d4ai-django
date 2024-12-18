@@ -3,7 +3,6 @@ Django settings for d4ai_app project.
 """
 import os
 from dotenv import load_dotenv
-from pathlib import Path
 
 load_dotenv()
 
