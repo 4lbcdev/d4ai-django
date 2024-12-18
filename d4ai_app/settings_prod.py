@@ -11,7 +11,9 @@ ALLOWED_HOSTS = [
     'd4ai.org',
     'www.d4ai.org',
 ]
-
+STATICFILES_DIRS = [
+    '/home/daiorg/dev2412.d4ai.org/static/'
+]
 MEDIA_ROOT = '/home/daiorg/public_html/media/'
 
 # SECURITY RELATED HEADERS
