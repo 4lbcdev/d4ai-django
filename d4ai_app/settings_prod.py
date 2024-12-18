@@ -12,10 +12,14 @@ ALLOWED_HOSTS = [
     'www.d4ai.org',
     'dev2412.d4ai.org',
 ]
-STATICFILES_DIRS = [
-    '/home/daiorg/dev2412.d4ai.org/static/'
-]
+
+STATIC_ROOT = '/home/daiorg/dev2412.d4ai.org/static/'
+
 MEDIA_ROOT = '/home/daiorg/public_html/media/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 # SECURITY RELATED HEADERS
 SECURE_CONTENT_TYPE_NOSNIFF = True # Protects against MIME type sniffing attacks

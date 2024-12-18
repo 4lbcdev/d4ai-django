@@ -125,10 +125,6 @@ LOGOUT_REDIRECT_URL = "/"
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-# Specify the absolute path to the directory where static files will be collected.
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
 # Media files (Images, Videos, etc.)
 MEDIA_URL = '/media/'
 
